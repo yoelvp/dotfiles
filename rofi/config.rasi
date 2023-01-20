@@ -7,16 +7,19 @@
  *
  */
 
- /* colors */
+/* colors */
 * {
   background:       #28282890;
   foreground:       #FFFFFFFF;
   gray:             #7C7C7C90;
   red:              #CC241DFF;
+  transparent:      rgba(0, 0, 0, 0);
+
+  font:             "CaskaydiaCove Nerd Font 10";
 }
 
 configuration {
-  font:                         "Iosevka Nerd Font 10";
+  font:                         "CaskaydiaCove NF";
   show-icons:                   true;
   icon-theme:                   "Papirus";
   display-drun:                 "";
@@ -24,6 +27,8 @@ configuration {
   disable-history:              false;
   fullscreen:                   false;
   hide-scrollbar:               true;
+  listview-striped:             false;
+  sidebar-mode:                 false;
 }
 
 window {
@@ -37,18 +42,19 @@ window {
   location:                     center;
   x-offset:                     0;
   y-offset:                     0;
+  listview-striped:false;
 }
 
 prompt {
   enabled:                      true;
   padding:                      10px;
-  background-color:             @background;
+  background-color:             @transparent;
   text-color:                   @red;
-  font:                         "Iosevka Nerd Font 10";
+  font:                         "CaskaydiaCove NF 10";
 }
 
 entry {
-  background-color:             @background;
+  background-color:             @transparent;
   text-color:                   @foreground;
   placeholder-color:            @gray;
   expand:                       true;
@@ -61,29 +67,31 @@ entry {
 
 inputbar {
   children:                     [ prompt, entry ];
-  background-color:             @background;
+  background-color:             @transparent;
   text-color:                   @foreground;
   expand:                       false;
-  border:                       0px 0px 1px 0px;
+  border:                       0px 0px 2px 0px;
   border-radius:                0px;
   border-color:                 @red;
   spacing:                      0px;
 }
 
 listview {
-  background-color:             @background;
+  transparency:                 "real";
+  background-color:             @transparent;
   padding:                      0px;
   columns:                      1;
   lines:                        5;
+  border:                       0;
   spacing:                      5px;
-  /*cycle:                        false;
+  cycle:                        true;
   dynamic:                      true;
-  layout:                       vertical;*/
+  layout:                       vertical;
 }
 
 mainbox {
-  background-color:             @background;
-  border:                       0px;
+  background-color:             @transparent;
+  border:                       0;
   border-radius:                0px;
   border-color:                 @foreground;
   children:                     [ inputbar, listview ];
@@ -91,24 +99,34 @@ mainbox {
   padding:                      2px 10px 10px 10px;
 }
 
+scrollbar {
+  width:                        2px;
+  border:                       0;
+  handle-width:                 2px;
+  padding:                      0;
+  color:                        @red;
+}
+
 element {
-  /* transparency:                 "real"; */
-  background-color:             @red;
-  text-color:                   @foreground;
+  transparency:                 "real";
+  background-color:             @transparent;
+  text-color:                   @background;
   orientation:                  horizontal;
-  border-radius:                5px;
+  border-radius:                10px;
   padding:                      8px;
 }
 
 element-icon {
-  background-color:             @background;
+  transparency:                 "real";
+  background-color:             @transparent;
   text-color:                   @foreground;
   size:                         24px;
   border:                       0px;
 }
 
 element-text {
-  background-color:             @background;
+  transparency:                 "real";
+  background-color:             @transparent;
   text-color:                   @foreground;
   expand:                       true;
   horizontal-align:             0;
@@ -116,10 +134,30 @@ element-text {
   margin:                       0px 2.5px 0px 2.5px;
 }
 
-element selected {
+element.normal.normal {
+  background-color:             @transparent;
+  text-color:                   @red;
+  border:                       0px;
+  border-radius:                10px;
+}
+
+element.selected.normal {
   background-color:             @background;
-  text-color:                   @foreground;
+  text-color:                   @red;
   border:                       2px;
-  border-radius:                5px;
+  border-radius:                10px;
   border-color:                 @red;
 }
+
+element.selected.active {
+  background-color:             @background;
+  text-color:                   @red;
+  border:                       2px;
+  border-radius:                10px;
+  border-color:                 @red;
+}
+
+element.alternate.normal {
+  background-color:             @transparent;
+}
+

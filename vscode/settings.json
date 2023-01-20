@@ -1,0 +1,37 @@
+{
+    "window.zoomLevel": -1,
+    "window.menuBarVisibility": "toggle",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.tree.indent": 4,
+    "workbench.activityBar.visible": false,
+    "editor.fontFamily": "CaskaydiaCove NF",
+    "editor.fontSize": 13,
+    "editor.fontWeight": "bold",
+    "editor.fontLigatures": true,
+    "editor.linkedEditing": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorStyle": "block",
+    "editor.mouseWheelZoom": false,
+    "editor.lineNumbers": "relative",
+    "editor.tabSize": 2,
+    "editor.folding": false,
+    "editor.cursorBlinking": "solid",
+    "editor.guides.bracketPairs": true,
+    "editor.glyphMargin": false,
+    "editor.scrollbar.verticalScrollbarSize": 8,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "intelephense.completion.maxItems": 120,
+    "intelephense.format.braces": "k&r",
+    // "bladeFormatter.format.indentSize": 2,
+    // React
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "eslint.run": "onSave",
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+}
