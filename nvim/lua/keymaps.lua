@@ -1,27 +1,17 @@
-vim.g.mapleader = ' '
-local cmd = vim.cmd
-local builtin = require('telescope.builtin')
 local keymap = function(mode, key, action)
-  vim.api.nvim_set_keymap(mode, key, action, { noremap = true })
+  vim.api.nvim_set_keymap(mode, key, action, { noremap = true, silent = true })
 end
 
-keymap('n', '<M-down>', ':move-cmd -down <CR>')
-keymap('n', '<M-up>', ':move-cmd -up <CR>')
+-- Quit to Normal mode
+keymap('i', ';;', '<Esc>')
+keymap('v', ';;', '<Esc>')
 
--- Exit to mode NORMAL
-keymap('i', ',,', '<Esc>')
-keymap('n', ',,', '<Esc>')
 
--- Keymaping Neotree
+keymap('i', '<C-h>', '<Left>')
+keymap('i', '<C-j>', '<Down>')
+keymap('i', '<C-k>', '<Up>')
+keymap('i', '<C-l>', '<Right>')
+--
+-- Neotree
 keymap('n', '<leader>nt', ':Neotree toggle<CR>')
 keymap('n', '<leader>nf', ':Neotree focus<CR>')
-cmd([[
-  autocmd BufEnter * :Neotree close
-]])
-
--- Keymaps for the Telescope
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-

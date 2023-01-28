@@ -1,45 +1,54 @@
 local opt = vim.opt
 local g = vim.g
 
--- Global
-g.leader = ' '
+g.mapleader = ' '
+g.indentLine_char = '|'
 
--- General
-opt.syntax = 'enable'
-opt.mouse = 'a'
-opt.clipboard = 'unnamedplus'
+opt.title = true
+opt.syntax = 'on'
+opt.linespace = 0
+opt.encoding = 'utf-8'
+opt.fileencoding = 'utf-8'
+opt.termencoding = 'utf-8'
+opt.guifont = 'CaskaydiaCove Nerd Font'
+opt.guifontwide = 'CaskaydiaCove Nerd Font'
+
+opt.autoindent = true
 opt.swapfile = false
 
--- Number, tabs and indent
-opt.number = true
-opt.relativenumber = true
-opt.numberwidth = 2
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.tabstop = 2
-opt.smartindent = true
-opt.smartcase = true
-opt.linebreak = true
-opt.conceallevel = 0
+opt.background = 'dark'
 opt.termguicolors = true
-
--- UI
-opt.showmatch = true
 opt.colorcolumn = '120'
 opt.cursorline = true
-opt.linebreak = true
-opt.autoindent = true
-opt.guifont = 'CaskaydiaCove Nerd Font'
-g.neovide_cursor_vfx_mode = 'railgun'
-
--- Other
-opt.ignorecase = true
 opt.list = true
+opt.scrolloff = 5
+opt.sidescrolloff = 5
+--opt.lazyredraw = false
+--vim.api.nvim_set_option("lazyredraw", false)
+opt.linebreak = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
+opt.guifont = "Mononoki Nerd Font"
+-- vim.api.nvim_exec([[set guicursor=n-v-c:block-Cursor,i-ci:beam-Cursor,r-cr:hor20]], false)
+-- vim.api.nvim_exec([[set guicursor=n-v-c:block-Cursor,i-ci:bar-Cursor,r-cr:hor20]], false)
 
--- Memory
+opt.number = true
+opt.numberwidth = 2
+opt.relativenumber = true
+
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.expandtab = true
+opt.tabstop = 2
+opt.smartindent = true
+
+opt.clipboard = 'unnamedplus'
+opt.mouse = 'a'
+
 opt.hidden = true
-opt.history = 1000
+opt.history = 20
 opt.lazyredraw = true
 opt.synmaxcol = 1000
 
+vim.cmd [[
+  autocmd BufEnter * Neotree close
+]]

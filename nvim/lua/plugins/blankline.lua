@@ -1,9 +1,10 @@
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
+local opt = vim.opt
+
+opt.listchars:append('space:⋅')
 
 require('indent_blankline').setup {
-  char = "▏",
-  space_char_blankline = " ",
+  char = '▏',
+  space_char_blankline = ' ',
   show_first_indent_level = false,
   show_current_context = true,
   show_current_context_start = true,
@@ -19,5 +20,5 @@ require('indent_blankline').setup {
   buftype_exclude = {
     'terminal',
     'nofile'
-  },
+  }
 }

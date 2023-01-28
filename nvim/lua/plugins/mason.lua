@@ -1,6 +1,20 @@
 require('mason').setup()
-require('mason-lspconfig').setup {
-    ensure_installed = { 'sumneko_lua', 'rust_analyzer', 'bashls', 'cssls', 'eslint', 'html', 'jsonls', 'quick_lint_js', 'tsserver', 'pyright', 'rescriptls' },
-    automatic_installation = true
-}
-
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'sumneko_lua',
+    'rust_analyzer',
+    'bashls',
+    'cssls',
+    'eslint',
+    'html',
+    'jsonls',
+    'tsserver',
+    'pyright',
+    'rescriptls'
+  },
+  automatic_installation = true
+})
+-- vim.cmd [[
+--   let g:mason#languages = { 'javascript': { 'server': 'javascript-typescript-stdio' } }
+--   let g:treesitter_javascript_enabled = 1
+-- ]]
