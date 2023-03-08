@@ -5,17 +5,16 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-dir="~/.config/polybar/hack/scripts/rofi"
+dir="~/.config/rofi"
 uptime=$(uptime -p | sed -e 's/up //g')
 
 rofi_command="rofi -theme $dir/powermenu.rasi"
 
 # Options
-shutdown=" Shutdown"
-reboot=" Restart"
-lock=" Lock"
-suspend=" Sleep"
-logout=" Logout"
+shutdown=" Shutdown"
+reboot=" Restart"
+lock=" Lock"
+logout=" Logout"
 
 # Confirmation
 confirm_exit() {
@@ -32,7 +31,7 @@ msg() {
 }
 
 # Variable passed to rofi
-options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
+options="$lock\n$logout\n$reboot\n$shutdown"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
 case $chosen in
@@ -57,9 +56,7 @@ case $chosen in
         fi
         ;;
     $lock)
-		if [[ -f /usr/bin/i3lock ]]; then
-			i3lock
-		elif [[ -f /usr/bin/betterlockscreen ]]; then
+		if [[ -f /usr/bin/betterlockscreen ]]; then
 			betterlockscreen -l
 		fi
         ;;

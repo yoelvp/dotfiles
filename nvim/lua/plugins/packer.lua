@@ -14,11 +14,10 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Colorscheme
-  use 'Shatur/neovim-ayu'
-  use 'olimorris/onedarkpro.nvim'
+  -- colorscheme
+  use 'morhetz/gruvbox'
 
-  -- UI
+  -- tree files
   use {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
@@ -28,23 +27,24 @@ return require('packer').startup(function(use)
       'MunifTanjim/nui.nvim',
     }
   }
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+
+  -- telescope for search files
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  use 'lukas-reineke/indent-blankline.nvim'
 
-  -- Syntax
+  -- telescope for preview files
+  use 'nvim-telescope/telescope-media-files.nvim'
+
+  -- syntax code
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use 'styled-components/vim-styled-components'
-  use 'mxw/vim-jsx'
+
+  -- null and linter for js
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- Mason & Lsp
   use {
@@ -55,39 +55,71 @@ return require('packer').startup(function(use)
 
   -- Autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  use 'onsails/lspkind.nvim'
 
-  -- Tools
+  -- status bar
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  -- line files
+  use 'tamton-aquib/staline.nvim'
+
+  -- gitsigns
+  use 'lewis6991/gitsigns.nvim'
+
+  -- Lazy git
+  use 'kdheepak/lazygit.nvim'
+
+  -- blankline
+  use 'lukas-reineke/indent-blankline.nvim'
+
+  -- multicursor
   use 'mg979/vim-visual-multi'
+
+  -- change string to template string
   use 'axelvc/template-string.nvim'
+
+  -- autoclose pairs
   use 'windwp/nvim-autopairs'
+
+  -- comment code
   use 'numToStr/Comment.nvim'
+
+  -- autoclose tag
   use 'windwp/nvim-ts-autotag'
+
+  -- colorizer
+  use 'norcalli/nvim-colorizer.lua'
+
+  -- todo comments
   use {
     'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
+
+  -- toggle terminal in nvim
   use {
     'akinsho/toggleterm.nvim',
     tag = '*'
   }
-  use {
-    'folke/noice.nvim',
-    requires = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify'
-    }
-  }
+
+  -- change of tags
   use 'tpope/vim-surround'
 
-  -- Packer bootstrap
+  -- syntax for styled components
+  use 'styled-components/vim-styled-components'
+
+  -- syntax for react
+  use 'mxw/vim-jsx'
+
+
   if packer_bootstrap then
     require('packer').sync()
   end

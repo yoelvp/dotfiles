@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["cmp-buffer"] = {
-    loaded = true,
-    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/cmp-buffer",
-    url = "https://github.com/hrsh7th/cmp-buffer"
-  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
@@ -104,20 +99,20 @@ _G.packer_plugins = {
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-vsnip"] = {
+  gruvbox = {
     loaded = true,
-    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
-  },
-  cmp_luasnip = {
-    loaded = true,
-    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -139,16 +134,6 @@ _G.packer_plugins = {
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
-  ["neovim-ayu"] = {
-    loaded = true,
-    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/neovim-ayu",
-    url = "https://github.com/Shatur/neovim-ayu"
-  },
-  ["noice.nvim"] = {
-    loaded = true,
-    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/noice.nvim",
-    url = "https://github.com/folke/noice.nvim"
-  },
   ["nui.nvim"] = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nui.nvim",
@@ -164,15 +149,15 @@ _G.packer_plugins = {
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-notify"] = {
-    loaded = true,
-    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nvim-notify",
-    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -189,11 +174,6 @@ _G.packer_plugins = {
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
-  ["onedarkpro.nvim"] = {
-    loaded = true,
-    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/onedarkpro.nvim",
-    url = "https://github.com/olimorris/onedarkpro.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -203,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["staline.nvim"] = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/staline.nvim",
+    url = "https://github.com/tamton-aquib/staline.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
