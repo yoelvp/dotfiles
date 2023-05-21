@@ -36,9 +36,9 @@ keymap("n", "sj", "<C-w>j", opts)
 keymap("n", "sk", "<C-w>k", opts)
 
 -- Move next buffer
-keymap("n", "bn", ":bnext<CR>", opts)
-keymap("n", "bp", ":bprevoius<CR>", opts)
-keymap("n", "bd", ":bdelete<CR>", opts)
+keymap("n", "tn", ":bnext<CR>", opts)
+keymap("n", "tp", ":bprevious<CR>", opts)
+keymap("n", "td", ":bdelete<CR>", opts)
 
 -- move line up and down
 keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

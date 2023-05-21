@@ -7,22 +7,33 @@
  |___/
 
 --]]
+
 ---------------
 -- setting
 ---------------
-require("config.settings")
+require('yoelvp.settings')
+--
+---------------
+-- colorscheme
+---------------
+require('yoelvp.colorscheme')
 
 ---------------
 -- keymaps
 ---------------
-require("config.keymaps")
+require('yoelvp.keymaps')
+
+---------------
+-- diagnostics
+---------------
+require('yoelvp.diagnostics')
 
 ---------------
 -- Auto cmd
 ---------------
-require("config.autocmds")
+require('yoelvp.autocmds')
 
 ---------------
--- Lazy config
+-- plugins packer
 ---------------
-require("config.lazy")
+require('yoelvp.plugins')

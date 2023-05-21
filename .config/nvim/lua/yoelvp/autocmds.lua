@@ -1,12 +1,8 @@
 local cmd = vim.cmd
 
-cmd([[
-  autocmd BufEnter * Neotree close
-]])
-
--- cmd([[
---   autocmd VimEnter * Dashboard
--- ]])
+--cmd([[
+--  autocmd BufEnter * Neotree close
+--]])
 
 -- save file when move another file
 -- vim.cmd([[
