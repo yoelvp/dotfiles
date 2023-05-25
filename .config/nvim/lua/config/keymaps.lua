@@ -40,11 +40,14 @@ keymap("n", "tn", ":bnext<CR>", opts)
 keymap("n", "tp", ":bprevious<CR>", opts)
 keymap("n", "td", ":bdelete<CR>", opts)
 
--- move line up and down
+-- Move line up and down
 keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
 keymap("v", "<A-j>", "<cmd>m '>+1<cr>gv=gv", { desc = "Move down" })
 keymap("v", "<A-k>", "<cmd>m '<-2<cr>gv=gv", { desc = "Move up" })
 
--- open lazygit
+-- Open lazygit
 keymap("n", "<leader>lg", ":LazyGit<CR>", { silent = true })
+
+-- Neotree
+keymap('n', 'nf', ':Neotree toggle<CR>', opts)

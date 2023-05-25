@@ -1,8 +1,6 @@
 local ok, template_string = pcall(require, 'template-string')
 
-if not ok then
-  return
-end
+if (not ok) then return end
 
 template_string.setup({
   filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'python' },

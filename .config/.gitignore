@@ -1,15 +1,13 @@
 bashtop
 calcurse
 cava
-clipit
 Code
-composer
 create-next-app-nodejs
 dconf
 flameshot
 geany
-Google
 gtk-*
+lazygit
 libfm
 menus/
 mimeapps.list
@@ -17,7 +15,7 @@ pavucontrol.ini
 QtProject.conf
 mpv
 nextjs-nodejs
-pacmanfm
+pcmanfm
 pulse
 bashtop
 sfetch

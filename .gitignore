@@ -20,7 +20,7 @@ snap
 .local
 .m2
 .mozilla
-.mycli*
+.my*
 .npm
 .nvm
 .oh-my-zsh

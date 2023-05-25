@@ -26,7 +26,7 @@ setxkbmap latam &
 xsetroot -cursor_name left_ptr &
 
 # Transparency
-# picom &
+picom &
 
 # Nitrogen
 nitrogen --restore &
