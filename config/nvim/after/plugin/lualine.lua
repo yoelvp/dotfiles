@@ -1,11 +1,13 @@
 local ok, lualine = pcall(require, 'lualine')
 
-if (not ok) then return end
+if not ok then
+  return
+end
 
 lualine.setup({
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'gruvbox',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {
@@ -26,14 +28,14 @@ lualine.setup({
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = {
       { 'filename', path = 4 },
-      function()
-        local modified = vim.api.nvim_buf_get_option(0, 'modified')
-        if modified then
-          return '%#ErrorMsg#[UNSAVED]'
-        else
-          return ''
-        end
-      end,
+      -- function()
+      -- 	local modified = vim.api.nvim_buf_get_option(0, "modified")
+      -- 	if modified then
+      -- 		return "%#ErrorMsg#[UNSAVED]"
+      -- 	else
+      -- 		return ""
+      -- 	end
+      -- end,
     },
     lualine_x = {
       {
@@ -43,11 +45,11 @@ lualine.setup({
           error = ' ',
           warn = ' ',
           info = ' ',
-          hint = ' '
-        }
+          hint = ' ',
+        },
       },
       'encoding',
-      'filetype'
+      'filetype',
     },
     lualine_y = { 'progress' },
     lualine_z = { 'location' },

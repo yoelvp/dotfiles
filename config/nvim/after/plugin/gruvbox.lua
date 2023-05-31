@@ -2,7 +2,9 @@ vim.o.background = 'dark'
 
 local ok, gruvbox = pcall(require, 'gruvbox')
 
-if (not ok) then return end
+if not ok then
+  return
+end
 
 gruvbox.setup({
   undercurl = true,
@@ -18,9 +20,9 @@ gruvbox.setup({
   invert_selection = true,
   invert_signs = false,
   invert_tabline = false,
-  invert_intend_guides = false,
+  invert_intend_guides = true,
   inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "hard", -- can be "hard", "soft" or empty string
+  contrast = 'hard', -- can be "hard", "soft" or empty string
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
@@ -29,4 +31,5 @@ gruvbox.setup({
 
 vim.cmd([[
   colorscheme gruvbox
+  let g:airline_theme='gruvbox'
 ]])

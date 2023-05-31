@@ -2,7 +2,9 @@ local ok, lspsaga = pcall(require, 'lspsaga')
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-if (not ok) then return end
+if not ok then
+  return
+end
 
 lspsaga.setup({
   symbol_in_winbar = {

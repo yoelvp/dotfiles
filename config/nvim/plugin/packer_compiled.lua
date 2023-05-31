@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  everforest = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -139,6 +144,16 @@ _G.packer_plugins = {
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nui.nvim"] = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nui.nvim",
@@ -158,6 +173,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -213,6 +233,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/yoelvp/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-surround"] = {
     loaded = true,

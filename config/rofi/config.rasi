@@ -29,6 +29,7 @@ configuration {
   hide-scrollbar:               true;
   listview-striped:             false;
   sidebar-mode:                 false;
+  mode:                         "window,run";
 }
 
 window {
@@ -42,7 +43,7 @@ window {
   location:                     center;
   x-offset:                     0;
   y-offset:                     0;
-  listview-striped:false;
+  listview-striped:             false;
 }
 
 prompt {

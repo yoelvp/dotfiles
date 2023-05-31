@@ -1,82 +1,115 @@
-local lsp_ok, lsp = pcall(require, 'lspconfig')
-local nvim_lsp_ok, nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+local lsp_ok, lsp = pcall(require, "lspconfig")
+local nvim_lsp_ok, nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = nvim_lsp.default_capabilities(capabilities)
 
-if (not lsp_ok) then return end
-if (not nvim_lsp_ok) then return end
+if not lsp_ok then
+	return
+end
+if not nvim_lsp_ok then
+	return
+end
 
-local capabilities = nvim_lsp.default_capabilities()
+local on_atach = function(_, bufnr)
+	local function buf_set_keymap(...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
+	end
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-  callback = function(ev)
-    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+	local function buf_set_option(...)
+		vim.api.nvim_buf_set_option(bufnr, ...)
+	end
 
-    local opts = { buffer = ev.buf }
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<C-i>", function()
-      vim.lsp.buf.format({ async = true })
-    end, opts)
-  end,
-})
+	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+	local opts = { noremap = true, silent = true }
+
+	buf_set_keymap("n", "gd", vim.lsp.buf.definition, opts)
+	-- buf_set_keymap("n", "<space>D", vim.lsp.buf.type_definition, opts)
+	-- buf_set_keymap("n", "<space>rn", vim.lsp.buf.rename, opts)
+	-- buf_set_keymap({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+	-- vim.keymap.set("n", "<C-f>", ":lua vim.lsp.buf.format({ async = true })", opts)
+	-- buf_set_keymap("n", "<C-i>", function()
+	-- 	vim.lsp.buf.format({
+	-- 		filter = function(client)
+	-- 			return client.name == "null-ls"
+	-- 		end,
+	-- 		bufnr = bufnr,
+	-- 	})
+	-- end, opts)
+end
 
 lsp.tsserver.setup({
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
-  cmd = { "typescript-language-server", "--stdio" },
+	on_atach = on_atach,
+	capabilities = capabilities,
+	filetypes = {
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx",
+	},
+	cmd = { "typescript-language-server", "--stdio" },
 })
 
 lsp.tailwindcss.setup({
-  cmd = { "tailwindcss-language-server", "--stdio" },
-  capabilities = capabilities,
+	on_atach = on_atach,
+	capabilities = capabilities,
+	cmd = { "tailwindcss-language-server", "--stdio" },
 })
 
 lsp.html.setup({
-  capabilities = capabilities,
+	on_atach = on_atach,
+	capabilities = capabilities,
 })
 
 lsp.cssls.setup({
-  capabilities = capabilities,
+	on_atach = on_atach,
+	capabilities = capabilities,
 })
 
 lsp.rust_analyzer.setup({
-  settings = {
-    ["rust-analyzer"] = {},
-  },
+	on_atach = on_atach,
+	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {},
+	},
+})
+
+-- lsp.emmet_ls.setup({
+-- 	on_atach = on_atach,
+-- 	capabilities = capabilities,
+-- })
+
+lsp.bashls.setup({
+	on_atach = on_atach,
+	capabilities = capabilities,
 })
 
 lsp.lua_ls.setup({
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false,
-      },
-    },
-  },
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
+			},
+		},
+	},
 })
 
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = '●'
-  },
-  update_in_insert = true,
-  float = {
-    source = 'always', -- Or "if_many"
-  },
+	virtual_text = {
+		prefix = "●",
+	},
+	update_in_insert = true,
+	float = {
+		source = "always", -- Or 'if_many'
+	},
 })
