@@ -1,28 +1,30 @@
 local opt = vim.opt
 
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
-opt.background = "dark"
+opt.background = 'dark'
 opt.termguicolors = true
-opt.syntax = "on"
+opt.syntax = 'on'
 opt.cursorline = true
-opt.colorcolumn = "120"
+opt.colorcolumn = '120'
 
 -- encoding
-opt.encoding = "utf-8"
-vim.scriptencoding = "utf-8"
-opt.fileencoding = "utf-8"
-opt.termencoding = "utf-8"
+opt.encoding = 'utf-8'
+vim.scriptencoding = 'utf-8'
+opt.fileencoding = 'utf-8'
+opt.termencoding = 'utf-8'
 
 opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 2
 opt.wrap = false
+opt.laststatus = 2
+opt.showtabline = 2
 
 opt.scrolloff = 2
 opt.sidescrolloff = 5
 opt.list = true
-opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
+opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 opt.linespace = 0
 opt.hlsearch = false
 opt.incsearch = true
@@ -37,8 +39,8 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 opt.softtabstop = 2
 
-opt.clipboard = "unnamedplus"
-opt.mouse = "a"
+opt.clipboard = 'unnamedplus'
+opt.mouse = 'a'
 opt.updatetime = 100
 
 -- swapfiles

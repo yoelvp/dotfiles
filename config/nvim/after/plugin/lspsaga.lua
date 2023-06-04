@@ -15,7 +15,10 @@ lspsaga.setup({
 -- Keymaps
 keymap('n', '<C-j>', ':Lspsaga diagnostic_jump_next<CR>', opts)
 keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-keymap('n', 'gd', ':Lspsaga lsp_finder<CR>', opts)
+keymap('n', 'gd', ':Lspsaga goto_definition<CR>', opts)
+keymap('n', 'gf', ':Lspsaga lsp_finder<CR>', opts)
+keymap('n', 'gp', ':Lspsaga peek_definition<CR>', opts)
 keymap('i', '<C-k>', ':Lspsaga signature_help<CR>', opts)
-keymap('n', 'gp', ':Lspsaga preview_definition<CR>', opts)
+-- keymap('n', 'gp', ':Lspsaga preview_definition<CR>', opts)
 keymap('n', 'gr', ':Lspsaga rename<CR>', opts)
+keymap('n', 'gR', ':Lspsaga rename ++project<CR>', opts)
