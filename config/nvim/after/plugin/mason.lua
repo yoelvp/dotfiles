@@ -22,6 +22,7 @@ mason.setup({
 -- Mason Lspconfig
 mason_lsp.setup({
   ensure_installed = {
+    'rust_analyzer',
     'bashls',
     'cssls',
     'emmet_ls',
@@ -31,7 +32,6 @@ mason_lsp.setup({
     'lua_ls',
     'rescriptls',
     'tailwindcss',
-    'java_language_server',
   },
   automatic_installation = true,
 })

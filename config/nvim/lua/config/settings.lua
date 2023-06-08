@@ -2,6 +2,7 @@ local opt = vim.opt
 
 vim.g.mapleader = ' '
 
+opt.title = true
 opt.background = 'dark'
 opt.termguicolors = true
 opt.syntax = 'on'

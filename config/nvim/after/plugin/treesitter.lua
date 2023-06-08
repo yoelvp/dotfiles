@@ -9,7 +9,6 @@ treesitter.setup({
     'c',
     'lua',
     'rust',
-    'java',
     'bash',
     'css',
     'scss',
