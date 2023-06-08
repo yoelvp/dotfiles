@@ -26,7 +26,7 @@ keymap('n', 'ss', ':split<CR><C-w>w', opts)
 keymap('n', 'sv', ':vsplit<CR><C-w>w', opts)
 
 -- Format code
-keymap('n', '<C-i>', ':lua vim.lsp.buf.format({ async = true })<CR>', opts)
+keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', {})
 
 -- Move window
 -- keymap('n', 's<Left>', '<C-w>h', opts)
