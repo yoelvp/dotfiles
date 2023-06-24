@@ -2,6 +2,7 @@ local opt = vim.opt
 
 vim.g.mapleader = ' '
 
+opt.title = true
 opt.background = 'dark'
 opt.termguicolors = true
 opt.syntax = 'on'
@@ -21,8 +22,8 @@ opt.wrap = false
 opt.laststatus = 2
 opt.showtabline = 2
 
-opt.scrolloff = 2
-opt.sidescrolloff = 5
+opt.scrolloff = 10
+opt.sidescrolloff = 10
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 opt.linespace = 0

@@ -23,6 +23,6 @@ require('config.diagnostics')
 
 
 ------------------------------
--- Packer plugins
+-- Lazy manager plugins
 ------------------------------
-require('plugins.packer')
+require('config.lazy')
