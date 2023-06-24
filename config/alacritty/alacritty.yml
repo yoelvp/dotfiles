@@ -32,7 +32,7 @@ window:
 # Font
 font:
   normal:
-    family: Hack Nerd Font
+    family: CaskaydiaCove Nerd Font
     style: Bold
 
   size: 8.0

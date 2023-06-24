@@ -30,3 +30,6 @@ picom &
 
 # Nitrogen
 nitrogen --restore &
+
+# Java apps
+wmname LG3D &
