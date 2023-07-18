@@ -16,9 +16,6 @@ keymap('n', '<A-z>', ':set wrap!<CR>', { silent = true })
 -- Select all
 keymap('n', '<C-a>', 'gg<S-v>G', opts)
 
--- New tab
--- keymap('n', '<C-n>', ':tabedit<CR>', opts)
-
 -- Horizontal split window
 keymap('n', 'ss', ':split<CR><C-w>w', opts)
 
@@ -29,10 +26,6 @@ keymap('n', 'sv', ':vsplit<CR><C-w>w', opts)
 keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', {})
 
 -- Move window
--- keymap('n', 's<Left>', '<C-w>h', opts)
--- keymap('n', 's<Right>', '<C-w>l', opts)
--- keymap('n', 's<Down>', '<C-w>j', opts)
--- keymap('n', 's<Up>', '<C-w>k', opts)
 keymap('n', 'sh', '<C-w>h', opts)
 keymap('n', 'sl', '<C-w>l', opts)
 keymap('n', 'sj', '<C-w>j', opts)

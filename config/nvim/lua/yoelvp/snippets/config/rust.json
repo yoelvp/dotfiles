@@ -1,0 +1,43 @@
+{
+  "fun:main": {
+    "prefix": "main",
+    "body": [
+      "fn main() {",
+      "  ${1:code}",
+      "}"
+    ],
+    "description": "Create a main function"
+  },
+  "println": {
+    "prefix": "prtl",
+    "body": [
+      "println!(\"{${1:value}}\");"
+    ],
+    "description": "Println string"
+  },
+  "let:str": {
+    "prefix": "str",
+    "body": [
+      "let ${1:name} = String::new();"
+    ],
+    "description": "Declare a String variable"
+  },
+  "fn:declare": {
+    "prefix": "fun",
+    "body": [
+      "fn ${1:function_name}() {",
+      "  ${2:code}",
+      "}"
+    ],
+    "description": "Declare a new function"
+  },
+  "public:function": {
+    "prefix": "pubf",
+    "body": [
+      "public fn ${1:function_name}() {",
+      "  ${2:code}",
+      "}"
+    ],
+    "description": "Declare a public function"
+  }
+}

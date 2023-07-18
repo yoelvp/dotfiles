@@ -1,7 +1,7 @@
 return {
   'jose-elias-alvarez/null-ls.nvim',
   config = function()
-    local ok, null_ls = pcall(require, "null-ls")
+    local ok, null_ls = pcall(require, 'null-ls')
 
     if not ok then
       return
@@ -14,7 +14,7 @@ return {
     local sources = {
       formatting.eslint_d,
       formatting.stylua,
-      formatting.prettier,
+      formatting.rustfmt,
 
       diagnostics.eslint_d,
       diagnostics.shellcheck,
@@ -25,25 +25,21 @@ return {
 
     local lsp_formatting = function(bufnr)
       vim.lsp.buf.format({
-        filter = function(client)
-          return client.name == "null-ls"
-        end,
+        filter = function(client) return client.name == 'null-ls' end,
         bufnr = bufnr,
       })
     end
 
     -- if you want to set up formatting on save, you can use this as a callback
-    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
     local on_attach = function(client, bufnr)
-      if client.supports_method("textDocument/formatting") then
+      if client.supports_method('textDocument/formatting') then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd("BufWritePre", {
+        vim.api.nvim_create_autocmd('BufWritePre', {
           group = augroup,
           buffer = bufnr,
-          callback = function()
-            lsp_formatting(bufnr)
-          end,
+          callback = function() lsp_formatting(bufnr) end,
         })
       end
     end
@@ -52,5 +48,5 @@ return {
       sources = sources,
       on_attach = on_attach,
     })
-  end
+  end,
 }

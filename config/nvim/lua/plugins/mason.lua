@@ -1,7 +1,7 @@
 return {
   'williamboman/mason.nvim',
   dependencies = {
-    'williamboman/mason-lspconfig.nvim'
+    'williamboman/mason-lspconfig.nvim',
   },
   config = function()
     local mason_ok, mason = pcall(require, 'mason')
@@ -38,9 +38,9 @@ return {
         'lua_ls',
         'rescriptls',
         'tailwindcss',
+        'pyright',
       },
       automatic_installation = true,
     })
-  end
+  end,
 }
-

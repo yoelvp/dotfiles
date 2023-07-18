@@ -1,0 +1,50 @@
+{
+  "Class main": {
+    "prefix": "class",
+    "body": [
+      "<?php",
+      "",
+      "class $1 {",
+      "  $2",
+      "}",
+      ""
+    ],
+    "description": "Class file"
+  },
+  "Instance constructor class": {
+    "prefix": "constr",
+    "body": [
+      "public function __construct(${1:variables}) {",
+      "  ${2:code}",
+      "}"
+    ],
+    "description": "Create constructor function in PHP class"
+  },
+  "public:function": {
+    "prefix": "pubf",
+    "body": [
+      "public function ${1:functionName}($2) {",
+      "  ${3:code}",
+      "}"
+    ],
+    "description": "Generate public function"
+  },
+  "private:function": {
+    "prefix": "privf",
+    "body": [
+      "private function ${1:functionName}($2) {",
+      "  ${3:code}",
+      "}"
+    ],
+    "description": "Generate a private function"
+  },
+  "declare:function": {
+    "prefix": "fun",
+    "body": [
+      "function ${1:functionName}($2) {",
+      "  ${3:code}",
+      "}"
+    ],
+    "description": "Generate a function in file"
+  }
+}

@@ -8,7 +8,6 @@ return {
     'MunifTanjim/nui.nvim',
     {
       's1n7ax/nvim-window-picker',
-      branch = 'v1.*',
       config = function()
         require('window-picker').setup({
           autoselect_one = true,
@@ -24,14 +23,14 @@ return {
       end,
     },
   },
-  init = function()
-    vim.g.neo_tree_remove_legacy_commands = 1
-    if vim.fn.argc() == 1 then
-      local stat = vim.loop.fs_stat(vim.fn.argv(0))
-      if stat and stat.type == 'directory' then
-        require('neo-tree')
-      end
-    end
-  end,
+  -- init = function()
+  --   vim.g.neo_tree_remove_legacy_commands = 1
+  --   if vim.fn.argc() == 1 then
+  --     local stat = vim.loop.fs_stat(vim.fn.argv(0))
+  --     if stat and stat.type == 'directory' then
+  --       require('neo-tree')
+  --     end
+  --   end
+  -- end,
   config = function() require('yoelvp.neotree') end,
 }

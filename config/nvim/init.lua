@@ -11,6 +11,18 @@ require('config.keymaps')
 
 
 ------------------------------
+-- Snippets
+------------------------------
+-- require('config.snippets')
+
+
+------------------------------
+-- Globals
+------------------------------
+require('yoelvp.globals')
+
+
+------------------------------
 -- Auto cmd's
 ------------------------------
 require('config.autocmds')

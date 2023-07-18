@@ -1,0 +1,31 @@
+{
+  "name": "personal-snippets",
+  "engines": {
+    "vscode": "1.11.0"
+  },
+  "version": "1.0.0",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./config/html.json"
+      },
+      {
+        "language": ["javascript", "javascriptreact", "typescriptreact"],
+        "path": "./config/javascript/javascript.json"
+      },
+      {
+        "language": ["javascriptreact", "typescriptreact"],
+        "path": "./config/javascript/javascriptreact.json"
+      },
+      {
+        "language": "php",
+        "path": "./config/php.json"
+      },
+      {
+        "language": "rust",
+        "path": "./config/rust.json"
+      }
+    ]
+  }
+}

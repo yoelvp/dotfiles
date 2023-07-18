@@ -25,5 +25,5 @@ return {
     -- keymap('n', 'gp', ':Lspsaga preview_definition<CR>', opts)
     keymap('n', 'gr', ':Lspsaga rename<CR>', opts)
     keymap('n', 'gR', ':Lspsaga rename ++project<CR>', opts)
-  end
+  end,
 }
