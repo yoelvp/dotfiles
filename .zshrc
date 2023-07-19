@@ -115,8 +115,7 @@ alias ls="lsd"
 alias la="lsd -la"
 alias lh="lsd -lh"
 alias cat="bat"
-# alias vim="nvim"
-alias vi="nvim"
+alias vim="nvim"
 alias .="cd .."
 alias ..="cd ../.."
 alias downloads="cd ~/Desktop/Downloads/"
@@ -132,6 +131,9 @@ alias wifi-connect="nmcli dev wifi connect VALVERDE password valverde2002"
 
 alias apache-start="sudo systemctl start httpd ; sudo systemctl start mysql"
 alias apache-stop="sudo systemctl stop httpd ; sudo systemctl stop mysql"
+
+# Time
+alias the-time="wttr -m"
 
 ## mysql
 alias my="mycli -h localhost -u root -pyoelvp732"
