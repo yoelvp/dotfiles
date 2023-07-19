@@ -31,16 +31,15 @@ return {
         'rust_analyzer',
         'bashls',
         'cssls',
-        'emmet_ls',
         'html',
         'jsonls',
         'tsserver',
         'lua_ls',
         'rescriptls',
         'tailwindcss',
-        'pyright',
+        'pyright'
       },
-      automatic_installation = true,
+      automatic_installation = true
     })
   end,
 }

@@ -53,13 +53,11 @@ opt.hidden = true
 opt.swapfile = false
 opt.synmaxcol = 1000
 
--- vim.opt.wildignore:append({ "*/node_modules/*" })
--- vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
--- vim.opt.backspace = { "start", "eol", "indent" }
-
--- nvim-ufo setting
-vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- Fold column
+opt.foldcolumn = '0'
+opt.foldenable = false
+opt.foldmethod = 'indent'
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldminlines = 2
+opt.shortmess = 'filnxtToOFWIcC'
