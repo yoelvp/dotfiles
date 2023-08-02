@@ -9,20 +9,7 @@ return {
     'nvim-telescope/telescope-media-files.nvim',
     'nvim-telescope/telescope-ui-select.nvim',
     'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    dependencies = {
-      'junegunn/fzf.vim',
-      dependencies = {
-        {
-          'tpope/vim-dispatch',
-          cmd = { 'Make', 'Dispatch' }
-        },
-        {
-          'junegunn/fzf',
-          build = ':call fzf#install()'
-        }
-      }
-    }
+    'nvim-telescope/telescope-media-files.nvim'
   },
   event = 'VeryLazy',
   config = function()

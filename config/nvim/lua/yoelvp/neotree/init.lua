@@ -1,6 +1,6 @@
-local neotree_ok, neotree = pcall(require, 'neo-tree')
+local ok, neotree = pcall(require, 'neo-tree')
 
-if not neotree_ok then
+if not ok then
   return
 end
 
@@ -56,8 +56,8 @@ neotree.setup({
     },
     git_status = {
       symbols = {
-        added = '', -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified = '', -- or "", but this is redundant info if you use git_status_colors on the name
+        added = '✚', -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified = '', -- or "", but this is redundant info if you use git_status_colors on the name
         deleted = '✖', -- this can only be used in the git_status source
         renamed = '', -- this can only be used in the git_status source
         untracked = '',
@@ -117,8 +117,8 @@ neotree.setup({
   filesystem = {
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
-      hide_dotfiles = true,
-      hide_gitignored = true,
+      hide_dotfiles = false,
+      hide_gitignored = false,
       hide_hidden = true, -- only works on Windows for hidden files/directories
       hide_by_name = {
         'node_modules',
@@ -132,8 +132,8 @@ neotree.setup({
         --".gitignored",
       },
       never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-        --".DS_Store",
-        --"thumbs.db"
+        ".DS_Store",
+        "thumbs.db"
       },
       never_show_by_pattern = { -- uses glob style patterns
         --".null-ls_*",

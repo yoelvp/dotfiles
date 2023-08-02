@@ -1,12 +1,12 @@
 local opt = vim.opt
 
 vim.g.mapleader = ','
-vim.g.snippets = "luasnip"
+vim.g.snippets = 'luasnip'
 
+opt.syntax = 'on'
 opt.title = true
 opt.background = 'dark'
 opt.termguicolors = true
-opt.syntax = 'on'
 opt.cursorline = true
 opt.colorcolumn = '120'
 opt.signcolumn = 'yes'
@@ -60,4 +60,4 @@ opt.foldmethod = 'indent'
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldminlines = 2
-opt.shortmess = 'filnxtToOFWIcC'
+-- opt.shortmess = 'filnxtToOFWIcC'

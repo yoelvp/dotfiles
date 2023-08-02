@@ -4,10 +4,10 @@ return {
     'williamboman/mason-lspconfig.nvim',
   },
   config = function()
-    local mason_ok, mason = pcall(require, 'mason')
+    local ok, mason = pcall(require, 'mason')
     local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
 
-    if not mason_ok then
+    if not ok then
       return
     end
     if not mason_lsp_ok then
@@ -37,7 +37,8 @@ return {
         'lua_ls',
         'rescriptls',
         'tailwindcss',
-        'pyright'
+        -- 'pyright',
+        'svelte'
       },
       automatic_installation = true
     })

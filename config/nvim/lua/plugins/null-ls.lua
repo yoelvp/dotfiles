@@ -15,6 +15,11 @@ return {
       formatting.eslint_d,
       formatting.stylua,
       formatting.rustfmt,
+      formatting.prettierd.with({
+        condition = function (utils)
+          return utils.root_has_file('.prettierrc.json')
+        end
+      }),
 
       diagnostics.eslint_d,
       diagnostics.shellcheck,
@@ -26,7 +31,7 @@ return {
     local lsp_formatting = function(bufnr)
       vim.lsp.buf.format({
         filter = function(client) return client.name == 'null-ls' end,
-        bufnr = bufnr,
+        bufnr = bufnr
       })
     end
 
@@ -39,14 +44,14 @@ return {
         vim.api.nvim_create_autocmd('BufWritePre', {
           group = augroup,
           buffer = bufnr,
-          callback = function() lsp_formatting(bufnr) end,
+          callback = function() lsp_formatting(bufnr) end
         })
       end
     end
 
     null_ls.setup({
       sources = sources,
-      on_attach = on_attach,
+      on_attach = on_attach
     })
-  end,
+  end
 }

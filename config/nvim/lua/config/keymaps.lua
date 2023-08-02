@@ -22,17 +22,20 @@ keymap('n', 'ss', ':split<CR><C-w>w', opts)
 -- Vertical split window
 keymap('n', 'sv', ':vsplit<CR><C-w>w', opts)
 
+-- Vertical split terminal
+keymap('n', 'st', ':vsplit<CR><C-w>w', opts)
+
 -- Format code
 keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts)
 
 -- Keymaps LSP
-keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
-keymap('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', opts)
-keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
-keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
-keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
-keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
-keymap('n', '<leader>gl', ':lua vim.diagnostic.setloclist()<CR>', opts)
+-- keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
+-- keymap('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', opts)
+-- keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
+-- keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
+-- keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+-- keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
+-- keymap('n', '<leader>gl', ':lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Move window
 keymap('n', 'sh', '<C-w>h', opts)

@@ -32,46 +32,51 @@ lsp.tsserver.setup({
     'typescriptreact',
     'typescript.tsx',
   },
-  cmd = { 'typescript-language-server', '--stdio' },
+  cmd = { 'typescript-language-server', '--stdio' }
 })
 
 lsp.tailwindcss.setup({
   on_atach = on_attach,
   capabilities = capabilities,
-  cmd = { 'tailwindcss-language-server', '--stdio' },
+  cmd = { 'tailwindcss-language-server', '--stdio' }
 })
 
 lsp.html.setup({
   on_atach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
+})
+
+lsp.jsonls.setup({
+  on_atach = on_attach,
+  capabilities = capabilities
 })
 
 lsp.cssls.setup({
   on_atach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 })
 
 lsp.rust_analyzer.setup({
   on_atach = on_attach,
   capabilities = capabilities,
   settings = {
-    ['rust-analyzer'] = {},
-  },
+    ['rust-analyzer'] = {}
+  }
 })
 
 lsp.bashls.setup({
   on_atach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 })
 
 lsp.sqlls.setup({
   on_atach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 })
 
-lsp.pyright.setup({
+lsp.svelte.setup({
   on_atach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 })
 
 lsp.lua_ls.setup({
@@ -80,17 +85,17 @@ lsp.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT',
+        version = 'LuaJIT'
       },
       diagnostics = {
-        globals = { 'vim' },
+        globals = { 'vim' }
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file('', true),
-        checkThirdParty = false,
-      },
-    },
-  },
+        checkThirdParty = false
+      }
+    }
+  }
 })
 
 vim.diagnostic.config({

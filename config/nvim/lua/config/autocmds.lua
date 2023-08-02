@@ -9,7 +9,6 @@ cmd([[
 --   autocmd BufLeave * silent! wall
 -- ]])
 
---
 cmd([[
   augroup AuYank
     autocmd!

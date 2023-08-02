@@ -8,6 +8,6 @@ return {
       return
     end
 
-    rust.setup()
+    rust.setup({})
   end
 }

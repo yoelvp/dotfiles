@@ -1,5 +1,6 @@
 return {
   'ellisonleao/gruvbox.nvim',
+  enabled = true,
   lazy = false,
   priority = 1000,
   config = function()
@@ -11,7 +12,7 @@ return {
         strings = false,
         comments = true,
         operators = false,
-        folds = false,
+        folds = true
       },
       strikethrough = true,
       invert_selection = true,
@@ -19,7 +20,7 @@ return {
       invert_tabline = false,
       invert_intend_guides = true,
       inverse = true,    -- invert background for search, diffs, statuslines and errors
-      contrast = 'hard', -- can be "hard", "soft" or empty string
+      contrast = 'hard',
       palette_overrides = {},
       overrides = {},
       dim_inactive = false,

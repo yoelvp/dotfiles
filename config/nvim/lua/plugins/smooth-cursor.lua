@@ -29,7 +29,6 @@ return {
         elseif current_mode == 'i' then
           vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = foreground, bg = background })
           vim.fn.sign_define('smoothcursor', { text = '' })
-          -- vim.fn.sign_define('smoothcursor', { text = '󰗧' })
         end
       end,
     })

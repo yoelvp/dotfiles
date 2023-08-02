@@ -15,22 +15,13 @@ return {
           filter_rules = {
             bo = {
               filetype = { 'neo-tree', 'neo-tree-popup', 'notify' },
-              buftype = { 'terminal', 'quickfix' },
+              buftype = { 'terminal', 'quickfix' }
             },
           },
-          other_win_hl_color = '#e35e4f',
+          other_win_hl_color = '#e35e4f'
         })
-      end,
-    },
+      end
+    }
   },
-  -- init = function()
-  --   vim.g.neo_tree_remove_legacy_commands = 1
-  --   if vim.fn.argc() == 1 then
-  --     local stat = vim.loop.fs_stat(vim.fn.argv(0))
-  --     if stat and stat.type == 'directory' then
-  --       require('neo-tree')
-  --     end
-  --   end
-  -- end,
-  config = function() require('yoelvp.neotree') end,
+  config = function() require('yoelvp.neotree') end
 }

@@ -29,14 +29,14 @@ return {
         -- set them to false if you want to disable them
         formatters = {
           json = 'jq',
-          html = function(body) return vim.fn.system({ 'tidy', '-i', '-q', '-' }, body) end,
-        },
+          html = function(body) return vim.fn.system({ 'tidy', '-i', '-q', '-' }, body) end
+        }
       },
       -- Jump to request line on run
       jump_to_request = false,
       env_file = '.env',
       custom_dynamic_variables = {},
-      yank_dry_run = true,
+      yank_dry_run = true
     })
 
     vim.api.nvim_create_autocmd('FileType', {
@@ -44,8 +44,7 @@ return {
       callback = function()
         local buff = tonumber(vim.fn.expand('<abuf>'), 10)
         vim.keymap.set('n', '<leader>rt', rest.run, { noremap = true, buffer = buff })
-        -- vim.keymap.set('n', '<leader>', rest.run, { noremap = true, buffer = buff })
-      end,
+      end
     })
-  end,
+  end
 }
