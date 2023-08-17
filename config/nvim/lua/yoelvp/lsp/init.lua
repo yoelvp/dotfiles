@@ -59,8 +59,13 @@ lsp.cssls.setup({
 lsp.rust_analyzer.setup({
   on_atach = on_attach,
   capabilities = capabilities,
+  filetypes = { 'rust' },
   settings = {
-    ['rust-analyzer'] = {}
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true
+      }
+    }
   }
 })
 
@@ -77,6 +82,21 @@ lsp.sqlls.setup({
 lsp.svelte.setup({
   on_atach = on_attach,
   capabilities = capabilities
+})
+
+lsp.intelephense.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'php' },
+  cmd = { 'intelephense', '--stdio' },
+  -- root_dir = { 'composer.json', '.git' },
+  settings = {
+    intelephense = {
+      format = {
+        braces = 'k&r'
+      }
+    }
+  }
 })
 
 lsp.lua_ls.setup({

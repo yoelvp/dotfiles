@@ -12,33 +12,48 @@ return {
     local code_actions = null_ls.builtins.code_actions
 
     local sources = {
-      formatting.eslint_d,
+      formatting.eslint_d.with({
+        condition = function(utils)
+          return utils.root_has_file('.eslintrc*')
+        end
+      }),
       formatting.stylua,
       formatting.rustfmt,
       formatting.prettierd.with({
-        condition = function (utils)
-          return utils.root_has_file('.prettierrc.json')
+        condition = function(utils)
+          return utils.root_has_file('.prettierrc*')
         end
       }),
+      -- formatting.phpcsfixer,
 
-      diagnostics.eslint_d,
+      diagnostics.eslint_d.with({
+        condition = function(utils)
+          return utils.root_has_file('.eslintrc*')
+        end
+      }),
       diagnostics.shellcheck,
+      diagnostics.phpcs,
+      -- diagnostics.phpstan,
 
-      code_actions.eslint_d,
+      code_actions.eslint_d.with({
+        condition = function(utils)
+          return utils.root_has_file('.eslintrc*')
+        end
+      }),
       code_actions.shellcheck,
     }
 
-    local lsp_formatting = function(bufnr)
+    --[[ local lsp_formatting = function(bufnr)
       vim.lsp.buf.format({
         filter = function(client) return client.name == 'null-ls' end,
         bufnr = bufnr
       })
-    end
+    end ]]
 
     -- if you want to set up formatting on save, you can use this as a callback
     local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
-    local on_attach = function(client, bufnr)
+    --[[ local on_attach = function(client, bufnr)
       if client.supports_method('textDocument/formatting') then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
         vim.api.nvim_create_autocmd('BufWritePre', {
@@ -47,11 +62,11 @@ return {
           callback = function() lsp_formatting(bufnr) end
         })
       end
-    end
+    end ]]
 
     null_ls.setup({
-      sources = sources,
-      on_attach = on_attach
+      sources = sources
+      -- on_attach = on_attach
     })
   end
 }

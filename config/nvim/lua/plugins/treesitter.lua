@@ -27,7 +27,8 @@ return {
         'http',
         'json',
         'sql',
-        'svelte'
+        'svelte',
+        'php'
       },
       sync_install = true,
       auto_install = true,

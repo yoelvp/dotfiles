@@ -38,7 +38,8 @@ return {
         'rescriptls',
         'tailwindcss',
         -- 'pyright',
-        'svelte'
+        'svelte',
+        'intelephense'
       },
       automatic_installation = true
     })

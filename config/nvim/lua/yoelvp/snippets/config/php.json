@@ -4,7 +4,11 @@
     "body": [
       "<?php",
       "",
-      "class $1 {",
+      "declare(strict_types=1);",
+      "",
+      "namespace App\\\\$1;",
+      "",
+      "class ${TM_FILENAME_BASE} {",
       "  $2",
       "}",
       ""

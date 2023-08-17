@@ -129,8 +129,8 @@ alias update-mirrorlist="sudo reflector --latest 20 --protocol https --sort rate
 alias update-keys="sudo pacman-key --refresh-keys"
 alias wifi-connect="nmcli dev wifi connect VALVERDE password valverde2002"
 
-alias apache-start="sudo systemctl start httpd ; sudo systemctl start mysql"
-alias apache-stop="sudo systemctl stop httpd ; sudo systemctl stop mysql"
+alias nginx-start="sudo systemctl start nginx ; sudo systemctl start mysqld ; sudo systemctl start php-fpm"
+alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mysqld ; sudo systemctl stop php-fpm"
 
 # Time
 alias the-time="wttr -m"

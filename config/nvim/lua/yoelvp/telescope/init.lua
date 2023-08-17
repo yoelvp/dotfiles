@@ -13,7 +13,7 @@ telescope.setup({
   layout_strategy = 'horizontal',
   winblend = 20,
   defaults = {
-    file_ignore_patterns = { '.git', 'node_modules' }
+    file_ignore_patterns = { '.git', 'node_modules', 'vendor', 'target' }
   },
   layout_config = {
     width = 0.95,
