@@ -14,21 +14,21 @@ return {
     local sources = {
       formatting.eslint_d.with({
         condition = function(utils)
-          return utils.root_has_file('.eslintrc*')
+          return utils.root_has_file('.eslintrc.json') or utils.root_has_file('.eslintrc.js')
         end
       }),
       formatting.stylua,
       formatting.rustfmt,
       formatting.prettierd.with({
         condition = function(utils)
-          return utils.root_has_file('.prettierrc*')
+          return utils.root_has_file('.prettierrc.json') or utils.root_has_file('.prettierrc.js')
         end
       }),
       -- formatting.phpcsfixer,
 
       diagnostics.eslint_d.with({
         condition = function(utils)
-          return utils.root_has_file('.eslintrc*')
+          return utils.root_has_file('.eslintrc.json') or utils.root_has_file('.eslintrc.js')
         end
       }),
       diagnostics.shellcheck,
@@ -37,7 +37,7 @@ return {
 
       code_actions.eslint_d.with({
         condition = function(utils)
-          return utils.root_has_file('.eslintrc*')
+          return utils.root_has_file('.eslintrc.json') or utils.root_has_file('.eslintrc.js')
         end
       }),
       code_actions.shellcheck,
