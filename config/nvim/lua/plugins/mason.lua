@@ -37,7 +37,6 @@ return {
         'lua_ls',
         'rescriptls',
         'tailwindcss',
-        -- 'pyright',
         'svelte',
         'intelephense'
       },
