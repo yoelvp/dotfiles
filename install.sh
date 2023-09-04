@@ -23,3 +23,15 @@ if [ -f "$old_bash_path" ]; then
 else
   echo "Could not file"
 fi
+/home/yoelvp/Worspace/dotfiles/config/alacritty /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/betterlockscreen /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/bspwm/ /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/dunst /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/kitty /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/neoftech /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/nitrogen /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/nvim /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/picom /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/polybar /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/rofi /home/yoelvp/.config
+/home/yoelvp/Worspace/dotfiles/config/sxhkd /home/yoelvp/.config

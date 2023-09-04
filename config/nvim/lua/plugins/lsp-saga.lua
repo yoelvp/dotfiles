@@ -20,7 +20,6 @@ return {
     })
 
     keymap('n', 'gd', ':Lspsaga goto_definition<CR>', opts)
-    keymap('n', 'rn', ':Lspsaga rename<CR>', opts)
     keymap('n', 'Rn', ':Lspsaga rename ++project<CR>', opts)
     keymap('n', 'H', ':Lspsaga hover_doc<CR>', opts)
     keymap('n', '<C-j>', ':Lspsaga diagnostic_jump_next<CR>', opts)

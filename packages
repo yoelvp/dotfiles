@@ -1,0 +1,18 @@
+ttf-victor-mono-nerd ttf-ubuntu-nerd ttf-mononoki-nerd ttf-hack-nerd ttf-agave-nerd ttf-cascadia-code-nerd
+neofetch zsh alacritty kitty
+bspwm sxhkd picom polybar rofi pulseaudio pavucontrol lxappearance
+ly git
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+lsd cat mdcat cava
+lsd bat mdbat
+bashtop htop
+udev
+ntfs-3g
+nvidia nvidia-settings nvidia-utils lib32-nvidia-utils cuda opencl-nvidia  lib32-opencl-nvidia vdpauinfo clinfo
+reflector
+lxappearance

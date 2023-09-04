@@ -134,6 +134,7 @@ alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mysqld ; sudo 
 
 # Time
 alias the-time="wttr -m"
+alias weather="wttr Lima"
 
 ## mysql
 alias my="mycli -h localhost -u root -pyoelvp732"

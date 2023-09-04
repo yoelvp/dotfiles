@@ -30,7 +30,7 @@ keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts)
 
 -- Keymaps LSP
 -- keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
--- keymap('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', opts)
+keymap('n', 'rn', ':lua vim.lsp.buf.rename()<CR>', opts)
 -- keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
 -- keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
 -- keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
