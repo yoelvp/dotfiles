@@ -38,7 +38,7 @@ window {
   text-color:                   @foreground;
   border:                       2px;
   border-color:                 @red;
-  border-radius:                10px;
+  border-radius:                0px;
   width:                        450px;
   location:                     center;
   x-offset:                     0;
