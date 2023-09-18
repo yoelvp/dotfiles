@@ -84,6 +84,14 @@ lsp.svelte.setup({
   capabilities = capabilities
 })
 
+lsp.kotlin_language_server.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'kotlin-language-server' },
+  filetypes = { 'kotlin' }
+  -- root_dir = root_pattern('settings.gradle')
+})
+
 lsp.intelephense.setup({
   on_atach = on_attach,
   capabilities = capabilities,

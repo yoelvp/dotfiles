@@ -3,8 +3,8 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Initialze dunst
-pkill dunst
-dunst -config /home/yoelvp/.config/dunst/dunstrc &
+#pkill dunst
+#dunst -config /home/yoelvp/.config/dunst/dunstrc &
 
 # Polybar
 /home/yoelvp/.config/polybar/launch.sh &

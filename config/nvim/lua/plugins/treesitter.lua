@@ -28,7 +28,8 @@ return {
         'json',
         'sql',
         'svelte',
-        'php'
+        'php',
+        'kotlin'
       },
       sync_install = true,
       auto_install = true,

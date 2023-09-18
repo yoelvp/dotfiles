@@ -14,7 +14,6 @@
   gray:             #7C7C7C90;
   red:              #CC241DFF;
   transparent:      rgba(0, 0, 0, 0);
-
   font:             "CaskaydiaCove Nerd Font 10";
 }
 
@@ -38,7 +37,7 @@ window {
   text-color:                   @foreground;
   border:                       2px;
   border-color:                 @red;
-  border-radius:                0px;
+  border-radius:                0;
   width:                        450px;
   location:                     center;
   x-offset:                     0;

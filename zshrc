@@ -159,3 +159,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# bun completions
+[ -s "/home/yoelvp/.bun/_bun" ] && source "/home/yoelvp/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -14,8 +14,6 @@ return {
   },
   config = function()
     require('yoelvp.cmp')
-    require('luasnip.loaders.from_vscode').lazy_load({
-      paths = '~/Workspace/dotfiles/config/nvim/lua/yoelvp/snippets'
-    })
+    require('luasnip.loaders.from_vscode').lazy_load()
   end,
 }
