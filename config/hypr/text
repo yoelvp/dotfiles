@@ -1,0 +1,26 @@
+Optional dependencies for neovim
+    python-pynvim: for Python plugin support (see :help python)
+    xclip: for clipboard support on X11 (or xsel) (see :help clipboard)
+    xsel: for clipboard support on X11 (or xclip) (see :help clipboard)
+    wl-clipboard: for clipboard support on wayland (see :help clipboard)
+(11/11) installing ranger                                                               [###################################################] 100%
+Optional dependencies for ranger
+    atool: for previews of archives
+    elinks: for previews of html pages
+    ffmpegthumbnailer: for video previews
+    highlight: for syntax highlighting of code
+    imagemagick: auto-rotate image previews based on EXIF data
+    libcaca: for ASCII-art image previews
+    lynx: for previews of html pages
+    mediainfo: for viewing information about media files
+    odt2txt: for OpenDocument texts
+    perl-image-exiftool: for viewing information about media files
+    poppler: for pdf previews
+    python-chardet: in case of encoding detection problems
+    python-pillow: for in-terminal preview of images in Kitty
+    sudo: to use the "run as root"-feature [installed]
+    transmission-cli: for viewing bittorrent information
+    ueberzug: for previews of images
+    w3m: for previews of images and html pages
+:: Running post-transaction hooks...
+(1/4) Arming ConditionNeedsUpdate...
