@@ -148,9 +148,13 @@ window#waybar.hidden {
 }
 
 /* Custom power menu */
-#custom-power {
-  background-color: #f2cdcd;
-  margin-right: 6px;
+#custom-powermenu {
+  background-color: #F9F5F6;
+  padding: 1px 6px 1px 4px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-right: 8px;
+  border-radius: 4px;
 }
 
 tooltip {

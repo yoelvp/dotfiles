@@ -150,6 +150,7 @@
   },
   "clock": {
     "timezone": "America/Lima",
+    "interval": 60,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "{: %I:%M %p}",
     "format-alt": "{: %a,%e %b}"
