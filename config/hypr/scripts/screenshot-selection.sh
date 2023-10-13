@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
-file_name="screenshot-$(date +%F-%T).png"
-file_path="${HOME}/Pictures/screenshots/${file_name}"
-grim -t png -g "$(slurp)" "${file_path}"
+file_name="Screenshot-$(date +%F-%T).jpeg"
+file_path="${HOME}/Desktop/Screenshots/${file_name}"
+grim -t jpeg -q 100 -g "$(slurp)" "${file_path}" | swappy -f "${file_path}"
 notify-send 'Screenshot' -i "${file_path}" "${file_name}"
+
+# bind = $mainMod, Print, exec, grim -g "$(slurp)" - | swappy -f -
