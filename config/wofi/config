@@ -8,3 +8,4 @@ gtk_dark=true
 prompt= Hmm, what do you want to run?
 key_expand=Tab
 insensitive=true
+icon-theme=Papirus
