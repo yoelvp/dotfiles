@@ -1,6 +1,6 @@
 * {
   font-family: "CaskaydiaCove Nerd Font";
-  font-size: 12px;
+  font-size: 10px;
 }
 
 /* Colors*/
@@ -19,14 +19,14 @@ window#waybar.hidden {
 /* Workspaces */
 #workspaces {
   background-color: transparent;
-  margin: 6px 0;
+  margin: 2px 0 1px 0;
 }
 
 #workspaces button {
   all: initial;
-   min-width: 0;
-  margin-right: 4px;
+  min-width: 0;
   padding: 2px 8px 2px 6px;
+  margin-right: 4px;
   border-radius: 4px;
   background-color: #1e1e2e;
   color: #cdd6f4;
@@ -59,8 +59,8 @@ window#waybar.hidden {
 #backlight,
 #clock {
   padding: 1px 6px;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 2px;
+  margin-bottom: 1px;
   margin-right: 4px;
   border-radius: 4px;
   background-color: #1e1e2e;
@@ -113,7 +113,6 @@ window#waybar.hidden {
 /* Network */
 #network {
   background-color: #B4CFB0;
-  padding-right: 17px;
 }
 
 /* Pulseaudio */
@@ -143,27 +142,28 @@ window#waybar.hidden {
 
 /* Custom icon */
 #custom-logo {
-  margin: 0 2px;
+  margin: 2px 4px 1px 0;
   color: #1793d1;
+  font-size: 12px;
 }
 
 /* Custom power menu */
 #custom-powermenu {
   background-color: #F9F5F6;
   padding: 1px 6px 1px 4px;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 2px;
+  margin-bottom: 1px;
   margin-right: 8px;
   border-radius: 4px;
 }
 
 tooltip {
-border-radius: 8px;
-padding: 15px;
-background-color: #131822;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #131822;
 }
 
 tooltip label {
-padding: 5px;
-background-color: #131822;
+  padding: 5px;
+  background-color: #131822;
 }

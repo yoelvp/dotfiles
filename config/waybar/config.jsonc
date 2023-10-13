@@ -1,9 +1,9 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 15,
+  "height": 12,
   // "width": 1280,
-  "spacing": 4,
+  "spacing": 1,
   "modules-left": [
     "custom/logo",
     "hyprland/workspaces"
