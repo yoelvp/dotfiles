@@ -31,7 +31,7 @@ return {
         end
       }),
       diagnostics.shellcheck,
-      diagnostics.phpcs,
+      -- diagnostics.phpcs,
 
       code_actions.eslint_d.with({
         condition = function(utils)

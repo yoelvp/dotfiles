@@ -1,8 +1,8 @@
 return {
   'ellisonleao/gruvbox.nvim',
-  enabled = true,
+  enabled = false,
   lazy = false,
-  priority = 1000,
+  priority = 0,
   config = function()
     require('gruvbox').setup({
       undercurl = true,
@@ -27,9 +27,9 @@ return {
       transparent_mode = false
     })
 
-    vim.cmd([[
-      colorscheme gruvbox
-      let g:airline_theme='gruvbox'
-      ]])
+    -- vim.cmd([[
+    --   colorscheme gruvbox
+    --   let g:airline_theme='gruvbox'
+    --   ]])
   end
 }
