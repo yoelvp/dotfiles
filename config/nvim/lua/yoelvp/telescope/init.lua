@@ -13,7 +13,19 @@ telescope.setup({
   layout_strategy = 'horizontal',
   winblend = 20,
   defaults = {
-    file_ignore_patterns = { '.git', 'node_modules', 'vendor', 'target' }
+    file_ignore_patterns = {
+      '.git',
+      'node_modules',
+      'vendor',
+      'target',
+      '.vscode',
+      '.idea',
+      'build',
+      'dist',
+      '.dart_tool',
+      '.next',
+      '.svelte'
+    }
   },
   layout_config = {
     width = 0.95,
@@ -94,15 +106,15 @@ vim.keymap.set('n', 'ft', function()
 end, opts)
 
 vim.keymap.set('n', 'fh', function()
-require('telescope.builtin').help_tags({
-  path = '%:p:h',
-  cwd = vim.fn.expand('%:p:h'),
-  respect_gitignore = false,
-  hidden = true,
-  grouped = true,
-  initial_mode = 'normal',
-  layout_config = {
-    prompt_position = 'bottom',
+  require('telescope.builtin').help_tags({
+    path = '%:p:h',
+    cwd = vim.fn.expand('%:p:h'),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    initial_mode = 'normal',
+    layout_config = {
+      prompt_position = 'bottom',
     },
   })
 end, opts)

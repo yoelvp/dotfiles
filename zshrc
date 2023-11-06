@@ -166,3 +166,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# export FVM_DIR="$HOME/.fvm"
+# [ -s "$FVM_DIR/fvm.sh" ] && \. "$FVM_DIR/fvm.sh"  # This loads fvm
+# [ -s "$FVM_DIR/bash_completion" ] && \. "$FVM_DIR/bash_completion"  # This loads fvm bash_completion

@@ -13,6 +13,7 @@ return {
       ensure_installed = {
         'c',
         'lua',
+        'dart',
         'rust',
         'bash',
         'css',

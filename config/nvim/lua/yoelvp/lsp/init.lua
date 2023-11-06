@@ -84,6 +84,24 @@ lsp.svelte.setup({
   capabilities = capabilities
 })
 
+lsp.dartls.setup({
+  cmd = { 'dart', 'language-server', '--protocol=lsp' },
+  filetype = { 'dart' },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    outline = true,
+    suggestFromUnimportedLibraries = true
+  },
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true
+    }
+  }
+})
+
 lsp.intelephense.setup({
   on_atach = on_attach,
   capabilities = capabilities,
