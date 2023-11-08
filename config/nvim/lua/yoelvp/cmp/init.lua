@@ -1,6 +1,7 @@
 local cmp_ok, cmp = pcall(require, 'cmp')
 local luasnip_ok, luasnip = pcall(require, 'luasnip')
 local lspkind_ok, lspkind = pcall(require, 'lspkind')
+local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
 
 if not cmp_ok then
   return
@@ -11,6 +12,8 @@ end
 if not lspkind_ok then
   return
 end
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 
 cmp.setup({
   snippet = {

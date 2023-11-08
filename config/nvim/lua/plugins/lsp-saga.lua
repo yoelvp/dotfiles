@@ -8,10 +8,10 @@ return {
     require('lspsaga').setup({
       ui = {
         devicon = true,
-        code_action = '',
-        actionfix = ' ',
+        code_action = nil,
+        actionfix = nil,
         kind = nil,
-        imp_sign = '󰳛 ',
+        imp_sign = nil,
         lines = { '┗', '┣', '┃', '━', '┏' },
       },
       symbol_in_winbar = {
