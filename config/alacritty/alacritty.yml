@@ -34,11 +34,17 @@ font:
   normal:
     family: CaskaydiaCove Nerd Font
     style: Bold
+  bold:
+    family: CaskaydiaCove Nerd Font
+    style: bold
   italic:
     family: VictorMono Nerd Font
     style: Bold Italic
+  bold_italic:
+    family: VictorMono Nerd Font
+    style: Bold Italic
 
-  size: 9.0
+  size: 8.0
 
 colors:
   normal:
