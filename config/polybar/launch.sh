@@ -12,7 +12,13 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 polybar -q primary -c "$DIR"/config.ini &
 
-#if [[ $(xrandr -q | grep "HDMI-1 connected") ]]; then
-#  polybar -q top_ext -c "$DIR"/config.ini &
-#fi
-# polybar -q bottom -c "$DIR"/config.ini &
+if [[ $(xrandr -q | grep "HDMI-1 connected") ]]; then
+ polybar -q secondary -c "$DIR"/config.ini &
+fi
+
+# [bar/secondary]
+# inherit = bar/main
+# monitor = HDMI-1
+# modules-left = launcher sep workspaces
+# modules-center = title
+# modules-right = filesystem sep updates
