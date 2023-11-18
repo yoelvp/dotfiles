@@ -1,0 +1,27 @@
+{
+    "workspace.library": [
+        "/home/yoelvp/.config/nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/lazy.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/cmp-nvim-lsp",
+        "/home/yoelvp/.local/share/nvim/lazy/mason-tool-installer.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/null-ls.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/nvim-lspconfig",
+        "/home/yoelvp/.local/share/nvim/lazy/mason-lspconfig.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/mason.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/toggleterm.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/nvim-web-devicons",
+        "/home/yoelvp/.local/share/nvim/lazy/lualine.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/nvim-autopairs",
+        "/home/yoelvp/.local/share/nvim/lazy/plenary.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/gitsigns.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/template-string.nvim",
+        "/home/yoelvp/.local/share/nvim/lazy/onedarkpro.nvim",
+        "/usr/share/nvim/runtime",
+        "/usr/lib/nvim",
+        "/home/yoelvp/.local/state/nvim/lazy/readme",
+        "/home/yoelvp/.local/share/nvim/lazy/cmp-nvim-lsp/after",
+        "/home/yoelvp/.local/share/nvim/lazy/onedarkpro.nvim/after",
+        "${3rd}/luv/library"
+    ],
+    "workspace.checkThirdParty": "Disable"
+}
