@@ -112,6 +112,9 @@ lsp.intelephense.setup({
     intelephense = {
       format = {
         braces = 'k&r'
+      },
+      completion = {
+        fullyQualifyGlobalConstants = true
       }
     }
   }
