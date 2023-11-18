@@ -35,7 +35,7 @@ return {
         'jsonls',
         'tsserver',
         'lua_ls',
-        'rescriptls',
+        -- 'rescript-language-server',
         'tailwindcss',
         'svelte',
         'intelephense'
