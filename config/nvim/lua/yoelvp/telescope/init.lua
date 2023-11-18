@@ -14,17 +14,17 @@ telescope.setup({
   winblend = 20,
   defaults = {
     file_ignore_patterns = {
-      '.git',
-      'node_modules',
-      'vendor',
-      'target',
-      '.vscode',
-      '.idea',
-      'build',
-      'dist',
-      '.dart_tool',
-      '.next',
-      '.svelte'
+      '.git/.*',
+      'node_modules/.*',
+      'vendor/.*',
+      'target/.*',
+      '.vscode/.*',
+      '.idea/.*',
+      'build/.*',
+      'dist/.*',
+      '.dart_tool/.*',
+      '.next/.*',
+      '.svelte-kit/.*'
     }
   },
   layout_config = {
