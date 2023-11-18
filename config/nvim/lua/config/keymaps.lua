@@ -16,32 +16,33 @@ keymap('n', '<A-z>', ':set wrap!<CR>', { silent = true })
 -- Select all
 keymap('n', '<C-a>', 'gg<S-v>G', opts)
 
+-- Move to window
+keymap('n', 'sh', '<C-w>h', opts)
+keymap('n', 'sl', '<C-w>l', opts)
+keymap('n', 'sj', '<C-w>j', opts)
+keymap('n', 'sk', '<C-w>k', opts)
+
 -- Horizontal split window
-keymap('n', 'ss', ':split<CR><C-w>w', opts)
+keymap('n', 'ss', ':split<CR> :wincmd j<CR>', opts)
 
 -- Vertical split window
-keymap('n', 'sv', ':vsplit<CR><C-w>w', opts)
+keymap('n', 'sv', ':vsplit<CR> :wincmd l<CR>', opts)
 
 -- Vertical split terminal
-keymap('n', 'st', ':vsplit<CR><C-w>w', opts)
+-- keymap('n', 'st', ':vsplit<CR><C-w>w', opts)
 
 -- Format code
 keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts)
 
 -- Keymaps LSP
--- keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
+keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 keymap('n', 'rn', ':lua vim.lsp.buf.rename()<CR>', opts)
--- keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
--- keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
--- keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
--- keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
+keymap('n', 'H', ':lua vim.lsp.buf.hover()<CR>', opts)
+keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
+keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
+keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
 -- keymap('n', '<leader>gl', ':lua vim.diagnostic.setloclist()<CR>', opts)
-
--- Move window
-keymap('n', 'sh', '<C-w>h', opts)
-keymap('n', 'sl', '<C-w>l', opts)
-keymap('n', 'sj', '<C-w>j', opts)
-keymap('n', 'sk', '<C-w>k', opts)
 
 -- Move next buffer
 keymap('n', '<Tab>', ':bnext<CR>', opts)
