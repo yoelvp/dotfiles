@@ -113,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="lsd"
 alias la="lsd -la"
+alias ll="lsd -A"
 alias lh="lsd -lh"
 alias cat="bat"
 alias vim="nvim"
@@ -130,6 +131,7 @@ alias update-keys="sudo pacman-key --refresh-keys"
 alias wifi-connect="nmcli dev wifi connect VALVERDE password valverde2002"
 
 alias nginx-start="sudo systemctl start nginx ; sudo systemctl start mysqld ; sudo systemctl start php-fpm"
+alias nginx-restart="sudo systemctl restart nginx ; sudo systemctl restart mysqld ; sudo systemctl restart php-fpm"
 alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mysqld ; sudo systemctl stop php-fpm"
 
 # Time
@@ -166,7 +168,3 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# export FVM_DIR="$HOME/.fvm"
-# [ -s "$FVM_DIR/fvm.sh" ] && \. "$FVM_DIR/fvm.sh"  # This loads fvm
-# [ -s "$FVM_DIR/bash_completion" ] && \. "$FVM_DIR/bash_completion"  # This loads fvm bash_completion
