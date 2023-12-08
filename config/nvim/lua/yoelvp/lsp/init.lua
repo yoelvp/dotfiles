@@ -41,6 +41,13 @@ lsp.tailwindcss.setup({
   cmd = { 'tailwindcss-language-server', '--stdio' }
 })
 
+lsp.astro.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'astro-ls', '--stdio' },
+  filetypes = { 'astro' }
+})
+
 lsp.html.setup({
   on_atach = on_attach,
   capabilities = capabilities
