@@ -13,7 +13,6 @@ return {
       ensure_installed = {
         'c',
         'lua',
-        'dart',
         'rust',
         'bash',
         'css',
@@ -25,12 +24,9 @@ return {
         'markdown_inline',
         'tsx',
         'typescript',
-        'http',
-        'json',
         'sql',
         'svelte',
-        'php',
-        'kotlin'
+        'php'
       },
       sync_install = true,
       auto_install = true,

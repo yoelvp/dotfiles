@@ -1,8 +1,8 @@
 return {
   'olimorris/onedarkpro.nvim',
-  enabled = true,
-  lazy = false,
-  priority = 1000,
+  enabled = false,
+  lazy = true,
+  priority = 0,
   config = function()
     require('onedarkpro').setup({
       styles = {

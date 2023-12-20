@@ -1,5 +1,6 @@
 return {
   'axelvc/template-string.nvim',
+  event = 'InsertEnter',
   config = function()
     local ok, template_string = pcall(require, 'template-string')
 
