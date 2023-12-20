@@ -81,7 +81,7 @@ vim.keymap.set(
     telescope.extensions.media_files.media_files({
       path = '%:p:h',
       cwd = vim.fn.expand('%:p:h'),
-      respect_gitignore = false,
+      -- respect_gitignore = false,
       hidden = true,
       grouped = true,
       initial_mode = 'normal',
