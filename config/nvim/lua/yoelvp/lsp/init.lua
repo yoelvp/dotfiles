@@ -1,16 +1,9 @@
-local lsp_ok, lsp = pcall(require, 'lspconfig')
-local nvim_lsp_ok, nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+local lsp = require('lspconfig')
+local nvim_lsp = require('cmp_nvim_lsp')
+local util = require('lspconfig/util')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = nvim_lsp.default_capabilities(capabilities)
-
-if not lsp_ok then
-  return
-end
-
-if not nvim_lsp_ok then
-  return
-end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -67,6 +60,7 @@ lsp.rust_analyzer.setup({
   on_atach = on_attach,
   capabilities = capabilities,
   filetypes = { 'rust' },
+  root_dir = util.root_pattern('Cargo.toml'),
   settings = {
     ['rust-analyzer'] = {
       cargo = {
