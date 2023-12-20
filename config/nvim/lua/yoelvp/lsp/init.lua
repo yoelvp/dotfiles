@@ -81,32 +81,9 @@ lsp.bashls.setup({
   capabilities = capabilities
 })
 
-lsp.sqlls.setup({
-  on_atach = on_attach,
-  capabilities = capabilities
-})
-
 lsp.svelte.setup({
   on_atach = on_attach,
   capabilities = capabilities
-})
-
-lsp.dartls.setup({
-  cmd = { 'dart', 'language-server', '--protocol=lsp' },
-  filetype = { 'dart' },
-  init_options = {
-    closingLabels = true,
-    flutterOutline = true,
-    onlyAnalyzeProjectsWithOpenFiles = true,
-    outline = true,
-    suggestFromUnimportedLibraries = true
-  },
-  settings = {
-    dart = {
-      completeFunctionCalls = true,
-      showTodos = true
-    }
-  }
 })
 
 lsp.intelephense.setup({
@@ -119,9 +96,6 @@ lsp.intelephense.setup({
     intelephense = {
       format = {
         braces = 'k&r'
-      },
-      completion = {
-        fullyQualifyGlobalConstants = true
       }
     }
   }
