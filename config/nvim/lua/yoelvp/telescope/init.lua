@@ -1,8 +1,6 @@
-local ok, telescope = pcall(require, 'telescope')
+local telescope = require('telescope')
+local fb_actions = require('telescope').extensions.file_browser.actions
 
-if not ok then
-  return
-end
 
 telescope.load_extension('media_files')
 telescope.load_extension('file_browser')
@@ -41,6 +39,12 @@ telescope.setup({
     file_browser = {
       theme = 'dropdown',
       hijack_netrw = true,
+      mappings = {
+        ['n'] = {
+          ['N'] = fb_actions.create,
+          ['h'] = fb_actions.goto_parent_dir
+        }
+      }
     },
   },
 })
@@ -81,7 +85,7 @@ vim.keymap.set(
     telescope.extensions.media_files.media_files({
       path = '%:p:h',
       cwd = vim.fn.expand('%:p:h'),
-      -- respect_gitignore = false,
+      respect_gitignore = false,
       hidden = true,
       grouped = true,
       initial_mode = 'normal',
