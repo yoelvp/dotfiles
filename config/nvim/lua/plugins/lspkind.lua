@@ -2,9 +2,7 @@ return {
   'onsails/lspkind-nvim',
   lazy = true,
   config = function()
-    local ok, kind = pcall(require, 'lspkind')
-
-    if (not ok) then return end
+    local kind = require('lspkind')
 
     kind.init({
       mode = 'symbol_text',

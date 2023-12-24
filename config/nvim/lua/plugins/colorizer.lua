@@ -5,7 +5,7 @@ return {
     require('colorizer').setup({
       '*',
       'markdown',
-      css = { rgb_fn = true },
+      css = { rgb_fn = true, names = true },
       html = { names = true }
     }, {
       mode = 'background'

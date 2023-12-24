@@ -1,12 +1,7 @@
 return {
   'jose-elias-alvarez/null-ls.nvim',
   config = function()
-    local ok, null_ls = pcall(require, 'null-ls')
-
-    if not ok then
-      return
-    end
-
+    local null_ls = require('null-ls')
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
     local code_actions = null_ls.builtins.code_actions
@@ -41,12 +36,12 @@ return {
       code_actions.shellcheck,
     }
 
-    local lsp_formatting = function(bufnr)
-      vim.lsp.buf.format({
-        filter = function(client) return client.name == 'null-ls' end,
-        bufnr = bufnr
-      })
-    end
+    -- local lsp_formatting = function(bufnr)
+    --   vim.lsp.buf.format({
+    --     filter = function(client) return client.name == 'null-ls' end,
+    --     bufnr = bufnr
+    --   })
+    -- end
 
     -- if you want to set up formatting on save, you can use this as a callback
     -- local augroup = vim.api.nvim_create_augroup('LspFormatting', {})

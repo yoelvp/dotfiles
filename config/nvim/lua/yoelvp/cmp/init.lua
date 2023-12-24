@@ -1,23 +1,14 @@
-local cmp_ok, cmp = pcall(require, 'cmp')
-local luasnip_ok, luasnip = pcall(require, 'luasnip')
-local lspkind_ok, lspkind = pcall(require, 'lspkind')
-local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+local lspkind = require('lspkind')
+local autopairs = require('nvim-autopairs.completion.cmp')
 
-if not cmp_ok then
-  return
-end
-if not luasnip_ok then
-  return
-end
-if not lspkind_ok then
-  return
-end
-
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+-- cmp.event:on('confirm_done', autopairs.on_confirm_done({ map_char = { tex = '' } }))
+cmp.event:on('confirm_done', autopairs.on_confirm_done())
 
 cmp.setup({
   snippet = {
-    expand = function(args) luasnip.lsp_expand(args.body) end,
+    expand = function(args) luasnip.lsp_expand(args.body) end
   },
   window = {
     completion = cmp.config.window.bordered(),
@@ -52,9 +43,7 @@ cmp.setup({
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'path' },
-    { name = 'buffer', keyword_length = 4 },
-    { name = 'cmdline' }
+    { name = 'path' }
   }),
   formatting = {
     format = lspkind.cmp_format({
@@ -69,27 +58,6 @@ cmp.setup({
       }
     })
   }
-})
-
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer', keyword_length = 4 }
-  }
-})
-
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    {
-      name = 'cmdline',
-      option = {
-        ignore_cmds = { 'Man', '!' }
-      }
-    }
-  })
 })
 
 vim.cmd([[

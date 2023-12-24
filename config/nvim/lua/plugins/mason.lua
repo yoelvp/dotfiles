@@ -4,15 +4,8 @@ return {
     'williamboman/mason-lspconfig.nvim',
   },
   config = function()
-    local ok, mason = pcall(require, 'mason')
-    local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
-
-    if not ok then
-      return
-    end
-    if not mason_lsp_ok then
-      return
-    end
+    local mason = require('mason')
+    local mason_lsp = require('mason-lspconfig')
 
     -- Mason config
     mason.setup({

@@ -12,11 +12,6 @@ autocmd(
   }
 )
 
--- save file when move another file
--- vim.cmd([[
---   autocmd BufLeave * silent! wall
--- ]])
-
 -- Highlight the copied block
 autocmd(
   'TextYankPost',
@@ -57,7 +52,3 @@ autocmd(
     end
   }
 )
-
--- cmd([[
---   au BufNewFile *.tpl Or ~/.config/nvim/templates/php.tpl
--- ]])

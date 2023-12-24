@@ -2,9 +2,7 @@ return {
   'lewis6991/gitsigns.nvim',
   dependencies = 'nvim-lua/plenary.nvim',
   config = function()
-    local gitsigns_ok, gitsigns = pcall(require, 'gitsigns')
-
-    if (not gitsigns_ok) then return end
+    local gitsigns = require('gitsigns')
 
     gitsigns.setup({
       signcolumn = true,
