@@ -5,10 +5,10 @@ return {
     ft = 'rust',
     dependencies = 'neovim/nvim-lspconfig',
     config = function(_, opts)
-      local rust = require('rust-tools')
+      local rust_tools = require('rust-tools')
 
-      rust.inlay_hints.set()
-      rust.setup(opts)
+      rust_tools.setup(opts)
+      rust_tools.inlay_hints.set()
     end
   },
 
@@ -18,6 +18,7 @@ return {
     ft = { 'rust', 'toml' },
     config = function(_, opts)
       local crates = require('crates')
+
       crates.setup(opts)
       crates.show()
     end
