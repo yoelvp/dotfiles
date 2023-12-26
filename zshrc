@@ -134,6 +134,10 @@ alias nginx-start="sudo systemctl start nginx ; sudo systemctl start mysqld ; su
 alias nginx-restart="sudo systemctl restart nginx ; sudo systemctl restart mysqld ; sudo systemctl restart php-fpm"
 alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mysqld ; sudo systemctl stop php-fpm"
 
+# Mount o umount disk
+alias mount-tosshiba="sudo mkdir /run/mount/yoelvp/TOSSHIBA ; sudo mount /dev/sda1 /run/mount/yoelvp/TOSSHIBA"
+alias umount-tosshiba="sudo umount /run/mount/yoelvp/TOSSHIBA -R"
+
 # Time
 alias the-time="wttr -m"
 alias weather="wttr Lima"
