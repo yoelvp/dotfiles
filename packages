@@ -5,6 +5,8 @@ sudo pacman -S --noconfirm neofetch zsh alacritty kitty bspwm sxhkd picom polyba
 sudo pacman -S --noconfirm lsd bat mdbat bashtop htop udev ntfs-3g gvfs-mtp gvfs-gphoto2 reflector lxappearance
 sudo pacman -S --noconfirm nvidia nvidia-settings nvidia-utils lib32-nvidia-utils cuda opencl-nvidia  lib32-opencl-nvidia vdpauinfo clinfo
 
+paru -S wttr cava
+
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting"
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
