@@ -32,11 +32,11 @@ window:
 # Font
 font:
   normal:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaMono Nerd Font
     style: Bold
   bold:
-    family: CaskaydiaCove Nerd Font
-    style: bold
+    family: CaskaydiaMono Nerd Font
+    style: Bold
   italic:
     family: VictorMono Nerd Font
     style: Bold Italic
