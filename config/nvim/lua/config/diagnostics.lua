@@ -4,8 +4,8 @@ vim.diagnostic.config({
 
 local signs = {
   Error = '',
-  Warn = '',
-  Hint = '',
+  Warn = '',
+  Hint = '󰌶',
   Info = ''
 }
 
