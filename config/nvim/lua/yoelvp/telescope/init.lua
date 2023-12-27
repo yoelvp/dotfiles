@@ -66,7 +66,7 @@ vim.keymap.set(
     })
   end, opts)
 
-vim.keymap.set('n', 'fb', function()
+vim.keymap.set('n', 'bf', function()
   require('telescope.builtin').buffers({
     noignore = false,
     hidden = true,
@@ -80,7 +80,7 @@ end, opts)
 
 vim.keymap.set(
   'n',
-  'fm',
+  'mf',
   function()
     telescope.extensions.media_files.media_files({
       path = '%:p:h',
@@ -109,7 +109,7 @@ vim.keymap.set('n', 'ft', function()
   })
 end, opts)
 
-vim.keymap.set('n', 'fh', function()
+vim.keymap.set('n', 'ht', function()
   require('telescope.builtin').help_tags({
     path = '%:p:h',
     cwd = vim.fn.expand('%:p:h'),
