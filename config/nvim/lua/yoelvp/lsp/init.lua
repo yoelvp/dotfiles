@@ -1,18 +1,19 @@
+local keymap = vim.keymap.set
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local lsp = require('lspconfig')
 local nvim_lsp = require('cmp_nvim_lsp')
-local util = require('lspconfig/util')
-local keymap = vim.keymap.set
+local util = require('lspconfig.util')
 local ts_builtin = require('telescope.builtin')
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local opts = { noremap = true, silent = true }
+
 capabilities = nvim_lsp.default_capabilities(capabilities)
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-    local opts = { noremap = true, silent = true }
     keymap('n', 'gd', vim.lsp.buf.definition, opts, { desc = 'Go to definition' })
     keymap('n', 'gr', ts_builtin.lsp_references, opts, { desc = 'Go to references' })
     keymap('n', 'rn', ':lua vim.lsp.buf.rename()<CR>', opts, { desc = 'Rename variables' })
@@ -21,16 +22,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
     keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
     keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
-    -- keymap('n', '<leader>gl', ':lua vim.diagnostic.setloclist()<CR>', opts)
+    -- keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
   end,
 })
 
 local on_attach = function()
-  vim.keymap.set('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true })
+  keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
 end
 
 lsp.astro.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'astro-ls', '--stdio' },
   filetypes = { 'astro' },
@@ -41,13 +42,13 @@ lsp.astro.setup({
 })
 
 lsp.bashls.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'bash-language-server', 'start' }
 })
 
 lsp.cssls.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { 'css', 'scss', 'less' },
   settings = {
@@ -64,13 +65,13 @@ lsp.cssls.setup({
 })
 
 lsp.html.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { 'html' }
 })
 
 lsp.intelephense.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { 'php', 'blade', 'blade.php' },
   cmd = { 'intelephense', '--stdio' },
@@ -85,64 +86,47 @@ lsp.intelephense.setup({
 })
 
 lsp.jsonls.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { 'json', 'jsonc' }
 })
 
 lsp.lua_ls.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'lua' },
   filetypes = { 'lua' },
-  root_dir = util.root_pattern(
-    '.luarc.json',
-    '.luarc.jsonc',
-    '.luacheckrc',
-    '.stylua.toml',
-    'stylua.toml',
-    'selene.toml',
-    'selene.yml',
-    '.git'
-  ),
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-      client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT'
-          },
-          diagnostics = {
-            globals = { 'vim' }
-          },
-          workspace = {
-            checkThirdParty = false,
-            library = {
-              vim.env.VIMRUNTIME
-            }
-            -- library = vim.api.nvim_get_runtime_file('', true),
-          }
-        }
-      })
-
-      client.notify('workspace/didChangeConfiguration', {
-        settings = { client.config.settings }
-      })
-    end
-
-    return true
-  end
-})
-
-lsp.remark_ls.setup({
-  on_atach = on_attach,
-  capabilities = capabilities,
-  filetypes = { 'markdown' }
+  -- root_dir = util.root_pattern(
+  --   '.luarc.json',
+  --   '.luarc.jsonc',
+  --   '.luacheckrc',
+  --   '.stylua.toml',
+  --   'stylua.toml',
+  --   'selene.toml',
+  --   'selene.yml',
+  --   '.git'
+  -- ),
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT'
+      },
+      diagnostics = {
+        globals = { 'vim' }
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = vim.api.nvim_get_runtime_file('', true),
+      },
+      hint = {
+        enable = true
+      }
+    }
+  }
 })
 
 lsp.rust_analyzer.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'rust-analyzer' },
   filetypes = { 'rust' },
@@ -160,14 +144,14 @@ lsp.rust_analyzer.setup({
 })
 
 lsp.svelte.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { 'svelte' },
   root_dir = util.root_pattern('package.json', '.git', 'tsconfig.json', 'jsconfig.json')
 })
 
 lsp.tailwindcss.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'tailwindcss-language-server', '--stdio' },
   root_dir = util.root_pattern(
@@ -192,7 +176,7 @@ lsp.tailwindcss.setup({
 })
 
 lsp.tsserver.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'typescript-language-server', '--stdio' },
   filetypes = {
@@ -210,7 +194,7 @@ lsp.tsserver.setup({
 })
 
 lsp.volar.setup({
-  on_atach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   on_new_config = function(new_config, new_root_directory)
     new_config.init_options.typescript.tsdk = function()
@@ -237,6 +221,6 @@ vim.diagnostic.config({
   },
   update_in_insert = true,
   float = {
-    source = 'always', -- Or 'if_many'
-  },
+    source = 'always'
+  }
 })
