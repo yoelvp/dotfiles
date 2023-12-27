@@ -22,10 +22,10 @@ opt.relativenumber = true
 opt.numberwidth = 2
 opt.wrap = false
 opt.laststatus = 2
-opt.showtabline = 2
+-- opt.showtabline = 2
 
-opt.scrolloff = 10
-opt.sidescrolloff = 10
+opt.scrolloff = 5
+opt.sidescrolloff = 5
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 opt.linespace = 0
