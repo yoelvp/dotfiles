@@ -29,9 +29,6 @@ keymap('n', 'ss', ':split<CR> :wincmd j<CR>', opts)
 -- Vertical split window
 keymap('n', 'sv', ':vsplit<CR> :wincmd l<CR>', opts)
 
--- Format code
--- keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
-
 -- Recharge file
 keymap('n', '<leader>rl', ':luafi %<CR>', opts, { desc = 'Realod file config' })
 
@@ -55,6 +52,9 @@ keymap('n', '<leader>lg', ':LazyGit<CR>', opts, { desc = 'Open lazygit' })
 
 -- Neotree
 keymap('n', 'nf', ':Neotree toggle<CR>', opts, { desc = 'Toggle neotree' })
+
+-- Format document
+keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true }, { desc = 'Format document'})
 
 -- Compile and run rust projects
 keymap('n', '<leader>rmk', '[[:w<CR>:term cargo run<CR>]]', opts, { desc = 'Compile rust projects' })
