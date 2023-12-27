@@ -21,17 +21,19 @@ return {
     -- Mason Lspconfig
     mason_lsp.setup({
       ensure_installed = {
-        'rust_analyzer',
+        'astro',
         'bashls',
         'cssls',
         'html',
+        'intelephense',
         'jsonls',
-        'tsserver',
         'lua_ls',
-        'astro',
-        'tailwindcss',
+        'remark_ls',
+        'rust_analyzer',
         'svelte',
-        'intelephense'
+        'tailwindcss',
+        'tsserver',
+        'volar'
       },
       automatic_installation = true
     })
