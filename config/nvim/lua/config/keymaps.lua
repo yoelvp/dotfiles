@@ -1,4 +1,5 @@
 local keymap = vim.keymap.set
+local utils = require('yoelvp.utils')
 local opts = { noremap = true, silent = true }
 
 -- disable macros
@@ -28,11 +29,8 @@ keymap('n', 'ss', ':split<CR> :wincmd j<CR>', opts)
 -- Vertical split window
 keymap('n', 'sv', ':vsplit<CR> :wincmd l<CR>', opts)
 
--- Vertical split terminal
--- keymap('n', 'st', ':vsplit<CR><C-w>w', opts)
-
 -- Format code
-keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
+-- keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
 
 -- Recharge file
 keymap('n', '<leader>rl', ':luafi %<CR>', opts, { desc = 'Realod file config' })
@@ -45,14 +43,18 @@ keymap('n', '<C-w>', ':bdelete<CR>', opts)
 -- Move line up and down
 keymap('n', '<A-j>', '<cmd>m .+1<cr>==', opts, { desc = 'Move down' })
 keymap('n', '<A-k>', '<cmd>m .-2<cr>==', opts, { desc = 'Move up' })
-keymap('v', '<A-j>', "<cmd>m '>+1<cr>gv=gv", opts, { desc = 'Move down' })
-keymap('v', '<A-k>', "<cmd>m '<-2<cr>gv=gv", opts, { desc = 'Move up' })
+keymap('x', '<A-j>', utils.move_selected_down, opts, { desc = 'Move block down' })
+keymap('x', '<A-k>', utils.move_selected_up, opts, { desc = 'Move block up' })
+
+-- Duplicate line
+keymap('n', '<S-A-Up>', utils.duplicate_line_above, opts, { desc = 'Duplicate line above' })
+keymap('n', '<S-A-Down>', utils.duplicate_line_below, opts, { desc = 'Duplicate line below' })
 
 -- Open lazygit
 keymap('n', '<leader>lg', ':LazyGit<CR>', opts, { desc = 'Open lazygit' })
 
 -- Neotree
-keymap('n', 'nf', ':Neotree toggle<CR>', opts, { desc = 'Toggle neotree'})
+keymap('n', 'nf', ':Neotree toggle<CR>', opts, { desc = 'Toggle neotree' })
 
 -- Compile and run rust projects
 keymap('n', '<leader>rmk', '[[:w<CR>:term cargo run<CR>]]', opts, { desc = 'Compile rust projects' })
