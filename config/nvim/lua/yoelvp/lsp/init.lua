@@ -1,13 +1,28 @@
 local lsp = require('lspconfig')
 local nvim_lsp = require('cmp_nvim_lsp')
 local util = require('lspconfig/util')
+local keymap = vim.keymap.set
+local ts_builtin = require('telescope.builtin')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = nvim_lsp.default_capabilities(capabilities)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev) vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc' end,
+  callback = function(ev)
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    local opts = { noremap = true, silent = true }
+    keymap('n', 'gd', vim.lsp.buf.definition, opts, { desc = 'Go to definition' })
+    keymap('n', 'gr', ts_builtin.lsp_references, opts, { desc = 'Go to references' })
+    keymap('n', 'rn', ':lua vim.lsp.buf.rename()<CR>', opts, { desc = 'Rename variables' })
+    keymap('n', 'H', ':lua vim.lsp.buf.hover()<CR>', opts)
+    keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
+    keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
+    keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+    keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
+    -- keymap('n', '<leader>gl', ':lua vim.diagnostic.setloclist()<CR>', opts)
+  end,
 })
 
 local on_attach = function()
@@ -83,9 +98,9 @@ lsp.svelte.setup({
 lsp.intelephense.setup({
   on_atach = on_attach,
   capabilities = capabilities,
-  filetypes = { 'php' },
+  filetypes = { 'php', 'blade', 'blade.php' },
   cmd = { 'intelephense', '--stdio' },
-  -- root_dir = { 'composer.json', '.git' },
+  root_dir = util.root_pattern('composer.json', '.git', '.editorconfig'),
   settings = {
     intelephense = {
       format = {

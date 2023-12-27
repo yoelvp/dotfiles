@@ -37,16 +37,6 @@ keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts,
 -- Recharge file
 keymap('n', '<leader>rl', ':luafi %<CR>', opts, { desc = 'Realod file config' })
 
--- Keymaps LSP
-keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts, { desc = 'Go to definition'})
-keymap('n', 'rn', ':lua vim.lsp.buf.rename()<CR>', opts, { desc = 'Rename variables'})
-keymap('n', 'H', ':lua vim.lsp.buf.hover()<CR>', opts)
-keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
-keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
-keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
-keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
--- keymap('n', '<leader>gl', ':lua vim.diagnostic.setloclist()<CR>', opts)
-
 -- Move next buffer
 keymap('n', '<Tab>', ':bnext<CR>', opts, { desc = 'Move to next buffer' })
 keymap('n', '<S-Tab>', ':bprevious<CR>', opts, { desc = 'Move to previous buffer' })
