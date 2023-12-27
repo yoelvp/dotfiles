@@ -11,6 +11,6 @@ return {
     require('mini.indentscope').setup({
       symbol = ''
     })
-    require('mini.animate').setup()
+    -- require('mini.animate').setup()
   end
 }
