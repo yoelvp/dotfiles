@@ -29,70 +29,44 @@ local on_attach = function()
   vim.keymap.set('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true })
 end
 
-lsp.tsserver.setup({
-  on_atach = on_attach,
-  capabilities = capabilities,
-  filetypes = {
-    'javascript',
-    'javascriptreact',
-    'javascript.jsx',
-    'typescript',
-    'typescriptreact',
-    'typescript.tsx',
-  },
-  cmd = { 'typescript-language-server', '--stdio' }
-})
-
-lsp.tailwindcss.setup({
-  on_atach = on_attach,
-  capabilities = capabilities,
-  cmd = { 'tailwindcss-language-server', '--stdio' }
-})
-
 lsp.astro.setup({
   on_atach = on_attach,
   capabilities = capabilities,
   cmd = { 'astro-ls', '--stdio' },
-  filetypes = { 'astro' }
-})
-
-lsp.html.setup({
-  on_atach = on_attach,
-  capabilities = capabilities
-})
-
-lsp.jsonls.setup({
-  on_atach = on_attach,
-  capabilities = capabilities
-})
-
-lsp.cssls.setup({
-  on_atach = on_attach,
-  capabilities = capabilities
-})
-
-lsp.rust_analyzer.setup({
-  on_atach = on_attach,
-  capabilities = capabilities,
-  filetypes = { 'rust' },
-  root_dir = util.root_pattern('Cargo.toml'),
-  settings = {
-    ['rust-analyzer'] = {
-      cargo = {
-        allFeatures = true
-      }
-    }
-  }
+  filetypes = { 'astro' },
+  init_options = {
+    typescript = {}
+  },
+  root_dir = util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')
 })
 
 lsp.bashls.setup({
   on_atach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  cmd = { 'bash-language-server', 'start' }
 })
 
-lsp.svelte.setup({
+lsp.cssls.setup({
   on_atach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { 'css', 'scss', 'less' },
+  settings = {
+    css = {
+      validate = true
+    },
+    less = {
+      validate = true
+    },
+    scss = {
+      validate = true
+    }
+  }
+})
+
+lsp.html.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'html' }
 })
 
 lsp.intelephense.setup({
@@ -110,23 +84,151 @@ lsp.intelephense.setup({
   }
 })
 
+lsp.jsonls.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'json', 'jsonc' }
+})
+
 lsp.lua_ls.setup({
   on_atach = on_attach,
   capabilities = capabilities,
+  cmd = { 'lua' },
+  filetypes = { 'lua' },
+  root_dir = util.root_pattern(
+    '.luarc.json',
+    '.luarc.jsonc',
+    '.luacheckrc',
+    '.stylua.toml',
+    'stylua.toml',
+    'selene.toml',
+    'selene.yml',
+    '.git'
+  ),
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+      client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT'
+          },
+          diagnostics = {
+            globals = { 'vim' }
+          },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              vim.env.VIMRUNTIME
+            }
+            -- library = vim.api.nvim_get_runtime_file('', true),
+          }
+        }
+      })
+
+      client.notify('workspace/didChangeConfiguration', {
+        settings = { client.config.settings }
+      })
+    end
+
+    return true
+  end
+})
+
+lsp.remark_ls.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'markdown' }
+})
+
+lsp.rust_analyzer.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
+  root_dir = util.root_pattern('Cargo.toml'),
   settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT'
-      },
+    ['rust-analyzer'] = {
       diagnostics = {
-        globals = { 'vim' }
+        enable = true
       },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file('', true),
-        checkThirdParty = false
+      cargo = {
+        allFeatures = true
       }
     }
   }
+})
+
+lsp.svelte.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'svelte' },
+  root_dir = util.root_pattern('package.json', '.git', 'tsconfig.json', 'jsconfig.json')
+})
+
+lsp.tailwindcss.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'tailwindcss-language-server', '--stdio' },
+  root_dir = util.root_pattern(
+    'tailwind.config.js',
+    'tailwind.config.cjs',
+    'tailwind.config.mjs',
+    'tailwind.config.ts',
+    'postcss.config.js',
+    'postcss.config.cjs',
+    'postcss.config.mjs',
+    'postcss.config.ts',
+    'package.json',
+    'node_modules',
+    '.git'
+  ),
+  settings = {
+    tailwindCSS = {
+      classAttributes = { 'class', 'className', 'class:list', 'classList', 'ngClass' },
+      validate = true
+    }
+  }
+})
+
+lsp.tsserver.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'javascript.jsx',
+    'typescript',
+    'typescriptreact',
+    'typescript.tsx',
+  },
+  root_dir = util.root_pattern('tsconfig.json', 'package.json', 'jsconfig.json', '.git'),
+  init_options = {
+    hostInfo = 'neovim'
+  }
+})
+
+lsp.volar.setup({
+  on_atach = on_attach,
+  capabilities = capabilities,
+  on_new_config = function(new_config, new_root_directory)
+    new_config.init_options.typescript.tsdk = function()
+      local global_ts = '/home/yoelvp/.npm/lib/node_modules/typescript/lib'
+      local found_ts = ''
+      local function check_dir(path)
+        found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')
+        if util.path.exists(found_ts) then
+          return path
+        end
+      end
+      if util.search_ancestors(new_root_directory, check_dir) then
+        return found_ts
+      else
+        return global_ts
+      end
+    end
+  end
 })
 
 vim.diagnostic.config({
