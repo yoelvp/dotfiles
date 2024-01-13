@@ -26,4 +26,20 @@ function M.move_selected_up()
   vim.api.nvim_command(select_lines .. "m '>-2")
 end
 
+-- Count unsaved buffers
+function M.count_unsaved_buffers()
+  local unsaved_count = 0
+
+  for _, buffer in ipairs(vim.fn.getbufinfo({modified = true})) do
+    if buffer.name and #buffer.name > 0 then
+      if vim.fn.getbufvar(buffer.bufnr, "&modified") ~= 0 then
+        unsaved_count = unsaved_count + 1
+      end
+    end
+  end
+
+  return unsaved_count
+
+end
+
 return M
