@@ -29,6 +29,7 @@ return {
         'scss',
         'sql',
         'svelte',
+        'styled',
         'toml',
         'tsx',
         'typescript',
