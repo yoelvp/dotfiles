@@ -50,7 +50,7 @@ lsp.bashls.setup({
 lsp.cssls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { 'css', 'scss', 'less' },
+  filetypes = { 'css', 'scss', 'less', 'ts', 'tsx' },
   settings = {
     css = {
       validate = true
@@ -96,16 +96,6 @@ lsp.lua_ls.setup({
   capabilities = capabilities,
   cmd = { 'lua' },
   filetypes = { 'lua' },
-  -- root_dir = util.root_pattern(
-  --   '.luarc.json',
-  --   '.luarc.jsonc',
-  --   '.luacheckrc',
-  --   '.stylua.toml',
-  --   'stylua.toml',
-  --   'selene.toml',
-  --   'selene.yml',
-  --   '.git'
-  -- ),
   settings = {
     Lua = {
       runtime = {
@@ -195,24 +185,7 @@ lsp.tsserver.setup({
 
 lsp.volar.setup({
   on_attach = on_attach,
-  capabilities = capabilities,
-  on_new_config = function(new_config, new_root_directory)
-    new_config.init_options.typescript.tsdk = function()
-      local global_ts = '/home/yoelvp/.npm/lib/node_modules/typescript/lib'
-      local found_ts = ''
-      local function check_dir(path)
-        found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')
-        if util.path.exists(found_ts) then
-          return path
-        end
-      end
-      if util.search_ancestors(new_root_directory, check_dir) then
-        return found_ts
-      else
-        return global_ts
-      end
-    end
-  end
+  capabilities = capabilities
 })
 
 vim.diagnostic.config({
