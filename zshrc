@@ -151,6 +151,7 @@ alias gs="git status"
 alias ga="git add ."
 alias gp="git push"
 alias gpm="git push origin master"
+alias gcs="git config --global credential.helper store"
 
 # Environment variables
 export LC_ALL=en_US.UTF-8
