@@ -1,0 +1,5 @@
+# ~/.shellcheckrc
+
+disable=SC3037
+disable=SC3030
+disable=SC3054
