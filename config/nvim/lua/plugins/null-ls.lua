@@ -1,5 +1,6 @@
 return {
   'jose-elias-alvarez/null-ls.nvim',
+  dependencies = 'nvim-lua/plenary.nvim',
   config = function()
     local null_ls = require('null-ls')
     local formatting = null_ls.builtins.formatting
@@ -7,32 +8,18 @@ return {
     local code_actions = null_ls.builtins.code_actions
 
     local sources = {
-      formatting.eslint_d.with({
-        condition = function(utils)
-          return utils.root_has_file('.eslintrc.json')
-        end
-      }),
-      formatting.stylua,
-      formatting.rustfmt,
-      formatting.prettierd.with({
-        condition = function(utils)
-          return utils.root_has_file('.prettierrc.json')
-        end
-      }),
+      -- Code actions
+      code_actions.eslint_d,
+      code_actions.shellcheck,
 
-      diagnostics.eslint_d.with({
-        condition = function(utils)
-          return utils.root_has_file('.eslintrc.json')
-        end
-      }),
+      -- Diagnostics
+      diagnostics.eslint_d,
       diagnostics.shellcheck,
 
-      code_actions.eslint_d.with({
-        condition = function(utils)
-          return utils.root_has_file('.eslintrc.json')
-        end
-      }),
-      code_actions.shellcheck,
+      -- Formatting
+      formatting.eslint_d,
+      formatting.stylua,
+      formatting.rustfmt,
     }
 
     null_ls.setup({
