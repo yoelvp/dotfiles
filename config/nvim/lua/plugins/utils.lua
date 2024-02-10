@@ -12,6 +12,7 @@ return {
     config = function()
       require('nvim-autopairs').setup({
         disable_filetype = { 'TelescopePrompt', 'vim' },
+        map_bs = true
       })
     end
   },
