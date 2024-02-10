@@ -28,6 +28,7 @@ configuration {
   hide-scrollbar:               true;
   listview-striped:             false;
   sidebar-mode:                 false;
+  modi:                         "window,run,drun,emoji";
   mode:                         "window,run";
 }
 
