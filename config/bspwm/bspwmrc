@@ -2,10 +2,6 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-# Initialze dunst
-#pkill dunst
-#dunst -config /home/yoelvp/.config/dunst/dunstrc &
-
 # Polybar
 /home/yoelvp/.config/polybar/launch.sh &
 
@@ -19,6 +15,10 @@ bspc config gapless_monocle true
 bspc config focus_follows_pointer true
 bspc config normal_border_color "#cccccc"
 bspc config focused_border_color "#e53935"
+
+# Application
+bspc rule -a Geany state=floating
+bspc rule -a Firefox desktop=^2
 
 # Set keyboard
 setxkbmap latam &
