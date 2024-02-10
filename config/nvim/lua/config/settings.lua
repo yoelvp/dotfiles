@@ -60,4 +60,3 @@ opt.foldmethod = 'indent'
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldminlines = 2
--- opt.shortmess = 'filnxtToOFWIcC'

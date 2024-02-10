@@ -15,7 +15,7 @@ keymap('i', '<C-l>', '<Right>', {})
 keymap('n', '<A-z>', ':set wrap!<CR>', { silent = true })
 
 -- Select all
-keymap('n', '<C-a>', 'gg<S-v>G', opts)
+keymap('n', '<A-a>', 'gg<S-v>G', opts)
 
 -- Move to window
 keymap('n', 'sh', '<C-w>h', opts)

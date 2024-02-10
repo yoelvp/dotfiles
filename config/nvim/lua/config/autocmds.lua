@@ -12,6 +12,11 @@ autocmd(
   }
 )
 
+-- vim.g.VM_maps = {
+--   ['Find Under'] = '<C-s>',
+--   ['Find Subword Under'] = '<C-s>'
+-- }
+
 -- Highlight the copied block
 autocmd(
   'TextYankPost',
