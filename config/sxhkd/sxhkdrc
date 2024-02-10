@@ -12,9 +12,19 @@ super + Return
 alt + space
   rofi -show drun
 
+# emoji program launcher
+super + shift + e
+  rofi -show emoji
+
 # make sxhkd reload its configuration files:
 super + Escape
   pkill -USR1 -x sxhkd
+
+#
+# Open applications
+#
+# super + alt + f
+#   firefox
 
 #
 # bspwm hotkeys
@@ -25,7 +35,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }w
+super + {_,shift + }x
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -126,11 +136,11 @@ super + {Left,Down,Up,Right}
 #
 # Brightness Control
 #
-XF86MonBrightnessUp
-	xbacklight -inc 5%
+# XF86MonBrightnessUp
+# 	light -A 5%
 
-XF86MonBrightnessDown
-	xbacklight -dec 5%
+# XF86MonBrightnessDown
+# 	light -U 5%
 
 
 #
