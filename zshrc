@@ -130,12 +130,12 @@ alias update-mirrorlist="sudo reflector --latest 20 --protocol https --sort rate
 alias update-keys="sudo pacman-key --refresh-keys"
 alias wifi-connect="nmcli dev wifi connect VALVERDE password valverde2002"
 
-alias nginx-start="sudo systemctl start nginx ; sudo systemctl start mysqld ; sudo systemctl start php-fpm"
-alias nginx-restart="sudo systemctl restart nginx ; sudo systemctl restart mysqld ; sudo systemctl restart php-fpm"
-alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mysqld ; sudo systemctl stop php-fpm"
+alias nginx-start="sudo systemctl start nginx ; sudo systemctl start mariadb ; sudo systemctl start php-fpm"
+alias nginx-restart="sudo systemctl restart nginx ; sudo systemctl restart mariadb ; sudo systemctl restart php-fpm"
+alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mariadb ; sudo systemctl stop php-fpm"
 
 # Mount o umount disk
-alias mount-tosshiba="sudo mkdir /run/mount/yoelvp/TOSSHIBA ; sudo mount /dev/sda1 /run/mount/yoelvp/TOSSHIBA"
+alias mount-tosshiba="sudo mkdir /run/mount/yoelvp/TOSHIBA ; sudo mount /dev/sda1 /run/mount/yoelvp/TOSHIBA"
 alias umount-tosshiba="sudo umount /run/mount/yoelvp/TOSSHIBA -R"
 
 # Time
@@ -144,6 +144,9 @@ alias weather="wttr Lima"
 
 ## mysql
 alias my="mycli -h localhost -u root -pyoelvp732"
+
+## keyboard backlight
+# alias keyboard="for i in {00..03}; do sudo bash -c 'echo 7E2553 > /sys/devices/platform/hp-wmi/rgb_zones/zone$i' & done"
 
 # Git aliases
 alias gi="git init"
@@ -157,6 +160,7 @@ alias gcs="git config --global credential.helper store"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export KEYMAP=la-latin1
+export EDITOR=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -174,3 +178,15 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+function tmx {
+  name=$(basename `pwd` | sed -e 's/\.//g')
+
+  if tmux ls 2>&1 | grep "$name"; then
+    tmux attach -t "$name"
+  elif [ -f .envrc ]; then
+    direnv exec / tmux new-session -s "$name"
+  else
+    tmux new-session -s "$name"
+  fi
+}

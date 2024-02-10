@@ -2,7 +2,7 @@
 
 # nvidia_drivers="nvidia nvidia-settings nvidia-utils lib32-nvidia-utils cuda opencl-nvidia  lib32-opencl-nvidia vdpauinfo clinfo"
 fonts="gnu-free-fonts ttf-inconsolata noto-fonts-emoji"
-tools="neofetch zsh alacritty kitty bspwm sxhkd picom polybar rofi pulseaudio pavucontrol lxappearance git ly"
+tools="neofetch zsh alacritty kitty bspwm sxhkd picom polybar rofi rofi-emoji pulseaudio pavucontrol lxappearance git ly"
 utils="lsd bat mdcat bashtop htop udev ntfs-3g gvfs gvfs-mtp gvfs-gphoto2 reflector lxappearance cloudflared cronie feh wmname less"
 paru_packages=(
   "wttr"

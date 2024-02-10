@@ -1,7 +1,5 @@
-#! /bin/sh
+#!/bin/sh
 
 sxhkd &
 exec bspwm
-
-# exec awesome
 
