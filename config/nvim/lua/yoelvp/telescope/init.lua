@@ -37,13 +37,7 @@ telescope.setup({
     },
     file_browser = {
       theme = 'dropdown',
-      hijack_netrw = true,
-      mappings = {
-        ['n'] = {
-          ['N'] = fb_actions.create,
-          ['h'] = fb_actions.goto_parent_dir
-        }
-      }
+      hijack_netrw = true
     },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
