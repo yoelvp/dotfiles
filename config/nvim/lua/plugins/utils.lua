@@ -21,7 +21,37 @@ return {
   {
     'numToStr/Comment.nvim',
     lazy = false,
-    config = true
+    keys = {
+      { 'gcc', mode = 'n', desc = 'Comment toggle current line' },
+      { 'gc', mode = { 'n', 'o' }, desc = 'Comment toggle linewise' },
+      { 'gc', mode = 'x', desc = 'Comment toggle linewise (visual)' },
+      { 'gbc', mode = 'n', desc = 'Comment toggle current block' },
+      { 'gb', mode = { 'n', 'o' }, desc = 'Comment toggle blockwise' },
+      { 'gb', mode = 'x', desc = 'Comment toggle blockwise (visual)' },
+    },
+    config = function(_, opts)
+      require('Comment').setup(opts)
+    end,
+  },
+
+  -- JSX comments
+  {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    lazy = true,
+    opts = {
+      enable_autocmd = false
+    }
+  },
+  {
+    'echasnovski/mini.comment',
+    event = 'VeryLazy',
+    opts = {
+      options = {
+        custom_commentstring = function()
+          return require('ts_context_commentstring.internal').calculate_commentstring() or vim.bo.commentstring
+        end
+      }
+    }
   },
 
   -- TODO comments
