@@ -15,7 +15,7 @@ keymap('i', '<C-l>', '<Right>', {})
 keymap('n', '<A-z>', ':set wrap!<CR>', { silent = true })
 
 -- Select all
-keymap('n', '<A-a>', 'gg<S-v>G', opts)
+keymap('n', '<C-a>', 'gg<S-v>G', opts)
 
 -- Move to window
 keymap('n', 'sh', '<C-w>h', opts)
@@ -44,11 +44,8 @@ keymap('x', '<A-j>', utils.move_selected_down, opts, { desc = 'Move block down' 
 keymap('x', '<A-k>', utils.move_selected_up, opts, { desc = 'Move block up' })
 
 -- Duplicate line
-keymap('n', '<S-A-Up>', utils.duplicate_line_above, opts, { desc = 'Duplicate line above' })
-keymap('n', '<S-A-Down>', utils.duplicate_line_below, opts, { desc = 'Duplicate line below' })
-
--- Open lazygit
-keymap('n', '<leader>lg', ':LazyGit<CR>', opts, { desc = 'Open lazygit' })
+keymap('n', '<S-A-k>', utils.duplicate_line_above, opts, { desc = 'Duplicate line above' })
+keymap('n', '<S-A-j>', utils.duplicate_line_below, opts, { desc = 'Duplicate line below' })
 
 -- Neotree
 keymap('n', 'nf', ':Neotree toggle<CR>', opts, { desc = 'Toggle neotree' })
@@ -59,3 +56,10 @@ keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', { nor
 -- Compile and run rust projects
 keymap('n', '<leader>rmk', '[[:w<CR>:term cargo run<CR>]]', opts, { desc = 'Compile rust projects' })
 keymap('n', '<leader>cmk', '[[:w<CR>:term gcc main.c -o main && ./main<CR>]]', opts, { desc = 'Compile rust projects' })
+
+-- Indent
+keymap('v', '<', '<gv', opts, { desc = 'Indentation to the right' })
+keymap('v', '>', '>gv', opts, { desc = 'Indentation to the left' })
+
+-- Copy all
+keymap('v', 'C-c', '<cmd> %y+ <CR>', opts, { desc = 'Copy whole file' })
