@@ -50,8 +50,9 @@ telescope.setup({
 })
 
 local opts = { noremap = true, silent = true }
+local keymap = vim.keymap
 
-vim.keymap.set(
+keymap.set(
   'n',
   'ff',
   function()
@@ -59,28 +60,26 @@ vim.keymap.set(
       noignore = false,
       hidden = true,
       grouped = true,
-      initial_mode = 'normal',
       layout_config = {
         prompt_position = 'bottom',
       },
     })
   end, opts)
 
-vim.keymap.set('n', 'fbf', function()
+keymap.set('n', 'fbf', function()
   require('telescope.builtin').buffers({
     noignore = false,
     hidden = true,
     grouped = true,
-    initial_mode = 'normal',
     layout_config = {
       prompt_position = 'bottom',
     },
   })
 end, opts)
 
-vim.keymap.set(
+keymap.set(
   'n',
-  'mf',
+  'fmf',
   function()
     telescope.extensions.media_files.media_files({
       path = '%:p:h',
@@ -88,14 +87,13 @@ vim.keymap.set(
       respect_gitignore = false,
       hidden = true,
       grouped = true,
-      initial_mode = 'normal',
       layout_config = {
         prompt_position = 'bottom',
       },
     })
   end, opts)
 
-vim.keymap.set('n', 'fbb', function()
+keymap.set('n', '<leader>bb', function()
   telescope.extensions.file_browser.file_browser({
     path = '%:p:h',
     cwd = vim.fn.expand('%:p:h'),
@@ -105,20 +103,76 @@ vim.keymap.set('n', 'fbb', function()
     initial_mode = 'normal',
     layout_config = {
       prompt_position = 'bottom',
-    },
+    }
   })
 end, opts)
 
-vim.keymap.set('n', 'fht', function()
+keymap.set('n', 'fht', function()
   require('telescope.builtin').help_tags({
     path = '%:p:h',
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
     grouped = true,
-    initial_mode = 'normal',
     layout_config = {
       prompt_position = 'bottom',
     },
+  })
+end, opts)
+
+
+keymap.set('n', 'fgs', function()
+  require('telescope.builtin').grep_string({
+    -- path = '%:p:h',
+    -- cwd = vim.fn.expand('%:p:h'),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    layout_config = {
+      prompt_position = 'bottom',
+    },
+  })
+end, opts)
+
+keymap.set('n', 'flg', function()
+  require('telescope.builtin').live_grep({
+    -- path = '%:p:h',
+    -- cwd = vim.fn.expand('%:p:h'),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    layout_config = {
+      prompt_position = 'bottom',
+    },
+  })
+end, opts)
+
+keymap.set('n', 'frf', function()
+  require('telescope.builtin').lsp_references({
+    path = '%:p:h',
+    cwd = vim.fn.expand('%:p:h'),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    layout_config = {
+      prompt_position = 'bottom',
+    },
+  })
+end, opts)
+
+
+keymap.set('n', 'fgc', function()
+  require('telescope.builtin').git_commits({
+    layout_config = {
+      prompt_position = 'bottom'
+    }
+  })
+end, opts)
+
+keymap.set('n', 'fof', function()
+  require('telescope.builtin').oldfiles({
+    layout_config = {
+      prompt_position = 'bottom'
+    }
   })
 end, opts)
