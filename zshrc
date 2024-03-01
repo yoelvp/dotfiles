@@ -145,6 +145,9 @@ alias weather="wttr Lima"
 ## mysql
 alias my="mycli -h localhost -u root -pyoelvp732"
 
+# VS Codium
+alias code="vscodium"
+
 ## keyboard backlight
 # alias keyboard="for i in {00..03}; do sudo bash -c 'echo 7E2553 > /sys/devices/platform/hp-wmi/rgb_zones/zone$i' & done"
 
@@ -178,6 +181,12 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH=$PATH:$JAVA_HOME/bin
+# export PATH="/usr/lib/jvm/java-21-openjdk/bin/:$PATH"
+
+# Config colors
+export TERM=xterm-256color
 
 function tmx {
   name=$(basename `pwd` | sed -e 's/\.//g')
