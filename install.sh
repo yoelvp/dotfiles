@@ -1,37 +1,66 @@
 #!/bin/bash
 
-current_directory="$PWD"
-user_path="/home/yoelvp"
+dotfiles_path="$PWD"
+config_path="/home/yoelvp/.config"
+home_path="/home/yoelvp"
 
-bash_path="$current_directory/bash"
-zshrc_path="$current_directory/zshrc"
-xinitrc_path="$current_directory/xinitrc"
-xauthority_path="$current_directory/Xauthority"
-p10k_path="$current_directory/.p10k.zsh"
+folders=(
+  "alacritty"
+  "betterlockscreen"
+  "bspwm"
+  "dunst"
+  "kitty"
+  "neofetch"
+  "nvim"
+  "picom"
+  "polybar"
+  "rofi"
+  "sxhkd"
+  "tmux"
+)
 
-old_bash_path="$user_path/.bashrc"
-old_zshrc_path="$user_path/.zshrc"
-old_xinitrc_path="$user_path/.xinitrc"
-old_xauthority_path="$user_path/.Xauthority"
-old_p10k_path="$user_path/.p10k.zsh"
+files=(
+  ".zshrc"
+  ".p10k.zsh"
+  ".xinitrc"
+)
 
-if [ -f "$old_bash_path" ]; then
-  echo "Backup file..."
-  cp "$old_bash_path" "$old_bash_path.bk"
+# Check if the configuration directories exist
+for folder in "${folders[@]}"; do
+  if [ -d "$dotfiles_path/$folder" ]; then
+    if [ -d "$config_path/$folder" ] && [ -L "$config_path/$folder" ]; then
+      ln -sf "$dotfiles_path/$folder" "$config_path/$folder"
+    fi
 
-  ln -sfn "$bash_path" "$old_bash_path"
-else
-  echo "Could not file"
-fi
-/home/yoelvp/Worspace/dotfiles/config/alacritty /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/betterlockscreen /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/bspwm/ /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/dunst /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/kitty /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/neoftech /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/nitrogen /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/nvim /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/picom /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/polybar /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/rofi /home/yoelvp/.config
-/home/yoelvp/Worspace/dotfiles/config/sxhkd /home/yoelvp/.config
+    if [ -d "$config_path/$folder" ] && [ ! -L "$config_path/$folder" ]; then
+      mv "$config_path/$folder" "$config_path/$folder.bk"
+      ln -s "$dotfiles_path/$folder" "$config_path/$folder"
+    fi
+
+    if [ ! -d "$config_path/$folder" ]; then
+      ln -s "$dotfiles_path/$folder" "$config_path"
+    fi
+  else
+    echo "Config folder does not exist"
+  fi
+done
+
+# Check if the configuration files exist
+for file in "${files[@]}"; do
+  if [ -e "$dotfiles_path/$file" ]; then
+    if [ -e "$home_path/$file" ] && [ ! -L "$home_path/$file" ]; then
+      mv "$home_path/$file" "$home_path/$file.bk"
+      ln -s "$dotfiles_path/$file" "$home_path"
+    fi
+
+    if [ -e "$home_path/$file" ] && [ -L "$home_path/$file" ]; then
+      ln -sf "$dotfiles_path/$file" "$home_path"
+    fi
+
+    if [ ! -e "$home_path/$file" ]; then
+      ln -s "$dotfiles_path/$file" "$home_path"
+    fi
+  else
+    echo "Config file does not exist"
+  fi
+done
