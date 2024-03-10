@@ -29,12 +29,12 @@ files=(
 for folder in "${folders[@]}"; do
   if [ -d "$dotfiles_path/$folder" ]; then
     if [ -d "$config_path/$folder" ] && [ -L "$config_path/$folder" ]; then
-      ln -sf "$dotfiles_path/$folder" "$config_path/$folder"
+      ln -sf "$dotfiles_path/$folder" "$config_path"
     fi
 
     if [ -d "$config_path/$folder" ] && [ ! -L "$config_path/$folder" ]; then
       mv "$config_path/$folder" "$config_path/$folder.bk"
-      ln -s "$dotfiles_path/$folder" "$config_path/$folder"
+      ln -s "$dotfiles_path/$folder" "$config_path"
     fi
 
     if [ ! -d "$config_path/$folder" ]; then
