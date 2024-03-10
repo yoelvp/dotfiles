@@ -1,9 +1,9 @@
 # Yoel Valverde Dotfiles
 My configuration files from my development environment on my operating system
 
-![welcome](./images/welcome.png)
+![welcome](./docs/assets/welcome.png)
 
-![telescope](./images/telescope.png)
+![telescope](./docs/assets/telescope.png)
 
 ## Contents
 
