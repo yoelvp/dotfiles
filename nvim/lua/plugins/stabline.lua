@@ -1,7 +1,6 @@
 return {
   'tamton-aquib/staline.nvim',
-  enable = true,
-  lazy = true,
+  dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
     require('stabline').setup({
       style = 'slant',
