@@ -10,6 +10,9 @@ telescope.setup({
   layout_strategy = 'horizontal',
   winblend = 20,
   defaults = {
+    layout_config = {
+      prompt_position = 'bottom'
+    },
     file_ignore_patterns = {
       '.git/.*',
       'node_modules/.*',
@@ -61,8 +64,8 @@ keymap.set(
       hidden = true,
       grouped = true,
       layout_config = {
-        prompt_position = 'bottom',
-      },
+        width = 0.9
+      }
     })
   end, opts)
 
@@ -70,10 +73,7 @@ keymap.set('n', 'fbf', function()
   require('telescope.builtin').buffers({
     noignore = false,
     hidden = true,
-    grouped = true,
-    layout_config = {
-      prompt_position = 'bottom',
-    },
+    grouped = true
   })
 end, opts)
 
@@ -86,10 +86,7 @@ keymap.set(
       cwd = vim.fn.expand('%:p:h'),
       respect_gitignore = false,
       hidden = true,
-      grouped = true,
-      layout_config = {
-        prompt_position = 'bottom',
-      },
+      grouped = true
     })
   end, opts)
 
@@ -176,3 +173,5 @@ keymap.set('n', 'fof', function()
     }
   })
 end, opts)
+
+keymap.set('n', 'fgb', ':Telescope git_branches<CR>', opts)
