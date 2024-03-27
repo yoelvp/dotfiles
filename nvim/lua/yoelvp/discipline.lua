@@ -4,6 +4,7 @@ function M.stranger()
   ---@type table?
   local id
   local ok = true
+  local MAX_NUMBER_MOVEMENTS = 15
 
   for _, key in ipairs({ 'h', 'j', 'k', 'l', '+', '-' }) do
     local count = 0
@@ -15,12 +16,12 @@ function M.stranger()
         count = 0
       end
 
-      if count >= 10 then
+      if count >= MAX_NUMBER_MOVEMENTS then
         ok, id = pcall(vim.notify, 'Not so fast sprinter!', vim.log.levels.WARN, {
           icon = '',
           replace = id,
           keep = function()
-            return count >= 10
+            return count >= MAX_NUMBER_MOVEMENTS
           end
         })
 
