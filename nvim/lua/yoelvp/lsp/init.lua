@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 local lsp = require('lspconfig')
 local nvim_lsp = require('cmp_nvim_lsp')
-local util = require('lspconfig.util')
+local lsp_util = require('lspconfig.util')
 local ts_builtin = require('telescope.builtin')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local opts = { noremap = true, silent = true }
@@ -25,9 +25,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
--- local on_attach = function()
---   keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
--- end
+local on_attach = function()
+  keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
+end
 
 lsp.astro.setup({
   on_attach = on_attach,
@@ -37,7 +37,7 @@ lsp.astro.setup({
   init_options = {
     typescript = {}
   },
-  root_dir = util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')
+  root_dir = lsp_util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')
 })
 
 lsp.bashls.setup({
@@ -63,6 +63,22 @@ lsp.cssls.setup({
   }
 })
 
+lsp.gopls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_dir = lsp_util.root_pattern('go.work', 'go.mod', '.git'),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true
+      }
+    }
+  }
+})
+
 lsp.html.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -74,7 +90,7 @@ lsp.intelephense.setup({
   capabilities = capabilities,
   filetypes = { 'php', 'blade', 'blade.php' },
   cmd = { 'intelephense', '--stdio' },
-  root_dir = util.root_pattern('composer.json', '.git', '.editorconfig'),
+  root_dir = lsp_util.root_pattern('composer.json', '.git', '.editorconfig'),
   settings = {
     intelephense = {
       format = {
@@ -93,7 +109,7 @@ lsp.jsonls.setup({
 lsp.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { 'lua' },
+  -- cmd = { 'lua' },
   filetypes = { 'lua' },
   settings = {
     Lua = {
@@ -109,6 +125,9 @@ lsp.lua_ls.setup({
       },
       hint = {
         enable = true
+      },
+      telemetry = {
+        enable = false
       }
     }
   }
@@ -119,7 +138,7 @@ lsp.rust_analyzer.setup({
   capabilities = capabilities,
   cmd = { 'rust-analyzer' },
   filetypes = { 'rust' },
-  root_dir = util.root_pattern('Cargo.toml'),
+  root_dir = lsp_util.root_pattern('Cargo.toml'),
   settings = {
     ['rust-analyzer'] = {
       diagnostics = {
@@ -136,14 +155,14 @@ lsp.svelte.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { 'svelte' },
-  root_dir = util.root_pattern('package.json', '.git', 'tsconfig.json', 'jsconfig.json')
+  root_dir = lsp_util.root_pattern('package.json', '.git', 'tsconfig.json', 'jsconfig.json')
 })
 
 lsp.tailwindcss.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'tailwindcss-language-server', '--stdio' },
-  root_dir = util.root_pattern(
+  root_dir = lsp_util.root_pattern(
     'tailwind.config.js',
     'tailwind.config.cjs',
     'tailwind.config.mjs',
@@ -176,7 +195,7 @@ lsp.tsserver.setup({
     'typescriptreact',
     'typescript.tsx',
   },
-  root_dir = util.root_pattern('tsconfig.json', 'package.json', 'jsconfig.json', '.git'),
+  root_dir = lsp_util.root_pattern('tsconfig.json', 'package.json', 'jsconfig.json', '.git'),
   init_options = {
     hostInfo = 'neovim'
   }
