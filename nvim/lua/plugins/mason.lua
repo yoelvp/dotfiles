@@ -24,6 +24,7 @@ return {
         'astro',
         'bashls',
         'cssls',
+        'gopls',
         'html',
         'intelephense',
         'jsonls',
