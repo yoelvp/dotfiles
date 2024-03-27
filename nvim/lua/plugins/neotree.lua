@@ -16,6 +16,13 @@ return {
       desc = 'Explorer NeoTree'
     },
     {
+      '<leader>E',
+      function()
+        require('neo-tree.command').execute({ focus = true })
+      end,
+      desc = 'focus Explorer NeoTree'
+    },
+    {
       '<leader>bf',
       function()
         require('neo-tree.command').execute({ source = 'buffers', toggle = true })
@@ -35,12 +42,12 @@ return {
     open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
   },
   config = function(_, opts)
-    local Util = require('yoelvp.util')
+    local utils = require('yoelvp.utils.neotree')
     require('neo-tree').setup(opts)
     require('yoelvp.neotree')
 
     local function on_move(data)
-      Util.on_rename(data.source, data.destination)
+      utils.on_rename(data.source, data.destination)
     end
 
     local events = require('neo-tree.events')
