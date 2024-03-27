@@ -151,18 +151,18 @@ neotree.setup({
       end
     }
   },
-  buffers = {
-    follow_current_file = true, -- This will find and focus the file in the active buffer every
-    group_empty_dirs = true, -- when true, empty folders will be grouped together
-    show_unloaded = true,
-    window = {
-      mappings = {
-        ['bd'] = 'buffer_delete',
-        ['<bs>'] = 'navigate_up',
-        ['.'] = 'set_root',
-      },
-    },
-  },
+  -- buffers = {
+  --   follow_current_file = true, -- This will find and focus the file in the active buffer every
+  --   group_empty_dirs = true, -- when true, empty folders will be grouped together
+  --   show_unloaded = true,
+  --   window = {
+  --     mappings = {
+  --       ['bd'] = 'buffer_delete',
+  --       ['<bs>'] = 'navigate_up',
+  --       ['.'] = 'set_root',
+  --     },
+  --   },
+  -- },
 })
 
 vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
