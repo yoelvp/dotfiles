@@ -11,6 +11,10 @@ opt.cursorline = true
 opt.colorcolumn = '120'
 opt.signcolumn = 'yes'
 
+-- Stabline
+opt.laststatus = 2
+opt.showtabline = 2
+
 -- encoding
 opt.encoding = 'utf-8'
 vim.scriptencoding = 'utf-8'
@@ -22,7 +26,7 @@ opt.relativenumber = true
 opt.numberwidth = 2
 opt.wrap = false
 opt.laststatus = 2
--- opt.showtabline = 2
+opt.showtabline = 2
 
 opt.scrolloff = 5
 opt.sidescrolloff = 5
