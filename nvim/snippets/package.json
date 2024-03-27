@@ -1,0 +1,81 @@
+{
+  "name": "yoelvp-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [ "" ],
+        "path": "./languages/javascript.json"
+      },
+      {
+        "language": [
+          "astro",
+          "blade",
+          "html",
+          "javascriptreact",
+          "typescriptreact"
+        ],
+        "path": "./languages/html.json"
+      },
+      {
+        "language": [ "lua" ],
+        "path": "./languages/lua/lua.json"
+      },
+      {
+        "language": [ "luadoc" ],
+        "path": "./languages/lua/luadoc.json"
+      },
+      {
+        "language": [ "go" ],
+        "path": "./languages/go.json"
+      },
+      {
+        "language": [ "php" ],
+        "path": "./languages/php/php.json"
+      },
+      {
+        "language": [ "phpdoc" ],
+        "path": "./languages/php/phpdoc.json"
+      },
+      {
+        "language": [ "rust" ],
+        "path": "./languages/rust/rust.json"
+      },
+      {
+        "language": [ "rustdoc" ],
+        "path": "./languages/rust/rustdoc.json"
+      },
+      {
+        "language": [ "sql" ],
+        "path": "./languages/sql.json"
+      },
+      {
+        "language": ["shellscript", "shell", "sh", "zsh"],
+        "path": "./languages/shell/shell.json"
+      },
+      {
+        "language": [ "shelldoc" ],
+        "path": "./languages/shell/shelldoc.json"
+      },
+      {
+        "language": ["css", "scss", "sass", "less", "stylus"],
+        "path": "./languages/css.json"
+      },
+      {
+        "language": ["javascript", "javascriptreact", "typescript", "typescriptreact", "svelte"],
+        "path": "./languages/javascript/javascript.json"
+      },
+      {
+        "language": ["javascriptreact", "typescriptreact"],
+        "path": "./languages/javascript/react.json"
+      },
+      {
+        "language": ["typescript", "typescriptreact"],
+        "path": "./languages/javascript/typescript.json"
+      },
+      {
+        "language": ["svelte"],
+        "path": "./languages/svelte.json"
+      }
+    ]
+  }
+}
