@@ -1,19 +1,20 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
+
 local function augroup(name)
   return vim.api.nvim_create_augroup('lazyvim_' .. name, { clear = true })
 end
 
 -- Close Neotree when a file is opened
-autocmd(
-  'BufEnter',
-  {
-    pattern = '*',
-    callback = function ()
-      vim.cmd('Neotree close')
-    end
-  }
-)
+-- autocmd(
+--   'BufEnter',
+--   {
+--     pattern = '*',
+--     callback = function ()
+--       vim.cmd('Neotree close')
+--     end
+--   }
+-- )
 
 -- Go to last loc when opening a buffer
 autocmd('BufReadPost', {
