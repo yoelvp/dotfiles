@@ -19,7 +19,9 @@ return {
       -- Formatting
       formatting.eslint_d,
       formatting.stylua,
-      formatting.stylelint,
+      formatting.stylelint
+      -- formatting.gofumpt,
+      -- formatting.goimports_reviser
     }
 
     null_ls.setup({
