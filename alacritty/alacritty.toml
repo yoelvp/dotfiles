@@ -20,7 +20,7 @@ shape = "Block"
 TERM = "alacritty"
 
 [font]
-size = 8.0
+size = 7.4
 
 [font.bold]
 family = "CaskaydiaCove Nerd Font"
