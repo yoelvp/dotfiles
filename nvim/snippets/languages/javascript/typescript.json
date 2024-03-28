@@ -2,11 +2,7 @@
   "Constructor": {
     "prefix": "cons",
     "body": [
-      "/**",
-      " *",
-      " */",
       "constructor() {",
-      "\tsuper();",
       "\t$0",
       "}"
     ],
@@ -97,14 +93,6 @@
       "$0"
     ],
     "description": "Triple-slash reference"
-  },
-  "Throw Exception": {
-    "prefix": "throw",
-    "body": [
-      "throw \"$1\"",
-      "$0"
-    ],
-    "description": "Throw Exception"
   },
   "For Loop": {
     "prefix": "for",
@@ -233,14 +221,5 @@
       "}"
     ],
     "description": "Try-Catch Statement"
-  },
-  "Set Timeout Function": {
-    "prefix": "settimeout",
-    "body": [
-      "setTimeout(() => {",
-      "\t$0",
-      "}, ${1:timeout});"
-    ],
-    "description": "Set Timeout Function"
-  },
+  }
 }
