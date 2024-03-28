@@ -19,6 +19,12 @@ require('config.settings')
 
 
 ------------------------------
+-- vim plugin configs
+------------------------------
+require('config.configs')
+
+
+------------------------------
 -- keymaps
 ------------------------------
 require('config.keymaps')
@@ -46,3 +52,11 @@ require('config.diagnostics')
 -- Lazy manager plugins
 ------------------------------
 require('config.lazy')
+
+
+------------------------------
+-- colorscheme selected
+------------------------------
+require('config.theme')
+
+
