@@ -119,6 +119,7 @@ alias cat="bat"
 alias vim="nvim"
 alias .="cd .."
 alias ..="cd ../.."
+alias ..="cd ../../.."
 alias downloads="cd ~/Desktop/Downloads/"
 alias screenshots="cd ~/Desktop/Screenshots/"
 alias disk="lfs"
@@ -146,7 +147,7 @@ alias weather="wttr Lima"
 alias my="mycli -h localhost -u root -pyoelvp732"
 
 # VS Codium
-alias code="vscodium"
+alias codium="vscodium"
 
 ## keyboard backlight
 # alias keyboard="for i in {00..03}; do sudo bash -c 'echo 7E2553 > /sys/devices/platform/hp-wmi/rgb_zones/zone$i' & done"
@@ -158,6 +159,7 @@ alias ga="git add ."
 alias gp="git push"
 alias gpm="git push origin master"
 alias gcs="git config --global credential.helper store"
+alias lg="lazygit"
 
 # Environment variables
 export LC_ALL=en_US.UTF-8
@@ -192,10 +194,10 @@ function tmx {
   name=$(basename `pwd` | sed -e 's/\.//g')
 
   if tmux ls 2>&1 | grep "$name"; then
-    tmux attach -t "$name"
+    tmux attach -t " $name"
   elif [ -f .envrc ]; then
-    direnv exec / tmux new-session -s "$name"
+    direnv exec / tmux new-session -s " $name"
   else
-    tmux new-session -s "$name"
+    tmux new-session -s " $name"
   fi
 }
