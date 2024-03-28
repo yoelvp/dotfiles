@@ -1,5 +1,4 @@
 local keymap = vim.keymap.set
-local util = require('yoelvp.utils.ui')
 local discipline = require('yoelvp.discipline')
 local utils = require('yoelvp.utils')
 local opts = { noremap = true, silent = true }
@@ -56,8 +55,8 @@ keymap('x', '<A-j>', ":move '>+1<CR>gv=gv", utils.extendTable(opts, { desc = 'Mo
 keymap('x', '<A-k>', ":move '<-2<CR>gv=gv", utils.extendTable(opts, { desc = 'Move block down' }))
 
 -- Duplicate line
-keymap('n', '<S-A-k>', util.duplicate_line_above, utils.extendTable(opts, { desc = 'Duplicate line above' }))
-keymap('n', '<S-A-j>', util.duplicate_line_below, utils.extendTable(opts, { desc = 'Duplicate line below' }))
+keymap('n', '<S-A-k>', utils.duplicate_line_above, utils.extendTable(opts, { desc = 'Duplicate line above' }))
+keymap('n', '<S-A-j>', utils.duplicate_line_below, utils.extendTable(opts, { desc = 'Duplicate line below' }))
 
 -- Format document
 keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', utils.extendTable(opts, { desc = 'Format document'}))
@@ -73,3 +72,6 @@ keymap('n', '¿', ':normal! >><CR>', utils.extendTable(opts, { desc = 'Indentati
 
 -- Git blame
 keymap('n', '<leader>gb', ':ToggleBlame virtual<CR>', utils.extendTable(opts, { desc = 'Toggle git blame' }))
+
+-- Markdown toggle preview
+keymap('n', 'mp', ':MarkdownPreviewToggle<CR>', utils.extendTable(opts, { desc = 'Toggle markdown preview' }))
