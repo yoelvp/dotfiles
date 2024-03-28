@@ -7,7 +7,8 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects'
   },
   config = function()
-    require('nvim-treesitter.configs').setup({
+    local ts_configs = require('nvim-treesitter.configs')
+    ts_configs.setup({
       modules = {},
       ignore_install = {},
       ensure_installed = {
@@ -47,41 +48,34 @@ return {
       sync_install = true,
       auto_install = true,
       indent = {
-        enable = true,
+        enable = true
       },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false
       },
-      context_commentstring = {
-        enable = true
-      },
       refactor = {
-        -- highlight_definitions = { enable = true },
+        highlight_definitions = { enable = true },
         smart_rename = {
-          enable = false,
+          enable = true,
           keymaps = {
             smart_rename = 'trr'
           }
         }
       },
-      playground = {
-        enable = true,
-        disable = {},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-        persist_queries = false, -- Whether the query persists across vim sessions
-        keybindings = {
-          toggle_query_editor = 'o',
-          toggle_hl_groups = 'i',
-          toggle_injected_languages = 't',
-          toggle_anonymous_nodes = 'a',
-          toggle_language_display = 'I',
-          focus_language = 'f',
-          unfocus_language = 'F',
-          update = 'R',
-          goto_node = '<cr>',
-          show_help = '?'
-        }
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["op"] = "@parameter.outer",
+            ["ip"] = "@parameter.inner",
+            ["of"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+          },
+        },
       }
     })
   end
