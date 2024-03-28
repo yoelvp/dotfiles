@@ -2,7 +2,12 @@ return {
   -- Milti cursor
   {
     'mg979/vim-visual-multi',
-    branch = 'master'
+    branch = 'master',
+    init = function ()
+      vim.g.VM_maps = {
+        ["I BS"] = '', -- disable backspace mapping
+      }
+    end
   },
 
   -- Autoclose the pair {} [] ''
@@ -30,7 +35,24 @@ return {
       { 'gb', mode = 'x', desc = 'Comment toggle blockwise (visual)' },
     },
     config = function(_, opts)
-      require('Comment').setup(opts)
+      local comment = require('Comment')
+      comment.setup(vim.tbl_extend('force', opts, {
+        pre_hook = function (ctx)
+          local utils = require('Comment.utils')
+          local location = nil
+
+          if ctx.ctype == utils.ctype.block then
+            location = require('ts_context_commentstring.utils').get_cursor_location()
+          elseif ctx.cmotion == utils.cmotion.v or ctx.cmotion == utils.cmotion.V then
+            location = require('ts_context_commentstring.utils').get_visual_start_location()
+          end
+
+          return require('ts_context_commentstring.internal').calculate_commentstring({
+            key = ctx.ctype == utils.ctype.line and '__default' or '__multiline',
+            location = location
+          })
+        end
+      }))
     end,
   },
 
@@ -40,20 +62,15 @@ return {
     lazy = true,
     opts = {
       enable_autocmd = false
-    }
-  },
-  {
-    'echasnovski/mini.comment',
-    event = 'VeryLazy',
-    opts = {
-      options = {
-        custom_commentstring = function()
-          return require('ts_context_commentstring.internal').calculate_commentstring() or vim.bo.commentstring
-          -- vim.cmd('set vim.g.skip_ts_context_commentstring_module = true')
-          -- return require('ts_context_commentstring').setup({})
-        end
+    },
+    config = function ()
+      require('ts_context_commentstring').setup {
+        enable_autocmd = false,
+        languages = {
+          typescript = '// %s',
+        }
       }
-    }
+    end
   },
 
   -- TODO comments
@@ -100,5 +117,10 @@ return {
         }
       })
     end
+  },
+
+  -- Emmet
+  {
+    'mattn/emmet-vim'
   }
 }
