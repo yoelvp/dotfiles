@@ -32,7 +32,6 @@ return {
         Number        = '󰎠 ',
         Object        = ' ',
         Operator      = ' ',
-        Operator      = '󰆕',
         Package       = ' ',
         Property      = '󰜢',
         Reference     = '󰈇',
