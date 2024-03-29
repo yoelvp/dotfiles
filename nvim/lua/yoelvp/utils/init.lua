@@ -20,4 +20,9 @@ function M.duplicate_line_above()
   vim.api.nvim_command('noh')
 end
 
+function M.delete_current_buffer()
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.api.nvim_buf_delete(bufnr, { force = false })
+end
+
 return M
