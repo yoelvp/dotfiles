@@ -79,8 +79,7 @@ return {
   -- Palenight
   {
     'drewtempelmeyer/palenight.vim',
-    priority = 1000,
-    config = true
+    priority = 1000
   },
 
   -- Ayu Theme
