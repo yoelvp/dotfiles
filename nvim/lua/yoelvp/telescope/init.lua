@@ -1,6 +1,7 @@
 local telescope = require('telescope')
 local fb_actions = require('telescope').extensions.file_browser.actions
 
+--[[ telescope.load_extension('fzf') ]]
 telescope.load_extension('media_files')
 telescope.load_extension('file_browser')
 
@@ -62,10 +63,7 @@ keymap.set(
     require('telescope.builtin').find_files({
       noignore = false,
       hidden = true,
-      grouped = true,
-      layout_config = {
-        width = 0.9
-      }
+      grouped = true
     })
   end, opts)
 
@@ -97,10 +95,7 @@ keymap.set('n', '<leader>bb', function()
     respect_gitignore = false,
     hidden = true,
     grouped = true,
-    initial_mode = 'normal',
-    layout_config = {
-      prompt_position = 'bottom',
-    }
+    initial_mode = 'normal'
   })
 end, opts)
 
@@ -110,10 +105,7 @@ keymap.set('n', 'fht', function()
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true,
-    layout_config = {
-      prompt_position = 'bottom',
-    },
+    grouped = true
   })
 end, opts)
 
@@ -124,10 +116,7 @@ keymap.set('n', 'fgs', function()
     -- cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true,
-    layout_config = {
-      prompt_position = 'bottom',
-    },
+    grouped = true
   })
 end, opts)
 
@@ -137,10 +126,7 @@ keymap.set('n', 'flg', function()
     -- cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true,
-    layout_config = {
-      prompt_position = 'bottom',
-    },
+    grouped = true
   })
 end, opts)
 
@@ -150,28 +136,30 @@ keymap.set('n', 'frf', function()
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true,
-    layout_config = {
-      prompt_position = 'bottom',
-    },
+    grouped = true
   })
 end, opts)
 
-
-keymap.set('n', 'fgc', function()
-  require('telescope.builtin').git_commits({
-    layout_config = {
-      prompt_position = 'bottom'
-    }
-  })
-end, opts)
 
 keymap.set('n', 'fof', function()
-  require('telescope.builtin').oldfiles({
-    layout_config = {
-      prompt_position = 'bottom'
-    }
-  })
+  require('telescope.builtin').oldfiles()
 end, opts)
 
-keymap.set('n', 'fgb', ':Telescope git_branches<CR>', opts)
+-- Git
+keymap.set('n', 'gs', function()
+  require('telescope.builtin').git_status()
+end, opts)
+
+keymap.set('n', 'gb', function()
+  require('telescope.builtin').git_branches()
+end, opts)
+
+keymap.set('n', 'gc', function()
+  require('telescope.builtin').git_commits()
+end, opts)
+
+keymap.set('n', 'gC', function()
+  require('telescope.builtin').git_bcommits()
+end, opts)
+
+--[[ keymap.set('n', 'fgb', ':Telescope git_branches<CR>', opts) ]]
