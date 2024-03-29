@@ -76,6 +76,13 @@ return {
     config = true
   },
 
+  -- Palenight
+  {
+    'drewtempelmeyer/palenight.vim',
+    priority = 1000,
+    config = true
+  },
+
   -- Ayu Theme
   {
     'comfysage/evergarden',
