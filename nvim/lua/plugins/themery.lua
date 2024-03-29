@@ -8,57 +8,10 @@ return {
       livePreview = true,
       themes = {
         {
-          name = 'Gruvbox',
-          colorscheme = 'gruvbox'
-        },
-        {
-          name = 'Onedark Vivid',
-          colorscheme = 'onedark_vivid'
-        },
-        {
-          name = 'Onedark Dark',
-          colorscheme = 'onedark_dark'
-        },
-        {
-          name = 'Sonokai Atlantis',
-          colorscheme = 'sonokai',
-          after = [[
-            vim.cmd('let g:sonokai_style = "atlantis"')
-          ]]
-        },
-        {
-          name = 'Sonokai Andromeda',
-          colorscheme = 'sonokai',
-          after = [[
-            vim.cmd('let g:sonokai_style = "andromeda"')
-          ]]
-        },
-        {
-          name = 'Sonokai Shushia',
-          colorscheme = 'sonokai',
-          after = [[
-            vim.cmd('let g:sonokai_style = "shusia"')
-          ]]
-        },
-        {
-          name = 'Sonokai Maia',
-          colorscheme = 'sonokai',
-          after = [[
-            vim.cmd('let g:sonokai_style = "maia"')
-          ]]
-        },
-        {
-          name = 'Sonokai Espresso',
-          colorscheme = 'sonokai',
-          after = [[
-            vim.cmd('let g:sonokai_style = "espresso"')
-          ]]
-        },
-        {
-          name = 'Everforest Soft',
+          name = 'Everforest Hard',
           colorscheme = 'everforest',
           after = [[
-            vim.cmd('let g:everforest_background = "soft"')
+            vim.cmd('let g:everforest_background = "hard"')
           ]]
         },
         {
@@ -69,10 +22,10 @@ return {
           ]]
         },
         {
-          name = 'Everforest Hard',
+          name = 'Everforest Soft',
           colorscheme = 'everforest',
           after = [[
-            vim.cmd('let g:everforest_background = "hard"')
+            vim.cmd('let g:everforest_background = "soft"')
           ]]
         },
         {
@@ -80,8 +33,59 @@ return {
           colorscheme = 'evergarden'
         },
         {
+          name = 'Gruvbox',
+          colorscheme = 'gruvbox'
+        },
+        {
+          name = 'Onedark Dark',
+          colorscheme = 'onedark_dark'
+        },
+        {
+          name = 'Onedark Vivid',
+          colorscheme = 'onedark_vivid'
+        },
+        {
+          name = 'Palenight',
+          colorscheme = 'palenight'
+        },
+        {
           name = 'Solarized Osaka',
           colorscheme = 'solarized-osaka'
+        },
+        {
+          name = 'Sonokai Andromeda',
+          colorscheme = 'sonokai',
+          after = [[
+            vim.cmd('let g:sonokai_style = "andromeda"')
+          ]]
+        },
+        {
+          name = 'Sonokai Atlantis',
+          colorscheme = 'sonokai',
+          after = [[
+            vim.cmd('let g:sonokai_style = "atlantis"')
+          ]]
+        },
+        {
+          name = 'Sonokai Espresso',
+          colorscheme = 'sonokai',
+          after = [[
+            vim.cmd('let g:sonokai_style = "espresso"')
+          ]]
+        },
+        {
+          name = 'Sonokai Maia',
+          colorscheme = 'sonokai',
+          after = [[
+            vim.cmd('let g:sonokai_style = "maia"')
+          ]]
+        },
+        {
+          name = 'Sonokai Shushia',
+          colorscheme = 'sonokai',
+          after = [[
+            vim.cmd('let g:sonokai_style = "shusia"')
+          ]]
         }
       }
     })
