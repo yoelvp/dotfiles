@@ -6,7 +6,7 @@ return {
       direction = 'float',
       open_mapping = [[<leader>tt]],
       persist_mode = false,
-      start_in_insert = false
+      start_in_insert = true
     })
 
     -- keymaps
