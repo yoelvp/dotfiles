@@ -9,12 +9,16 @@ vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSi
 vim.fn.sign_define('DiagnosticSignHint', { text = '󰌵', texthl = 'DiagnosticSignHint' })
 
 neotree.setup({
-  close_if_last_window = true,
+  close_if_last_window = false,
   popup_border_style = 'rounded',
   enable_git_status = true,
   enable_diagnostics = true,
   sort_case_insensitive = false,
   sort_function = nil,
+  enable_modified_markers = true,
+  enable_opened_markers = true,
+  enable_cursor_hijack = true, -- If enabled neotree will keep the cursor on the first letter of the filename when moving in the tree.
+  hide_root_node = true, -- Hide the root node.
   default_component_configs = {
     container = {
       enable_character_fade = true,
@@ -110,16 +114,18 @@ neotree.setup({
       hide_by_name = {
         'node_modules',
         '.git',
+        'vendor'
       },
       never_show = {
         ".DS_Store",
         "thumbs.db"
       },
     },
-    follow_current_file = true, -- This will find and focus the file in the active buffer every
-    group_empty_dirs = false, -- when true, empty folders will be grouped together
-    hijack_netrw_behavior = 'open_default', -- netrw disabled, opening a directory opens neo-tree
-    use_libuv_file_watcher = false,
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = true
+    },
+    hijack_netrw_behavior = 'open_default',
     window = {
       mappings = {
         ['<bs>'] = 'navigate_up',
@@ -142,11 +148,6 @@ neotree.setup({
       },
     },
     buffers = {
-      follow_current_file = {
-        enabled = true,
-        leave_dirs_open = false,
-      },
-      group_empty_dirs = true, -- when true, empty folders will be grouped together
       show_unloaded = true,
       window = {
         mappings = {
