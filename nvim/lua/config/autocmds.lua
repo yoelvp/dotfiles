@@ -62,21 +62,3 @@ autocmd(
     end
   }
 )
-
-autocmd(
-  'BufEnter',
-  {
-    pattern = '*',
-    group = augroup('dashboard_on_empty'),
-    callback = function (event)
-      local buf_id = event.buf
-      local buf_name = vim.api.nvim_buf_get_name(buf_id)
-      local buf_ft = vim.api.nvim_buf_get_option(buf_id, 'filetype')
-      local buf_type = vim.api.nvim_buf_get_option(buf_id, 'buftype')
-
-      if buf_id ~= 1 and buf_name == '' and  buf_ft == '' and buf_type ~= 'nofile' then
-        vim.cmd('Dashboard')
-      end
-    end
-  }
-)
