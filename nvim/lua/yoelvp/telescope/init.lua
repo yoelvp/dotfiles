@@ -1,5 +1,5 @@
 local telescope = require('telescope')
-local fb_actions = require('telescope').extensions.file_browser.actions
+--[[ local fb_actions = require('telescope').extensions.file_browser.actions ]]
 
 --[[ telescope.load_extension('fzf') ]]
 telescope.load_extension('media_files')
@@ -77,7 +77,7 @@ end, opts)
 
 keymap.set(
   'n',
-  'fmf',
+  'mf',
   function()
     telescope.extensions.media_files.media_files({
       path = '%:p:h',
@@ -93,8 +93,6 @@ keymap.set('n', '<leader>bb', function()
     path = '%:p:h',
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
-    hidden = true,
-    grouped = true,
     initial_mode = 'normal'
   })
 end, opts)
@@ -146,19 +144,19 @@ keymap.set('n', 'fof', function()
 end, opts)
 
 -- Git
-keymap.set('n', 'gs', function()
+keymap.set('n', 'gst', function()
   require('telescope.builtin').git_status()
 end, opts)
 
-keymap.set('n', 'gb', function()
+keymap.set('n', 'fgb', function()
   require('telescope.builtin').git_branches()
 end, opts)
 
-keymap.set('n', 'gc', function()
+keymap.set('n', 'fgc', function()
   require('telescope.builtin').git_commits()
 end, opts)
 
-keymap.set('n', 'gC', function()
+keymap.set('n', 'fgC', function()
   require('telescope.builtin').git_bcommits()
 end, opts)
 
