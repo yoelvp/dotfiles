@@ -15,7 +15,8 @@ cmp.setup({
     documentation = cmp.config.window.bordered()
   },
   completion = {
-    completeopt = 'menu,menuone,noinsert',
+    completeopt = 'menuone,noinsert,noselect',
+    keyword_length = 2
   },
   mapping = {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -31,7 +32,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, { 'i' }),
+    end, { 'i', 's' }),
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -49,7 +50,7 @@ cmp.setup({
     { name = 'path' },
     {
       name = "buffer",
-      keyword_length = 4,
+      keyword_length = 5,
       option = {
         get_bufnrs = function()
           local bufs = {}
@@ -83,11 +84,6 @@ cmp.setup({
     }
   }
 })
-
-vim.cmd([[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]])
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
