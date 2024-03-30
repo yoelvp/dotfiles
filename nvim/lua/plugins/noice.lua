@@ -6,9 +6,9 @@ return {
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-        ["vim.lsp.util.stylize_markdown"] = true,
-        ["cmp.entry.get_documentation"] = true,
+        ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+        ['vim.lsp.util.stylize_markdown'] = true,
+        ['cmp.entry.get_documentation'] = true,
       },
     },
     -- -- you can enable a preset for easier configuration
@@ -20,87 +20,87 @@ return {
       lsp_doc_border = true, -- add a border to hover docs and signature help
     },
     cmdline = {
-      view = "cmdline",
+      view = 'cmdline',
     },
     messages = {
       enabled = true, -- enables the Noice messages UI
-      view = "notify", -- default view for messages
-      view_error = "notify", -- view for errors
-      view_warn = "notify", -- view for warnings
-      view_history = "messages", -- view for :messages
+      view = 'notify', -- default view for messages
+      view_error = 'notify', -- view for errors
+      view_warn = 'notify', -- view for warnings
+      view_history = 'messages', -- view for :messages
       view_search = false, -- view for search count messages. Set to `false` to disable
     },
     routes = {
       {
-        view = "split",
+        view = 'split',
         filter = {
-          cmdline = "G",
+          cmdline = 'G',
         },
         opts = {
           enter = true,
-          render = "plain",
-          format = { "{message}" },
+          render = 'plain',
+          format = { '{message}' },
           replace = true,
           close = {
-            events = { "BufLeave" },
-            keys = { "q" },
+            events = { 'BufLeave' },
+            keys = { 'q' },
           },
         },
       },
       {
-        view = "split",
+        view = 'split',
         filter = {
-          cmdline = "Notifications",
+          cmdline = 'Notifications',
         },
         opts = {
           enter = true,
-          render = "plain",
-          format = { "{message}" },
+          render = 'plain',
+          format = { '{message}' },
           replace = true,
           close = {
-            events = { "BufLeave" },
-            keys = { "q" },
+            events = { 'BufLeave' },
+            keys = { 'q' },
           },
         },
       },
       {
-        view = "mini",
+        view = 'mini',
         filter = {
-          cmdline = "w",
+          cmdline = 'w',
         },
       },
       {
-        view = "mini",
+        view = 'mini',
         filter = {
-          find = "Config Change Detected. Reloading...",
+          find = 'Config Change Detected. Reloading...',
         },
       },
       {
-        view = "mini",
+        view = 'mini',
         filter = {
           any = {
             {
-              event = "msg_show",
-              find = "lines yanked",
+              event = 'msg_show',
+              find = 'lines yanked',
             },
             {
-              event = "msg_show",
-              find = "more lines",
+              event = 'msg_show',
+              find = 'more lines',
             },
             {
-              event = "msg_show",
-              find = "direnv:",
+              event = 'msg_show',
+              find = 'direnv:',
             },
             {
-              find = "laravel.sail.",
+              find = 'laravel.sail.',
             },
             {
-              find = "Pattern not found",
+              find = 'Pattern not found',
             },
             {
-              event = "msg_show",
-              kind = "",
-              find = "change;",
+              event = 'msg_show',
+              kind = '',
+              find = 'change;',
             },
           },
         },

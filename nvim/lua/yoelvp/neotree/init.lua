@@ -114,16 +114,16 @@ neotree.setup({
       hide_by_name = {
         'node_modules',
         '.git',
-        'vendor'
+        'vendor',
       },
       never_show = {
-        ".DS_Store",
-        "thumbs.db"
+        '.DS_Store',
+        'thumbs.db',
       },
     },
     follow_current_file = {
       enabled = true,
-      leave_dirs_open = true
+      leave_dirs_open = true,
     },
     hijack_netrw_behavior = 'open_default',
     window = {
@@ -151,29 +151,29 @@ neotree.setup({
       show_unloaded = true,
       window = {
         mappings = {
-          ["bd"] = "buffer_delete",
-          ["<bs>"] = "navigate_up",
-          ["."] = "set_root",
-          ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
-          ["oc"] = { "order_by_created", nowait = false },
-          ["od"] = { "order_by_diagnostics", nowait = false },
-          ["om"] = { "order_by_modified", nowait = false },
-          ["on"] = { "order_by_name", nowait = false },
-          ["os"] = { "order_by_size", nowait = false },
-          ["ot"] = { "order_by_type", nowait = false },
-        }
+          ['bd'] = 'buffer_delete',
+          ['<bs>'] = 'navigate_up',
+          ['.'] = 'set_root',
+          ['o'] = { 'show_help', nowait = false, config = { title = 'Order by', prefix_key = 'o' } },
+          ['oc'] = { 'order_by_created', nowait = false },
+          ['od'] = { 'order_by_diagnostics', nowait = false },
+          ['om'] = { 'order_by_modified', nowait = false },
+          ['on'] = { 'order_by_name', nowait = false },
+          ['os'] = { 'order_by_size', nowait = false },
+          ['ot'] = { 'order_by_type', nowait = false },
+        },
       },
     },
   },
   event_handlers = {
     {
-      event = "neo_tree_buffer_enter",
+      event = 'neo_tree_buffer_enter',
       handler = function()
         vim.opt_local.number = true
         vim.opt_local.relativenumber = true
-      end
-    }
-  }
+      end,
+    },
+  },
 })
 
 vim.cmd([[nnoremap \ :Neotree reveal<cr>]])

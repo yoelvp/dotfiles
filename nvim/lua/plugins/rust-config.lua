@@ -9,7 +9,7 @@ return {
 
       rust_tools.setup(opts)
       rust_tools.inlay_hints.set()
-    end
+    end,
   },
 
   -- Rust crates config
@@ -21,6 +21,6 @@ return {
 
       crates.setup(opts)
       crates.show()
-    end
-  }
+    end,
+  },
 }

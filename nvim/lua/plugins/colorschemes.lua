@@ -12,7 +12,7 @@ return {
           strings = false,
           comments = true,
           operators = false,
-          folds = true
+          folds = true,
         },
         strikethrough = true,
         invert_selection = true,
@@ -24,16 +24,16 @@ return {
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
-        transparent_mode = false
+        transparent_mode = false,
       })
-    end
+    end,
   },
 
   -- Onedark
   {
     'olimorris/onedarkpro.nvim',
     priority = 1000,
-    config = function ()
+    config = function()
       local onedark = require('onedarkpro')
 
       onedark.setup({
@@ -50,36 +50,36 @@ return {
           variables = 'NONE',
           parameters = 'NONE',
           conditionals = 'italic',
-          virtual_text = 'italic'
+          virtual_text = 'italic',
         },
         highlights = {
           Comment = { italic = true },
         },
         options = {
-          lualine_transparency = true
-        }
+          lualine_transparency = true,
+        },
       })
-    end
+    end,
   },
 
   -- Sonokai
   {
     'sainnhe/sonokai',
     priority = 1000,
-    config = true
+    config = true,
   },
 
   -- Everforest
   {
     'sainnhe/everforest',
     priority = 1000,
-    config = true
+    config = true,
   },
 
   -- Palenight
   {
     'drewtempelmeyer/palenight.vim',
-    priority = 1000
+    priority = 1000,
   },
 
   -- Ayu Theme
@@ -95,18 +95,18 @@ return {
         types = { italic = true },
         keyword = { italic = true },
         comment = { italic = true },
-      }
+      },
     },
-    config = function (_, opts)
+    config = function(_, opts)
       require('evergarden').setup(opts)
-    end
+    end,
   },
 
   -- Solarized Osaka
   {
     'craftzdog/solarized-osaka.nvim',
     priority = 1000,
-    config = function ()
+    config = function()
       local solarized = require('solarized-osaka')
 
       solarized.setup({
@@ -118,8 +118,8 @@ return {
           sidebars = 'dark',
           floats = 'dark',
         },
-        sidebars = { 'qf', 'help' }
+        sidebars = { 'qf', 'help' },
       })
-      end
-  }
+    end,
+  },
 }

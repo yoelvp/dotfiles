@@ -10,29 +10,28 @@ autocmd('BufReadPost', {
   callback = function(event)
     local exclude = { 'gitcommit' }
     local buf = event.buf
+
     if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
       return
     end
+
     vim.b[buf].lazyvim_last_loc = true
     local mark = vim.api.nvim_buf_get_mark(buf, '"')
     local lcount = vim.api.nvim_buf_line_count(buf)
     if mark[1] > 0 and mark[1] <= lcount then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
-  end
+  end,
 })
 
 -- Highlight the copied block
-autocmd(
-  'TextYankPost',
-  {
-    pattern = '*',
-    callback = function()
-      vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 400 })
-    end,
-    group = augroup('yank_highlight')
-  }
-)
+autocmd('TextYankPost', {
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 400 })
+  end,
+  group = augroup('yank_highlight'),
+})
 
 -- Undeline erros
 vim.cmd([[
@@ -41,24 +40,21 @@ vim.cmd([[
 ]])
 
 -- Use templates in files
-autocmd(
-  'BufNewFile',
-  {
-    pattern = '*',
-    callback = function()
-      local extension = vim.fn.expand('%:e')
-      local template = vim.env.HOME .. '/.config/nvim/templates/' .. extension .. '.tpl'
-      local file = io.open(template, 'r')
+autocmd('BufNewFile', {
+  pattern = '*',
+  callback = function()
+    local extension = vim.fn.expand('%:e')
+    local template = vim.env.HOME .. '/.config/nvim/templates/' .. extension .. '.tpl'
+    local file = io.open(template, 'r')
 
-      if file ~= nil then
-        local lines = {}
+    if file ~= nil then
+      local lines = {}
 
-        for line in io.lines(template) do
-          lines[#lines + 1] = line
-        end
-
-        vim.api.nvim_buf_set_lines(0, 0, 0, false, lines)
+      for line in io.lines(template) do
+        lines[#lines + 1] = line
       end
+
+      vim.api.nvim_buf_set_lines(0, 0, 0, false, lines)
     end
-  }
-)
+  end,
+})

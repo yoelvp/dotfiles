@@ -1,12 +1,12 @@
 vim.diagnostic.config({
-  virtual_text = false
+  virtual_text = true,
 })
 
 local signs = {
   Error = '',
   Warn = '',
   Hint = '󰌶',
-  Info = ''
+  Info = '',
 }
 
 for type, icon in pairs(signs) do

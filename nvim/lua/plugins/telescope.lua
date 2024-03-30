@@ -15,5 +15,5 @@ return {
   },
   config = function()
     require('yoelvp.telescope')
-  end
+  end,
 }

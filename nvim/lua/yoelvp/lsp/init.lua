@@ -9,7 +9,7 @@ local opts = { noremap = true, silent = true }
 capabilities = nvim_lsp.default_capabilities(capabilities)
 
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
@@ -22,11 +22,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
     keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
     keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
-  end
+  end,
 })
 
 local on_attach = function()
-  keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document'})
+  keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document' })
 end
 
 lsp.astro.setup({
@@ -35,15 +35,15 @@ lsp.astro.setup({
   cmd = { 'astro-ls', '--stdio' },
   filetypes = { 'astro' },
   init_options = {
-    typescript = {}
+    typescript = {},
   },
-  root_dir = lsp_util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')
+  root_dir = lsp_util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git'),
 })
 
 lsp.bashls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { 'bash-language-server', 'start' }
+  cmd = { 'bash-language-server', 'start' },
 })
 
 lsp.cssls.setup({
@@ -52,15 +52,15 @@ lsp.cssls.setup({
   filetypes = { 'css', 'scss', 'less', 'ts', 'tsx' },
   settings = {
     css = {
-      validate = true
+      validate = true,
     },
     less = {
-      validate = true
+      validate = true,
     },
     scss = {
-      validate = true
-    }
-  }
+      validate = true,
+    },
+  },
 })
 
 lsp.gopls.setup({
@@ -73,16 +73,16 @@ lsp.gopls.setup({
       completeUnimported = true,
       usePlaceholders = true,
       analyses = {
-        unusedparams = true
-      }
-    }
-  }
+        unusedparams = true,
+      },
+    },
+  },
 })
 
 lsp.html.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { 'html' }
+  filetypes = { 'html' },
 })
 
 lsp.intelephense.setup({
@@ -94,16 +94,16 @@ lsp.intelephense.setup({
   settings = {
     intelephense = {
       format = {
-        braces = 'k&r'
-      }
-    }
-  }
+        braces = 'k&r',
+      },
+    },
+  },
 })
 
 lsp.jsonls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { 'json', 'jsonc' }
+  filetypes = { 'json', 'jsonc' },
 })
 
 lsp.lua_ls.setup({
@@ -114,23 +114,23 @@ lsp.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT'
+        version = 'LuaJIT',
       },
       diagnostics = {
-        globals = { 'vim' }
+        globals = { 'vim' },
       },
       workspace = {
         checkThirdParty = false,
         library = vim.api.nvim_get_runtime_file('', true),
       },
       hint = {
-        enable = true
+        enable = true,
       },
       telemetry = {
-        enable = false
-      }
-    }
-  }
+        enable = false,
+      },
+    },
+  },
 })
 
 lsp.rust_analyzer.setup({
@@ -142,20 +142,20 @@ lsp.rust_analyzer.setup({
   settings = {
     ['rust-analyzer'] = {
       diagnostics = {
-        enable = true
+        enable = true,
       },
       cargo = {
-        allFeatures = true
-      }
-    }
-  }
+        allFeatures = true,
+      },
+    },
+  },
 })
 
 lsp.svelte.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { 'svelte' },
-  root_dir = lsp_util.root_pattern('package.json', '.git', 'tsconfig.json', 'jsconfig.json')
+  root_dir = lsp_util.root_pattern('package.json', '.git', 'tsconfig.json', 'jsconfig.json'),
 })
 
 lsp.tailwindcss.setup({
@@ -178,9 +178,9 @@ lsp.tailwindcss.setup({
   settings = {
     tailwindCSS = {
       classAttributes = { 'class', 'className', 'class:list', 'classList', 'ngClass' },
-      validate = true
-    }
-  }
+      validate = true,
+    },
+  },
 })
 
 lsp.tsserver.setup({
@@ -197,13 +197,13 @@ lsp.tsserver.setup({
   },
   root_dir = lsp_util.root_pattern('tsconfig.json', 'package.json', 'jsconfig.json', '.git'),
   init_options = {
-    hostInfo = 'neovim'
-  }
+    hostInfo = 'neovim',
+  },
 })
 
 lsp.volar.setup({
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 })
 
 vim.diagnostic.config({
@@ -212,6 +212,6 @@ vim.diagnostic.config({
   },
   update_in_insert = true,
   float = {
-    source = 'always'
-  }
+    source = 'always',
+  },
 })

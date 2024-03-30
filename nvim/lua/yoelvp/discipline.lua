@@ -22,7 +22,7 @@ function M.stranger()
           replace = id,
           keep = function()
             return count >= MAX_NUMBER_MOVEMENTS
-          end
+          end,
         })
 
         if not ok then

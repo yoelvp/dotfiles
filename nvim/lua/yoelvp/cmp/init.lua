@@ -8,15 +8,17 @@ vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
 
 cmp.setup({
   snippet = {
-    expand = function(args) luasnip.lsp_expand(args.body) end
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
   },
   window = {
     completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered()
+    documentation = cmp.config.window.bordered(),
   },
   completion = {
     completeopt = 'menuone,noinsert,noselect',
-    keyword_length = 2
+    keyword_length = 2,
   },
   mapping = {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -41,7 +43,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, { 'i' })
+    end, { 'i' }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lua' },
@@ -49,7 +51,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'path' },
     {
-      name = "buffer",
+      name = 'buffer',
       keyword_length = 5,
       option = {
         get_bufnrs = function()
@@ -74,21 +76,21 @@ cmp.setup({
         nvim_lsp = '[LSP]',
         buffer = '[BUFFER]',
         path = '[PATH]',
-        luasnip = '[SNIP]'
-      }
-    })
+        luasnip = '[SNIP]',
+      },
+    }),
   },
   experimental = {
     ghost_text = {
-      hl_group = 'CmpGhostText'
-    }
-  }
+      hl_group = 'CmpGhostText',
+    },
+  },
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline("/", {
+cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = "buffer" },
+    { name = 'buffer' },
   },
 })

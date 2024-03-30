@@ -13,14 +13,14 @@ return {
       function()
         require('neo-tree.command').execute({ toggle = true })
       end,
-      desc = 'Explorer NeoTree'
+      desc = 'Explorer NeoTree',
     },
     {
       '<leader>E',
       function()
         require('neo-tree.command').execute({ focus = true })
       end,
-      desc = 'focus Explorer NeoTree'
+      desc = 'focus Explorer NeoTree',
     },
     {
       '<leader>bf',
@@ -39,7 +39,7 @@ return {
   },
   opts = {
     sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
-    open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+    open_files_do_not_replace_types = { 'terminal', 'Trouble', 'trouble', 'qf', 'Outline' },
   },
   config = function(_, opts)
     local utils = require('yoelvp.utils.neotree')
@@ -54,7 +54,7 @@ return {
     opts.event_handlers = opts.event_handlers or {}
     vim.list_extend(opts.event_handlers, {
       { event = events.FILE_MOVED, handler = on_move },
-      { event = events.FILE_RENAMED, handler = on_move }
+      { event = events.FILE_RENAMED, handler = on_move },
     })
 
     vim.api.nvim_create_autocmd('TermClose', {
@@ -63,7 +63,7 @@ return {
         if package.loaded['neo-tree.sources.git_status'] then
           require('neo-tree.sources.git_status').refresh()
         end
-      end
+      end,
     })
-  end
+  end,
 }

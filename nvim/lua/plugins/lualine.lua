@@ -12,7 +12,7 @@ return {
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
-          winbar = {}
+          winbar = {},
         },
         ignore_focus = {},
         always_divide_middle = true,
@@ -20,23 +20,23 @@ return {
         refresh = {
           statusline = 1000,
           tabline = 1000,
-          winbar = 1000
+          winbar = 1000,
         },
       },
       sections = {
         lualine_a = {
-          { 'mode', icon = '' }
+          { 'mode', icon = '' },
         },
         lualine_b = {
           {
             'branch',
             'diff',
             'diagnostics',
-            icon = ''
-          }
+            icon = '',
+          },
         },
         lualine_c = {
-          { 'filename', path = 4 }
+          { 'filename', path = 4 },
         },
         lualine_x = {
           {
@@ -46,14 +46,14 @@ return {
               error = '',
               warn = '',
               info = '',
-              hint = ''
+              hint = '',
             },
           },
           'encoding',
-          'filetype'
+          'filetype',
         },
         lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
@@ -61,12 +61,12 @@ return {
         lualine_c = { 'filename' },
         lualine_x = { 'location' },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {}
+      extensions = {},
     })
-  end
+  end,
 }

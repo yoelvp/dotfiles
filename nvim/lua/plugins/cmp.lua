@@ -11,17 +11,17 @@ return {
     'windwp/nvim-autopairs',
     {
       'roobert/tailwindcss-colorizer-cmp.nvim',
-      config = true
+      config = true,
     },
     {
       'L3MON4D3/LuaSnip',
       version = 'v2.*',
-      build = 'make install_jsregexp'
-    }
+      build = 'make install_jsregexp',
+    },
   },
-  opts = function (_, opts)
+  opts = function(_, opts)
     opts.formatting = {
-      format = require('tailwindcss-colorizer-cmp').formatter
+      format = require('tailwindcss-colorizer-cmp').formatter,
     }
   end,
   config = function()

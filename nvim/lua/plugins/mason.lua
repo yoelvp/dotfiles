@@ -29,14 +29,13 @@ return {
         'intelephense',
         'jsonls',
         'lua_ls',
-        'remark_ls',
         'rust_analyzer',
         'svelte',
         'tailwindcss',
         'tsserver',
-        'volar'
+        'volar',
       },
-      automatic_installation = true
+      automatic_installation = true,
     })
   end,
 }

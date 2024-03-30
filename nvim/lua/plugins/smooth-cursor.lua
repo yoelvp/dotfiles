@@ -2,7 +2,7 @@ return {
   'gen740/SmoothCursor.nvim',
   config = function()
     require('smoothcursor').setup({
-      cursor = '󰣇'
+      cursor = '󰣇',
     })
 
     local foreground = '#fe094e'
@@ -32,5 +32,5 @@ return {
         end
       end,
     })
-  end
+  end,
 }

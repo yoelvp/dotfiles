@@ -5,32 +5,29 @@ local input_file_name = function()
   local event = require('nui.utils.autocmd').event
   local current_dir = vim.fn.expand('%:h')
 
-  local input = Input(
-    {
-      position = '50%',
-      size = {
-        width = '40%'
-      },
-      border = {
-        style = 'single',
-        text = {
-          top = 'Enter filename',
-          top_align = 'center'
-        }
-      }
+  local input = Input({
+    position = '50%',
+    size = {
+      width = '40%',
     },
-    {
-      prompt = '> ',
-      default_value = current_dir .. '/',
-      on_submit = function (value)
-        print('full_path: ', value)
-      end
-    }
-  )
+    border = {
+      style = 'single',
+      text = {
+        top = 'Enter filename',
+        top_align = 'center',
+      },
+    },
+  }, {
+    prompt = '> ',
+    default_value = current_dir .. '/',
+    on_submit = function(value)
+      print('full_path: ', value)
+    end,
+  })
 
   input:mount()
 
-  input:on(event.BufLeave, function ()
+  input:on(event.BufLeave, function()
     input:unmount()
   end)
 end
@@ -40,39 +37,36 @@ function M.new_file()
   local Menu = require('nui.menu')
   local MenuOption = {
     FILE = 'FILE',
-    COMPONENT = 'COMPONENT'
+    COMPONENT = 'COMPONENT',
   }
 
-  local menu = Menu(
-    {
-      position = '50%',
-      size = {
-        width = '25%'
-      },
-      border = {
-        style = 'rounded',
-        text = {
-          top = 'Choose file option',
-          top_align = 'center'
-        }
-      }
+  local menu = Menu({
+    position = '50%',
+    size = {
+      width = '25%',
     },
-    {
-      lines = {
-        Menu.item('File', { id = MenuOption.FILE }),
-        Menu.item('Component', { id = MenuOption.COMPONENT })
+    border = {
+      style = 'rounded',
+      text = {
+        top = 'Choose file option',
+        top_align = 'center',
       },
-      on_submit = function (item)
-        if item.id == MenuOption.FILE then
-          input_file_name()
-        end
-
-        if item.id == MenuOption.COMPONENT then
-          print('Create a new component of react')
-        end
+    },
+  }, {
+    lines = {
+      Menu.item('File', { id = MenuOption.FILE }),
+      Menu.item('Component', { id = MenuOption.COMPONENT }),
+    },
+    on_submit = function(item)
+      if item.id == MenuOption.FILE then
+        input_file_name()
       end
-    }
-  )
+
+      if item.id == MenuOption.COMPONENT then
+        print('Create a new component of react')
+      end
+    end,
+  })
 
   menu:mount()
 end

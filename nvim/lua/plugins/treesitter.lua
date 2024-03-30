@@ -4,7 +4,7 @@ return {
   dependencies = {
     'nvim-treesitter/playground',
     'nvim-treesitter/nvim-treesitter-refactor',
-    'nvim-treesitter/nvim-treesitter-textobjects'
+    'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
     local ts_configs = require('nvim-treesitter.configs')
@@ -43,46 +43,46 @@ return {
         'tsx',
         'typescript',
         'vue',
-        'xml'
+        'xml',
       },
       sync_install = true,
       auto_install = true,
       indent = {
-        enable = true
+        enable = true,
       },
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false
+        additional_vim_regex_highlighting = false,
       },
       refactor = {
         highlight_definitions = { enable = true },
         smart_rename = {
           enable = true,
           keymaps = {
-            smart_rename = 'trr'
-          }
-        }
+            smart_rename = 'trr',
+          },
+        },
       },
       textobjects = {
         select = {
           enable = true,
           lookahead = true,
           keymaps = {
-            ["ap"] = "@parameter.outer",
-            ["ip"] = "@parameter.inner",
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
-            ["aC"] = "@class.conditional",
-            ["iC"] = "@class.conditional",
-            ["al"] = "@class.loop",
-            ["il"] = "@class.loop",
-            ["ab"] = "@class.block",
-            ["ib"] = "@class.block",
+            ['ap'] = '@parameter.outer',
+            ['ip'] = '@parameter.inner',
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+            ['aC'] = '@class.conditional',
+            ['iC'] = '@class.conditional',
+            ['al'] = '@class.loop',
+            ['il'] = '@class.loop',
+            ['ab'] = '@class.block',
+            ['ib'] = '@class.block',
           },
         },
-      }
+      },
     })
-  end
+  end,
 }

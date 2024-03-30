@@ -12,7 +12,7 @@ telescope.setup({
   winblend = 20,
   defaults = {
     layout_config = {
-      prompt_position = 'bottom'
+      prompt_position = 'bottom',
     },
     file_ignore_patterns = {
       '.git/.*',
@@ -25,8 +25,8 @@ telescope.setup({
       'dist/.*',
       '.dart_tool/.*',
       '.next/.*',
-      '.svelte-kit/.*'
-    }
+      '.svelte-kit/.*',
+    },
   },
   layout_config = {
     width = 0.95,
@@ -41,59 +41,53 @@ telescope.setup({
     },
     file_browser = {
       theme = 'dropdown',
-      hijack_netrw = true
+      hijack_netrw = true,
     },
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
-    }
+    },
   },
 })
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
 
-keymap.set(
-  'n',
-  'ff',
-  function()
-    require('telescope.builtin').find_files({
-      noignore = false,
-      hidden = true,
-      grouped = true
-    })
-  end, opts)
+keymap.set('n', 'ff', function()
+  require('telescope.builtin').find_files({
+    noignore = false,
+    hidden = true,
+    grouped = true,
+  })
+end, opts)
 
 keymap.set('n', 'fbf', function()
   require('telescope.builtin').buffers({
     noignore = false,
     hidden = true,
-    grouped = true
+    grouped = true,
   })
 end, opts)
 
-keymap.set(
-  'n',
-  'mf',
-  function()
-    telescope.extensions.media_files.media_files({
-      path = '%:p:h',
-      cwd = vim.fn.expand('%:p:h'),
-      respect_gitignore = false,
-      hidden = true,
-      grouped = true
-    })
-  end, opts)
+keymap.set('n', 'mf', function()
+  telescope.extensions.media_files.media_files({
+    path = '%:p:h',
+    cwd = vim.fn.expand('%:p:h'),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+  })
+end, opts)
 
 keymap.set('n', '<leader>bb', function()
   telescope.extensions.file_browser.file_browser({
     path = '%:p:h',
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
-    initial_mode = 'normal'
+    initial_mode = 'normal',
   })
 end, opts)
 
@@ -103,10 +97,9 @@ keymap.set('n', 'fht', function()
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true
+    grouped = true,
   })
 end, opts)
-
 
 keymap.set('n', 'fgs', function()
   require('telescope.builtin').grep_string({
@@ -114,7 +107,7 @@ keymap.set('n', 'fgs', function()
     -- cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true
+    grouped = true,
   })
 end, opts)
 
@@ -124,7 +117,7 @@ keymap.set('n', 'flg', function()
     -- cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true
+    grouped = true,
   })
 end, opts)
 
@@ -134,10 +127,9 @@ keymap.set('n', 'frf', function()
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
-    grouped = true
+    grouped = true,
   })
 end, opts)
-
 
 keymap.set('n', 'fof', function()
   require('telescope.builtin').oldfiles()

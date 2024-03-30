@@ -8,7 +8,7 @@ return {
       signcolumn = true,
       numhl = true,
       trouble = false,
-      max_file_length = 10000
+      max_file_length = 10000,
     })
-  end
+  end,
 }

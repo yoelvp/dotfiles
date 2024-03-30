@@ -3,11 +3,11 @@ return {
   {
     'mg979/vim-visual-multi',
     branch = 'master',
-    init = function ()
+    init = function()
       vim.g.VM_maps = {
-        ["I BS"] = '', -- disable backspace mapping
+        ['I BS'] = '<C-BS>', -- disable backspace mapping
       }
-    end
+    end,
   },
 
   -- Autoclose the pair {} [] ''
@@ -17,9 +17,9 @@ return {
     config = function()
       require('nvim-autopairs').setup({
         disable_filetype = { 'TelescopePrompt', 'vim' },
-        map_bs = true
+        map_bs = true,
       })
-    end
+    end,
   },
 
   -- Comments
@@ -37,7 +37,7 @@ return {
     config = function(_, opts)
       local comment = require('Comment')
       comment.setup(vim.tbl_extend('force', opts, {
-        pre_hook = function (ctx)
+        pre_hook = function(ctx)
           local utils = require('Comment.utils')
           local location = nil
 
@@ -49,9 +49,9 @@ return {
 
           return require('ts_context_commentstring.internal').calculate_commentstring({
             key = ctx.ctype == utils.ctype.line and '__default' or '__multiline',
-            location = location
+            location = location,
           })
-        end
+        end,
       }))
     end,
   },
@@ -61,16 +61,16 @@ return {
     'JoosepAlviste/nvim-ts-context-commentstring',
     lazy = true,
     opts = {
-      enable_autocmd = false
+      enable_autocmd = false,
     },
-    config = function ()
-      require('ts_context_commentstring').setup {
+    config = function()
+      require('ts_context_commentstring').setup({
         enable_autocmd = false,
         languages = {
           typescript = '// %s',
-        }
-      }
-    end
+        },
+      })
+    end,
   },
 
   -- TODO comments
@@ -80,7 +80,7 @@ return {
     lazy = false,
     cmd = { 'TodoTrouble', 'TodoTelescope', 'TodoQuickFix' },
     dependencies = 'nvim-lua/plenary.nvim',
-    config = true
+    config = true,
   },
 
   -- Change sorround [] {} '' and more
@@ -90,14 +90,14 @@ return {
     event = 'VeryLazy',
     config = function()
       require('nvim-surround').setup({})
-    end
+    end,
   },
 
   -- Autoclose tags in html, jsx, tsx and more
   {
     'windwp/nvim-ts-autotag',
     event = 'InsertEnter',
-    config = true
+    config = true,
   },
 
   -- Template string
@@ -113,14 +113,14 @@ return {
         remove_template_string = false,
         restore_quotes = {
           normal = [[']],
-          jsx = [["]]
-        }
+          jsx = [["]],
+        },
       })
-    end
+    end,
   },
 
   -- Emmet
   {
-    'mattn/emmet-vim'
-  }
+    'mattn/emmet-vim',
+  },
 }

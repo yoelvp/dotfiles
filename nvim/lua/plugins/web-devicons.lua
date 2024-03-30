@@ -6,7 +6,7 @@ return {
     local eslint_format = {
       icon = '󰱺',
       color = '#4B32C3',
-      name = 'Eslint'
+      name = 'Eslint',
     }
 
     icons.setup({
@@ -41,7 +41,7 @@ return {
         --   color = '#6096B4',
         --   name = 'images folder name'
         -- },
-      }
+      },
     })
-  end
+  end,
 }

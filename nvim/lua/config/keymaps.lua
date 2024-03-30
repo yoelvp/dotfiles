@@ -3,7 +3,7 @@ local discipline = require('yoelvp.discipline')
 local utils = require('yoelvp.utils')
 local opts = { noremap = true, silent = true }
 
-local new_options = function (new_opts)
+local new_options = function(new_opts)
   return utils.extendTable(opts, new_opts)
 end
 
@@ -63,7 +63,7 @@ keymap('n', '<S-A-k>', utils.duplicate_line_above, new_options({ desc = 'Duplica
 keymap('n', '<S-A-j>', utils.duplicate_line_below, new_options({ desc = 'Duplicate line below' }))
 
 -- Format document
-keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', new_options({ desc = 'Format document'}))
+keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', new_options({ desc = 'Format document' }))
 
 -- Compile and run rust projects
 keymap('n', '<leader>rmk', '[[:w<CR>:term cargo run<CR>]]', new_options({ desc = 'Compile rust projects' }))

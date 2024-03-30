@@ -9,5 +9,5 @@ return {
       font_active = 'bold',
       exclude_fts = { 'NvimTree', 'dashboard' },
     })
-  end
+  end,
 }

@@ -6,7 +6,7 @@ return {
 
     blame.setup({
       width = 40,
-      virtual_style = 'float'
+      virtual_style = 'float',
     })
-  end
+  end,
 }
