@@ -3,20 +3,6 @@
   "contributes": {
     "snippets": [
       {
-        "language": [ "" ],
-        "path": "./languages/javascript.json"
-      },
-      {
-        "language": [
-          "astro",
-          "blade",
-          "html",
-          "javascriptreact",
-          "typescriptreact"
-        ],
-        "path": "./languages/html.json"
-      },
-      {
         "language": [ "lua" ],
         "path": "./languages/lua/lua.json"
       },
