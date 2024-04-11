@@ -1,7 +1,12 @@
 local telescope = require('telescope')
---[[ local fb_actions = require('telescope').extensions.file_browser.actions ]]
+local utils = require('yoelvp.utils')
+local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
---[[ telescope.load_extension('fzf') ]]
+local new_options = function(new_opts)
+  return utils.extend_tbl(opts, new_opts)
+end
+
 telescope.load_extension('media_files')
 telescope.load_extension('file_browser')
 
@@ -53,16 +58,15 @@ telescope.setup({
   },
 })
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.keymap
+-- Load extensions
+telescope.load_extension('fzf')
 
 keymap.set('n', 'ff', function()
   require('telescope.builtin').find_files({
     noignore = false,
-    hidden = true,
     grouped = true,
   })
-end, opts)
+end, new_options({ desc = 'Find all files' }))
 
 keymap.set('n', 'fbf', function()
   require('telescope.builtin').buffers({
@@ -70,9 +74,9 @@ keymap.set('n', 'fbf', function()
     hidden = true,
     grouped = true,
   })
-end, opts)
+end, new_options({ desc = 'Find buffers' }))
 
-keymap.set('n', 'mf', function()
+keymap.set('n', 'fmf', function()
   telescope.extensions.media_files.media_files({
     path = '%:p:h',
     cwd = vim.fn.expand('%:p:h'),
@@ -80,16 +84,16 @@ keymap.set('n', 'mf', function()
     hidden = true,
     grouped = true,
   })
-end, opts)
+end, new_options({ desc = 'Find media files' }))
 
-keymap.set('n', '<leader>bb', function()
+keymap.set('n', 'fbb', function()
   telescope.extensions.file_browser.file_browser({
     path = '%:p:h',
     cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     initial_mode = 'normal',
   })
-end, opts)
+end, new_options({ desc = 'File explorer'}))
 
 keymap.set('n', 'fht', function()
   require('telescope.builtin').help_tags({
@@ -99,27 +103,25 @@ keymap.set('n', 'fht', function()
     hidden = true,
     grouped = true,
   })
-end, opts)
+end, new_options({ desc = 'Find help tags' }))
 
 keymap.set('n', 'fgs', function()
   require('telescope.builtin').grep_string({
-    -- path = '%:p:h',
-    -- cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
     grouped = true,
   })
-end, opts)
+end, new_options({ desc = 'Find grep strings' }))
 
 keymap.set('n', 'flg', function()
   require('telescope.builtin').live_grep({
-    -- path = '%:p:h',
-    -- cwd = vim.fn.expand('%:p:h'),
+    path = '%:p:h',
+    cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
     grouped = true,
   })
-end, opts)
+end, new_options({ desc = 'Find live grep' }))
 
 keymap.set('n', 'frf', function()
   require('telescope.builtin').lsp_references({
@@ -128,28 +130,41 @@ keymap.set('n', 'frf', function()
     respect_gitignore = false,
     hidden = true,
     grouped = true,
+    initial_mode = 'normal',
   })
-end, opts)
+end, new_options({ desc = 'Fin references' }))
 
 keymap.set('n', 'fof', function()
-  require('telescope.builtin').oldfiles()
-end, opts)
+  require('telescope.builtin').oldfiles({
+    initial_mode = 'normal',
+  })
+end, new_options({ desc = 'Find old files' }))
 
 -- Git
 keymap.set('n', 'gst', function()
-  require('telescope.builtin').git_status()
-end, opts)
+  require('telescope.builtin').git_status({
+    initial_mode = 'normal',
+  })
+end, new_options({ desc = 'Find Git Status' }))
 
 keymap.set('n', 'fgb', function()
-  require('telescope.builtin').git_branches()
-end, opts)
+  require('telescope.builtin').git_branches({
+    initial_mode = 'normal',
+  })
+end, new_options({ desc = 'Find all Git Branches' }))
 
 keymap.set('n', 'fgc', function()
-  require('telescope.builtin').git_commits()
-end, opts)
+  require('telescope.builtin').git_commits({
+    initial_mode = 'normal',
+  })
+end, new_options({ desc = 'Find all commits' }))
 
 keymap.set('n', 'fgC', function()
-  require('telescope.builtin').git_bcommits()
-end, opts)
+  require('telescope.builtin').git_bcommits({
+    initial_mode = 'normal',
+  })
+end, new_options({ desc = 'Find commits in the current buffer' }))
 
---[[ keymap.set('n', 'fgb', ':Telescope git_branches<CR>', opts) ]]
+keymap.set('n', 'fkm', function()
+  require('telescope.builtin').keymaps()
+end, new_options({ desc = 'Find all keymaps' }))
