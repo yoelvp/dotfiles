@@ -134,6 +134,8 @@ alias wifi-connect="nmcli dev wifi connect VALVERDE password valverde2002"
 alias nginx-start="sudo systemctl start nginx ; sudo systemctl start mariadb ; sudo systemctl start php-fpm"
 alias nginx-restart="sudo systemctl restart nginx ; sudo systemctl restart mariadb ; sudo systemctl restart php-fpm"
 alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mariadb ; sudo systemctl stop php-fpm"
+alias psg-start="sudo systemctl start postgresql"
+alias psg-stop="sudo systemctl stop postgresql"
 
 # Mount o umount disk
 alias mount-tosshiba="sudo mkdir /run/mount/yoelvp/TOSHIBA ; sudo mount /dev/sda1 /run/mount/yoelvp/TOSHIBA"
@@ -148,6 +150,8 @@ alias my="mycli -h localhost -u root -pyoelvp732"
 
 # VS Codium
 alias codium="vscodium"
+
+alias wallpaper="~/dotfiles/Scripts/change_wallpaper.sh"
 
 ## keyboard backlight
 # alias keyboard="for i in {00..03}; do sudo bash -c 'echo 7E2553 > /sys/devices/platform/hp-wmi/rgb_zones/zone$i' & done"
