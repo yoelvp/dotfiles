@@ -1,10 +1,9 @@
 local M = {}
 
 M.neotree = require('yoelvp.utils.neotree')
-M.react = require('yoelvp.utils.react')
 
 -- Extend table
-function M.extendTable(table, values)
+function M.extend_tbl(table, values)
   return vim.tbl_extend('force', table, values)
 end
 
@@ -23,6 +22,11 @@ end
 function M.delete_current_buffer()
   local bufnr = vim.api.nvim_get_current_buf()
   vim.api.nvim_buf_delete(bufnr, { force = false })
+end
+
+-- TODO: Seleccionar todo el contenido y regresar el cursor a su lugar donde estaba
+function M.select_all_content()
+  print('Haz hecho click')
 end
 
 return M
