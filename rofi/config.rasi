@@ -46,6 +46,16 @@ window {
   listview-striped:             false;
 }
 
+// Modes //
+mode-switcher{
+  orientation:                 vertical;
+  enabled:                     true;
+  width:                       3.8em;
+  padding:                     9.2em 0.5em 9.2em 0.5em;
+  spacing:                     1.2em;
+  background-color:            transparent;
+}
+
 prompt {
   enabled:                      true;
   padding:                      10px;
