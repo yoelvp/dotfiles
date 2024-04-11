@@ -3,21 +3,17 @@ return {
   {
     'mg979/vim-visual-multi',
     branch = 'master',
-    init = function()
-      vim.g.VM_maps = {
-        ['I BS'] = '<C-BS>', -- disable backspace mapping
-      }
-    end,
   },
 
   -- Autoclose the pair {} [] ''
   {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
+    'echasnovski/mini.pairs',
+    version = '*',
     config = function()
-      require('nvim-autopairs').setup({
-        disable_filetype = { 'TelescopePrompt', 'vim' },
-        map_bs = true,
+      local pairs = require('mini.pairs')
+
+      pairs.setup({
+        modes = { insert = true, command = false, terminal = false },
       })
     end,
   },
@@ -27,12 +23,12 @@ return {
     'numToStr/Comment.nvim',
     lazy = false,
     keys = {
-      { 'gcc', mode = 'n', desc = 'Comment toggle current line' },
-      { 'gc', mode = { 'n', 'o' }, desc = 'Comment toggle linewise' },
-      { 'gc', mode = 'x', desc = 'Comment toggle linewise (visual)' },
-      { 'gbc', mode = 'n', desc = 'Comment toggle current block' },
-      { 'gb', mode = { 'n', 'o' }, desc = 'Comment toggle blockwise' },
-      { 'gb', mode = 'x', desc = 'Comment toggle blockwise (visual)' },
+      { 'gcc', mode = 'n',          desc = 'Comment toggle current line' },
+      { 'gc',  mode = { 'n', 'o' }, desc = 'Comment toggle linewise' },
+      { 'gc',  mode = 'x',          desc = 'Comment toggle linewise (visual)' },
+      { 'gbc', mode = 'n',          desc = 'Comment toggle current block' },
+      { 'gb',  mode = { 'n', 'o' }, desc = 'Comment toggle blockwise' },
+      { 'gb',  mode = 'x',          desc = 'Comment toggle blockwise (visual)' },
     },
     config = function(_, opts)
       local comment = require('Comment')
@@ -85,11 +81,30 @@ return {
 
   -- Change sorround [] {} '' and more
   {
-    'kylechui/nvim-surround',
-    version = '*',
+    'echasnovski/mini.surround',
     event = 'VeryLazy',
     config = function()
-      require('nvim-surround').setup({})
+      local mini_sorround = require('mini.surround')
+      mini_sorround.setup({
+        custom_surroundings = nil,
+        highlight_duration = 500,
+        mappings = {
+          add = 'sa',
+          delete = 'sd',
+          find = 'sf',           -- Find surrounding (to the right)
+          find_left = 'sF',      -- Find surrounding (to the left)
+          highlight = 'sh',      -- Highlight surrounding
+          replace = 'sr',        -- Replace surrounding
+          update_n_lines = 'sn', -- Update `n_lines`
+
+          suffix_last = 'l',     -- Suffix to search with "prev" method
+          suffix_next = 'n',     -- Suffix to search with "next" method
+        },
+        n_lines = 20,
+        respect_selection_type = false,
+        search_method = 'cover',
+        silent = false,
+      })
     end,
   },
 
@@ -122,5 +137,6 @@ return {
   -- Emmet
   {
     'mattn/emmet-vim',
+    event = 'VeryLazy',
   },
 }
