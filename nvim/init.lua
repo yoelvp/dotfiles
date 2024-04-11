@@ -51,4 +51,4 @@ require('config.lazy')
 ------------------------------
 -- colorscheme selected
 ------------------------------
-require('config.theme')
+require('theme')
