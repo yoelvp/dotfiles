@@ -38,17 +38,8 @@ return {
 
       onedark.setup({
         styles = {
-          types = 'NONE',
-          methods = 'NONE',
-          numbers = 'NONE',
-          strings = 'NONE',
           comments = 'italic',
           keywords = 'bold,italic',
-          constants = 'NONE',
-          functions = 'italic',
-          operators = 'NONE',
-          variables = 'NONE',
-          parameters = 'NONE',
           conditionals = 'italic',
           virtual_text = 'italic',
         },
@@ -87,7 +78,7 @@ return {
     'comfysage/evergarden',
     priority = 1000,
     opts = {
-      transparent_background = true,
+      transparent_background = false,
       contrast_dark = 'medium', -- 'hard'|'medium'|'soft'
       style = {
         tabline = { reverse = true, color = 'green' },
