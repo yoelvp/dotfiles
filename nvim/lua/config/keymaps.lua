@@ -4,33 +4,31 @@ local utils = require('yoelvp.utils')
 local opts = { noremap = true, silent = true }
 
 local new_options = function(new_opts)
-  return utils.extendTable(opts, new_opts)
+  return utils.extend_tbl(opts, new_opts)
 end
 
 discipline.stranger()
 
-keymap('n', 'fn', utils.react.new_file, new_options({ desc = 'Create a new file' }))
-
 -- disable macros
-keymap('n', 'q', '<Nop>', opts)
+keymap('n', 'q', '<Nop>', new_options({ desc = 'Disable keymap for save macros' }))
 
 -- Disabled arrow
-keymap('n', '<Left>', '<Nop>', opts)
-keymap('n', '<Down>', '<Nop>', opts)
-keymap('n', '<Up>', '<Nop>', opts)
-keymap('n', '<Right>', '<Nop>', opts)
+keymap('n', '<Left>', '<Nop>', new_options({ desc = 'Disable Left arrow ' }))
+keymap('n', '<Down>', '<Nop>', new_options({ desc = 'Disable Down arrow ' }))
+keymap('n', '<Up>', '<Nop>', new_options({ desc = 'Disable Up arrow' }))
+keymap('n', '<Right>', '<Nop>', new_options({ desc = 'Disable Right arrow' }))
 
 -- Move with <C-{h,j,k,l}>
-keymap('i', '<C-h>', '<Left>', opts)
-keymap('i', '<C-j>', '<Down>', opts)
-keymap('i', '<C-k>', '<Up>', opts)
-keymap('i', '<C-l>', '<Right>', opts)
+keymap('i', '<C-h>', '<Left>', new_options({ desc = 'Move Left with arrow in INSERT mode' }))
+keymap('i', '<C-j>', '<Down>', new_options({ desc = 'Move Down with arrow in INSERT mode' }))
+keymap('i', '<C-k>', '<Up>', new_options({ desc = 'Move Up with arrow in INSERT mode' }))
+keymap('i', '<C-l>', '<Right>', new_options({ desc = 'Move Right with arrow in INSERT mode' }))
 
 -- Enable wrap mode
 keymap('n', '<A-z>', ':set wrap!<CR>', new_options({ desc = 'Toggle wrap state in the buffer' }))
 
 -- Select all
-keymap('n', '<C-a>', 'gg<S-v>G', new_options({ desc = 'Select all content' }))
+keymap('n', 'ya', ':%y+<CR>', new_options({ desc = 'File copy whole' }))
 
 -- Move to window
 keymap('n', 'sh', '<C-w>h', new_options({ desc = 'Move the cursor to the left window' }))
@@ -79,3 +77,10 @@ keymap('n', '<leader>gb', ':ToggleBlame virtual<CR>', new_options({ desc = 'Togg
 
 -- Markdown toggle preview
 keymap('n', 'mp', ':MarkdownPreviewToggle<CR>', new_options({ desc = 'Toggle markdown preview' }))
+
+-- Open Oil
+keymap('n', '<leader>ft', ':Oil<CR>', new_options({ desc = 'Open Oil for edit files and directories' }))
+
+-- Codesnap
+keymap({ 'v', 'x' }, '<leader>cs', ':CodeSnap<CR>', new_options({ desc = 'Save screenshot to clipboard' }))
+keymap({ 'v', 'x' }, '<leader>cS', ':CodeSnapSave<CR>', new_options({ desc = 'Save the code capture locally' }))
