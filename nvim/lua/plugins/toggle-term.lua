@@ -1,6 +1,20 @@
 return {
   'akinsho/toggleterm.nvim',
   version = '*',
+  event = 'VeryLazy',
+  keys = {
+    {
+      '<leader>th',
+      '<cmd>ToggleTerm direction=horizontal<CR>',
+      { noremap = true, silent = true, desc = 'Open terminal in horizontal mode' },
+    },
+    {
+      'n',
+      '<leader>tv',
+      ':ToggleTerm direction=vertical size=80<CR>',
+      { noremap = true, silent = true, desc = 'Open Term in vertical mode' },
+    },
+  },
   config = function()
     require('toggleterm').setup({
       direction = 'float',
@@ -8,14 +22,5 @@ return {
       persist_mode = false,
       start_in_insert = true,
     })
-
-    -- keymaps
-    vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<CR>', { desc = 'Open Term in horizontal mode' })
-    vim.keymap.set(
-      'n',
-      '<leader>tv',
-      ':ToggleTerm direction=vertical size=80<CR>',
-      { desc = 'Open Term in vertical mode' }
-    )
   end,
 }
