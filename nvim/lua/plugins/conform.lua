@@ -1,6 +1,7 @@
 return {
   'stevearc/conform.nvim',
   event = 'BufReadPre',
+  enabled = false,
   config = function()
     local conform = require('conform')
 
@@ -8,12 +9,12 @@ return {
       formatters_by_ft = {
         css = { 'stylelint' },
         go = { 'gofmt' },
-        javascript = { 'prettierd' },
-        javascriptreact = { 'prettierd' },
+        --[[ javascript = { 'prettierd' }, ]]
+        --[[ javascriptreact = { 'prettierd' }, ]]
         lua = { 'stylua' },
         rust = { 'rustfmt' },
-        typescript = { 'prettierd' },
-        typescriptreact = { 'prettierd' },
+        --[[ typescript = { 'prettierd' }, ]]
+        --[[ typescriptreact = { 'prettierd' }, ]]
       },
     })
 
