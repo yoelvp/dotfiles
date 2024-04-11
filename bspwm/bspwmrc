@@ -29,5 +29,8 @@ xsetroot -cursor_name left_ptr &
 # Feh
 ~/.fehbg &
 
+# Transparency with picom
+picom -b --config ~/.config/picom/picom.conf
+
 # Java apps
 wmname LG3D &
