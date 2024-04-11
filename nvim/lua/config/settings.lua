@@ -25,8 +25,6 @@ opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 2
 opt.wrap = false
-opt.laststatus = 2
-opt.showtabline = 2
 
 opt.scrolloff = 5
 opt.sidescrolloff = 5
@@ -56,6 +54,7 @@ opt.updatetime = 100
 opt.hidden = true
 opt.swapfile = false
 opt.synmaxcol = 1000
+vim.o.undofile = true
 
 -- Fold column
 opt.foldcolumn = '0'
