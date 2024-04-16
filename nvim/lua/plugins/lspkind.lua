@@ -38,12 +38,13 @@ return {
         Snippet = ' ',
         String = ' ',
         Struct = '󰙅',
+        Tailwind = '󰹞󰹞󰹞',
         Text = '󰉿',
         TypeParameter = ' ',
         Unit = ' ',
         Value = '󰎠',
         Variable = '󰀫',
-      },
+      }
     })
   end,
 }
