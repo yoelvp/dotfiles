@@ -9,7 +9,7 @@ autocmd('BufEnter', {
   pattern = '*',
   callback = function()
     vim.cmd('Neotree close')
-  end
+  end,
 })
 
 -- Go to last loc when opening a buffer
@@ -67,12 +67,10 @@ autocmd('BufNewFile', {
   end,
 })
 
---[[ autocmd('BufRead', {
+autocmd('BufDelete', {
   pattern = '*',
-  group = augroup('open_dashboard'),
-  callback = function (event)
-    local bufnr = event.buf
-    local linenr = vim.api.nvim_buf_get_lines(bufnr, 0, -1, true)
-    print(linenr[1])
-  end
-}) ]]
+  group = augroup('reopen_dashboard'),
+  callback = function()
+    -- TODO: Abrir `Dashboard` cuando no existen buffers abiertos o cuando el solo queda el buffer [No Name]
+  end,
+})
