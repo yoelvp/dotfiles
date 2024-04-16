@@ -73,7 +73,7 @@ return {
     priority = 1000,
   },
 
-  -- Ayu Theme
+  -- Evergarden
   {
     'comfysage/evergarden',
     priority = 1000,
