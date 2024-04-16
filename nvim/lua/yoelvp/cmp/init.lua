@@ -1,6 +1,7 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
+local utils = require('yoelvp.utils')
 local autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.event:on('confirm_done', autopairs.on_confirm_done({ map_char = { tex = '' } }))
@@ -13,8 +14,14 @@ cmp.setup({
     end,
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = {
+      border = 'rounded',
+      scrollbar = true,
+    },
+    documentation = {
+      border = 'rounded',
+      scrollbar = true,
+    },
   },
   completion = {
     completeopt = 'menuone,noinsert,noselect',
@@ -50,22 +57,6 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
-    {
-      name = 'buffer',
-      keyword_length = 5,
-      option = {
-        get_bufnrs = function()
-          local bufs = {}
-          for _, win in ipairs(vim.api.nvim_list_wins()) do
-            local bufnr = vim.api.nvim_win_get_buf(win)
-            if vim.api.nvim_buf_get_option(bufnr, 'buftype') ~= 'terminal' then
-              bufs[bufnr] = true
-            end
-          end
-          return vim.tbl_keys(bufs)
-        end,
-      },
-    },
   }),
   formatting = {
     format = lspkind.cmp_format({
@@ -74,23 +65,40 @@ cmp.setup({
       ellipsis_char = '...',
       menu = {
         nvim_lsp = '[LSP]',
-        buffer = '[BUFFER]',
         path = '[PATH]',
         luasnip = '[SNIP]',
+        buffer = '[BUFFER]',
       },
+      before = function(entry, vim_item)
+        if vim_item.kind == 'Color' and entry.completion_item.documentation then
+          local _, _, r, g, b =
+          ---@diagnostic disable-next-line: param-type-mismatch
+              string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
+
+          if r and g and b then
+            local color = string.format('%02x', r) .. string.format('%02x', g) .. string.format('%02x', b)
+            local group = 'Tw_' .. color
+
+            if vim.api.nvim_call_function('hlID', { group }) < 1 then
+              vim.api.nvim_command('highlight' .. ' ' .. group .. ' ' .. 'guifg=#' .. color)
+            end
+
+            vim_item.kind = utils.lsp_icons.Tailwind
+            vim_item.kind_hl_group = group
+
+            return vim_item
+          end
+        end
+
+        vim_item.kind = utils.lsp_icons[vim_item.kind] or vim_item.kind
+
+        return vim_item
+      end,
     }),
   },
   experimental = {
     ghost_text = {
       hl_group = 'CmpGhostText',
     },
-  },
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' },
   },
 })
