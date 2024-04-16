@@ -3,63 +3,86 @@
   "contributes": {
     "snippets": [
       {
-        "language": [ "lua" ],
+        "language":"lua",
         "path": "./languages/lua/lua.json"
       },
       {
-        "language": [ "luadoc" ],
+        "language": "luadoc",
         "path": "./languages/lua/luadoc.json"
       },
       {
-        "language": [ "go" ],
+        "language": "go",
         "path": "./languages/go.json"
       },
       {
-        "language": [ "php" ],
+        "language": "php",
         "path": "./languages/php/php.json"
       },
       {
-        "language": [ "phpdoc" ],
+        "language": "phpdoc",
         "path": "./languages/php/phpdoc.json"
       },
       {
-        "language": [ "rust" ],
+        "language": "rust",
         "path": "./languages/rust/rust.json"
       },
       {
-        "language": [ "rustdoc" ],
+        "language": "rustdoc",
         "path": "./languages/rust/rustdoc.json"
       },
       {
-        "language": [ "sql" ],
+        "language": "sql",
         "path": "./languages/sql.json"
       },
       {
-        "language": ["shellscript", "shell", "sh", "zsh"],
+        "language": [
+          "shellscript",
+          "shell",
+          "sh",
+          "zsh"
+        ],
         "path": "./languages/shell/shell.json"
       },
       {
-        "language": [ "shelldoc" ],
+        "language": "shelldoc",
         "path": "./languages/shell/shelldoc.json"
       },
       {
-        "language": ["css", "scss", "sass", "less", "stylus"],
+        "language": [
+          "css",
+          "scss",
+          "sass",
+          "less",
+          "stylus"
+        ],
         "path": "./languages/css.json"
       },
       {
-        "language": ["javascript", "javascriptreact", "typescript", "typescriptreact", "svelte"],
+        "language": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "svelte"
+        ],
         "path": "./languages/javascript/javascript.json"
       },
       {
-        "language": ["javascriptreact", "typescriptreact"],
+        "language": [
+          "javascriptreact",
+          "typescriptreact"
+        ],
         "path": "./languages/javascript/react.json"
       },
       {
-        "language": ["typescript", "typescriptreact"],
+        "language": [
+          "typescript",
+          "typescriptreact"
+        ],
         "path": "./languages/javascript/typescript.json"
       },
       {
-        "language": ["svelte"],
+        "language": "svelte",
         "path": "./languages/svelte.json"
       }
     ]
