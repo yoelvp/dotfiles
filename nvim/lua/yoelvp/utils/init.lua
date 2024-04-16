@@ -1,6 +1,7 @@
 local M = {}
 
 M.neotree = require('yoelvp.utils.neotree')
+M.lsp_icons = require('yoelvp.utils.lsp-icons')
 
 -- Extend table
 function M.extend_tbl(table, values)
