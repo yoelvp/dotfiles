@@ -1,13 +1,25 @@
 return {
   'rcarriga/nvim-notify',
-  config = function()
+  keys = {
+    {
+      '<leader>un',
+      function()
+        require('notify').dismiss({ silent = true, pending = true })
+      end,
+      desc = 'Dismiss All Notifications',
+    },
+  },
+  opts = {
+    render = 'compact',
+    timeout = 1000,
+    top_down = false,
+  },
+  config = function(_, opts)
     local notify = require('notify')
     -- this for transparency
-    notify.setup({
-      background_colour = '#000000',
-    })
+    notify.setup(opts)
 
     -- this overwrites the vim notify function
-    vim.notify = notify.notify
+    vim.notify = notify
   end,
 }
