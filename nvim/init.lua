@@ -19,11 +19,6 @@
 require('config.settings')
 
 ------------------------------
--- vim plugin configs
-------------------------------
-require('config.configs')
-
-------------------------------
 -- keymaps
 ------------------------------
 require('config.keymaps')
