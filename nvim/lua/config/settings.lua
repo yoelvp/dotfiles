@@ -54,7 +54,6 @@ opt.updatetime = 100
 opt.hidden = true
 opt.swapfile = false
 opt.synmaxcol = 1000
-vim.o.undofile = true
 
 -- Fold column
 opt.foldcolumn = '0'
