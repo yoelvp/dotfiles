@@ -84,3 +84,6 @@ keymap('n', '<leader>ft', ':Oil<CR>', new_options({ desc = 'Open Oil for edit fi
 -- Codesnap
 keymap({ 'v', 'x' }, '<leader>cs', ':CodeSnap<CR>', new_options({ desc = 'Save screenshot to clipboard' }))
 keymap({ 'v', 'x' }, '<leader>cS', ':CodeSnapSave<CR>', new_options({ desc = 'Save the code capture locally' }))
+
+-- Leader key for Emmet
+vim.cmd("let g:user_emmet_leader_key='<M-z>'")
