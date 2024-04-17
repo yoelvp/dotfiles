@@ -7,6 +7,13 @@ local autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', autopairs.on_confirm_done({ map_char = { tex = '' } }))
 vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
 
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -34,7 +41,7 @@ cmp.setup({
     ['<C-c>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
+      if cmp.visible() and has_words_before() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
@@ -72,8 +79,8 @@ cmp.setup({
       before = function(entry, vim_item)
         if vim_item.kind == 'Color' and entry.completion_item.documentation then
           local _, _, r, g, b =
-          ---@diagnostic disable-next-line: param-type-mismatch
-              string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
+            ---@diagnostic disable-next-line: param-type-mismatch
+            string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
 
           if r and g and b then
             local color = string.format('%02x', r) .. string.format('%02x', g) .. string.format('%02x', b)
