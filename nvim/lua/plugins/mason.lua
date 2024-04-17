@@ -32,8 +32,7 @@ return {
         'rust_analyzer',
         'svelte',
         'tailwindcss',
-        'tsserver',
-        'volar',
+        'tsserver'
       },
       automatic_installation = true,
     })
