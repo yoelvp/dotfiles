@@ -2,21 +2,26 @@ local keymap = vim.keymap.set
 local lsp = require('lspconfig')
 local nvim_lsp = require('cmp_nvim_lsp')
 local lsp_util = require('lspconfig.util')
+local utils = require('yoelvp.utils')
 local ts_builtin = require('telescope.builtin')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local opts = { noremap = true, silent = true }
 
 capabilities = nvim_lsp.default_capabilities(capabilities)
 
+local new_options = function(new_opts)
+  return utils.extend_tbl(opts, new_opts)
+end
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-    keymap('n', 'gd', vim.lsp.buf.definition, opts, { desc = 'Go to definition' })
-    keymap('n', 'gr', ts_builtin.lsp_references, opts, { desc = 'Go to references' })
-    keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts, { desc = 'LSP implementation' })
-    keymap('n', 'rn', ':lua vim.lsp.buf.rename()<CR>', opts, { desc = 'Rename variables' })
+    keymap('n', 'gd', vim.lsp.buf.definition, new_options({ desc = 'Go to definition' }))
+    keymap('n', 'gr', ts_builtin.lsp_references, new_options({ desc = 'Go to references' }))
+    keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', new_options({ desc = 'LSP implementation' }))
+    keymap('n', 'rn', ':lua vim.lsp.buf.rename()<CR>', new_options({ desc = 'Rename variables' }))
     keymap('n', 'H', ':lua vim.lsp.buf.hover()<CR>', opts)
     keymap('n', 'K', ':lua vim.lsp.buf.signature_help()<CR>', opts)
     keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
@@ -26,7 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local on_attach = function()
-  keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', opts, { desc = 'Format document' })
+  keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', new_options({ desc = 'Format document' }))
 end
 
 lsp.astro.setup({
@@ -98,6 +103,12 @@ lsp.intelephense.setup({
       },
     },
   },
+})
+
+lsp.jdtls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'java' },
 })
 
 lsp.jsonls.setup({
@@ -201,10 +212,10 @@ lsp.tsserver.setup({
   },
 })
 
-lsp.volar.setup({
+--[[ lsp.volar.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-})
+}) ]]
 
 vim.diagnostic.config({
   virtual_text = {
