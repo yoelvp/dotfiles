@@ -10,7 +10,7 @@ end
 discipline.stranger()
 
 -- disable macros
-keymap('n', 'q', '<Nop>', new_options({ desc = 'Disable keymap for save macros' }))
+--[[ keymap('n', 'q', '<Nop>', new_options({ desc = 'Disable keymap for save macros' })) ]]
 
 -- Disabled arrow
 keymap('n', '<Left>', '<Nop>', new_options({ desc = 'Disable Left arrow ' }))
@@ -25,16 +25,16 @@ keymap('i', '<C-k>', '<Up>', new_options({ desc = 'Move Up with arrow in INSERT 
 keymap('i', '<C-l>', '<Right>', new_options({ desc = 'Move Right with arrow in INSERT mode' }))
 
 -- Enable wrap mode
-keymap('n', '<A-z>', ':set wrap!<CR>', new_options({ desc = 'Toggle wrap state in the buffer' }))
+keymap('n', '<C-A-z>', ':set wrap!<CR>', new_options({ desc = 'Toggle wrap state in the buffer' }))
 
 -- Select all
 keymap('n', 'ya', ':%y+<CR>', new_options({ desc = 'File copy whole' }))
 
 -- Move to window
-keymap('n', 'sh', '<C-w>h', new_options({ desc = 'Move the cursor to the left window' }))
-keymap('n', 'sl', '<C-w>l', new_options({ desc = 'Move the cursor to the right window' }))
-keymap('n', 'sj', '<C-w>j', new_options({ desc = 'Move the cursor to the lower window' }))
-keymap('n', 'sk', '<C-w>k', new_options({ desc = 'Move the cursor to the top window' }))
+--[[ keymap('n', 'sh', '<C-w>h', new_options({ desc = 'Move the cursor to the left window' })) ]]
+--[[ keymap('n', 'sl', '<C-w>l', new_options({ desc = 'Move the cursor to the right window' })) ]]
+--[[ keymap('n', 'sj', '<C-w>j', new_options({ desc = 'Move the cursor to the lower window' })) ]]
+--[[ keymap('n', 'sk', '<C-w>k', new_options({ desc = 'Move the cursor to the top window' })) ]]
 
 -- Horizontal split window
 keymap('n', 'ss', ':split<CR> :wincmd j<CR>', new_options({ desc = 'Split the buffer horizontally' }))
@@ -48,7 +48,7 @@ keymap('n', '<leader>rl', ':luafi %<CR>', new_options({ desc = 'Realod file conf
 -- Move next buffer
 keymap('n', '<Tab>', ':bnext<CR>', new_options({ desc = 'Move to next buffer' }))
 keymap('n', '<S-Tab>', ':bprevious<CR>', new_options({ desc = 'Move to previous buffer' }))
-keymap('n', '<C-w>', utils.delete_current_buffer, new_options({ desc = 'Remove current buffer' }))
+keymap('n', '<leader>w', utils.delete_current_buffer, new_options({ desc = 'Remove current buffer' }))
 
 -- Move line up and down
 keymap('n', '<A-j>', ':move .+1<CR>==', new_options({ desc = 'Move down' }))
@@ -59,6 +59,8 @@ keymap('x', '<A-k>', ":move '<-2<CR>gv=gv", new_options({ desc = 'Move block dow
 -- Duplicate line
 keymap('n', '<S-A-k>', utils.duplicate_line_above, new_options({ desc = 'Duplicate line above' }))
 keymap('n', '<S-A-j>', utils.duplicate_line_below, new_options({ desc = 'Duplicate line below' }))
+keymap('v', '<S-A-k>', utils.duplicate_block_above, new_options({ desc = 'Duplicate block block above' }))
+keymap('v', '<S-A-j>', utils.duplicate_block_below, new_options({ desc = 'Duplicate block code below' }))
 
 -- Format document
 keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', new_options({ desc = 'Format document' }))

@@ -67,10 +67,10 @@ autocmd('BufNewFile', {
   end,
 })
 
-autocmd('BufDelete', {
+--[[ autocmd('BufDelete', {
   pattern = '*',
   group = augroup('reopen_dashboard'),
   callback = function()
     -- TODO: Abrir `Dashboard` cuando no existen buffers abiertos o cuando el solo queda el buffer [No Name]
   end,
-})
+}) ]]
