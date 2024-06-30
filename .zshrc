@@ -138,8 +138,8 @@ alias psg-start="sudo systemctl start postgresql"
 alias psg-stop="sudo systemctl stop postgresql"
 
 # Mount o umount disk
-alias mount-tosshiba="sudo mkdir /run/mount/yoelvp/TOSHIBA ; sudo mount /dev/sda1 /run/mount/yoelvp/TOSHIBA"
-alias umount-tosshiba="sudo umount /run/mount/yoelvp/TOSSHIBA -R"
+alias mount-toshiba="sudo mkdir /run/media/yoelvp/TOSHIBA -p ; sudo mount -t ntfs /dev/sda1 /run/media/yoelvp/TOSHIBA"
+alias umount-toshiba="sudo umount /run/media/yoelvp/TOSHIBA -R"
 
 # Time
 alias the-time="wttr -m"
@@ -155,6 +155,8 @@ alias wallpaper="~/dotfiles/Scripts/change_wallpaper.sh"
 
 ## keyboard backlight
 # alias keyboard="for i in {00..03}; do sudo bash -c 'echo 7E2553 > /sys/devices/platform/hp-wmi/rgb_zones/zone$i' & done"
+alias keyboard=~/dotfiles/Scripts/keyboard.sh
+alias tmx=~/dotfiles/Scripts/tmux.sh
 
 # Git aliases
 alias gi="git init"
@@ -188,20 +190,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export JDK_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 # export PATH="/usr/lib/jvm/java-21-openjdk/bin/:$PATH"
 
 # Config colors
 export TERM=xterm-256color
-
-function tmx {
-  name=$(basename `pwd` | sed -e 's/\.//g')
-
-  if tmux ls 2>&1 | grep "$name"; then
-    tmux attach -t " $name"
-  elif [ -f .envrc ]; then
-    direnv exec / tmux new-session -s " $name"
-  else
-    tmux new-session -s " $name"
-  fi
-}
