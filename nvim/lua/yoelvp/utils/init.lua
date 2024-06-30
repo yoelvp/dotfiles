@@ -10,16 +10,43 @@ end
 
 -- Duplicate current line below
 function M.duplicate_line_below()
+  local col = vim.fn.col('.')
   vim.api.nvim_command('normal! yyp')
-  vim.fn.cursor(vim.fn.line('.') + 1, vim.fn.col('.'))
+  vim.fn.cursor(vim.fn.line('.'), col)
 end
 
 -- Duplicate current line above
 function M.duplicate_line_above()
+  local col = vim.fn.col('.')
   vim.api.nvim_command('normal! yyP')
-  vim.fn.cursor(vim.fn.line('.') - 1, vim.fn.col('.'))
+  vim.fn.cursor(vim.fn.line('.'), col)
 end
 
+-- Duplicate a code block below
+function M.duplicate_block_below()
+  local start_line, start_col = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3]
+  local end_line, end_col = vim.fn.getpos("'>")[2], vim.fn.getpos("'>")[3]
+
+  vim.api.nvim_command('normal! gv"zy')
+  vim.api.nvim_command('normal! `>p')
+
+  vim.fn.setpos("'<", { 0, start_line, start_col, 0 })
+  vim.fn.setpos("'>", { 0, end_line, end_col, 0 })
+end
+
+-- Duplicate a code block above
+function M.duplicate_block_above()
+  local start_line, start_col = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3]
+  local end_line, end_col = vim.fn.getpos("'>")[2], vim.fn.getpos("'>")[3]
+
+  vim.api.nvim_command('normal! gv"zy')
+  vim.api.nvim_command('normal! `>P')
+
+  vim.fn.setpos("'<", { 0, start_line, start_col, 0 })
+  vim.fn.setpos("'>", { 0, end_line, end_col, 0 })
+end
+
+-- Remove the current buffer
 function M.delete_current_buffer()
   local bufnr = vim.api.nvim_get_current_buf()
   vim.api.nvim_buf_delete(bufnr, { force = false })
