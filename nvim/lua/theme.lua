@@ -1,8 +1,5 @@
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme everforest")
-
-vim.cmd('let g:everforest_background = "hard"')
-
-vim.g.theme_id = 1
+vim.cmd("colorscheme gruvbox")
+vim.g.theme_id = 5
 -- end themery block
