@@ -15,8 +15,21 @@ end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+  callback = function(args)
+    local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+    if client == nil then
+      return
+    end
+
+    if client.supports_method('textDocument/completion') then
+      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    end
+    if client.supports_method('textDocument/definition') then
+      vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
+    end
 
     keymap('n', 'gd', vim.lsp.buf.definition, new_options({ desc = 'Go to definition' }))
     keymap('n', 'gr', ts_builtin.lsp_references, new_options({ desc = 'Go to references' }))
@@ -27,6 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap('n', '<C-j>', ':lua vim.diagnostic.goto_next()<CR>', opts)
     keymap('n', '<C-k>', ':lua vim.diagnostic.goto_prev()<CR>', opts)
     keymap('n', '<leader>ge', ':lua vim.diagnostic.open_float()<CR>', opts)
+    keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', new_options({ desc = 'Format document' }))
   end,
 })
 
@@ -35,24 +49,31 @@ local on_attach = function()
 end
 
 lsp.astro.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   cmd = { 'astro-ls', '--stdio' },
   filetypes = { 'astro' },
   init_options = {
-    typescript = {},
+    typescript = {}
   },
-  root_dir = lsp_util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git'),
+  root_dir = lsp_util.root_pattern(
+    'astro.config.ts',
+    'astro.config.js',
+    'package.json',
+    'tsconfig.json',
+    'jsconfig.json',
+    '.git'
+  )
 })
 
 lsp.bashls.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   cmd = { 'bash-language-server', 'start' },
 })
 
 lsp.cssls.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   filetypes = { 'css', 'scss', 'less', 'ts', 'tsx' },
   settings = {
@@ -69,7 +90,7 @@ lsp.cssls.setup({
 })
 
 lsp.gopls.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = lsp_util.root_pattern('go.work', 'go.mod', '.git'),
@@ -85,13 +106,13 @@ lsp.gopls.setup({
 })
 
 lsp.html.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   filetypes = { 'html' },
 })
 
 lsp.intelephense.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   filetypes = { 'php', 'blade', 'blade.php' },
   cmd = { 'intelephense', '--stdio' },
@@ -105,20 +126,14 @@ lsp.intelephense.setup({
   },
 })
 
-lsp.jdtls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { 'java' },
-})
-
 lsp.jsonls.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   filetypes = { 'json', 'jsonc' },
 })
 
 lsp.lua_ls.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   -- cmd = { 'lua' },
   filetypes = { 'lua' },
@@ -145,7 +160,7 @@ lsp.lua_ls.setup({
 })
 
 lsp.rust_analyzer.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   cmd = { 'rust-analyzer' },
   filetypes = { 'rust' },
@@ -163,14 +178,14 @@ lsp.rust_analyzer.setup({
 })
 
 lsp.svelte.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   filetypes = { 'svelte' },
   root_dir = lsp_util.root_pattern('package.json', '.git', 'tsconfig.json', 'jsconfig.json'),
 })
 
 lsp.tailwindcss.setup({
-  on_attach = on_attach,
+  --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
   cmd = { 'tailwindcss-language-server', '--stdio' },
   root_dir = lsp_util.root_pattern(
@@ -194,7 +209,7 @@ lsp.tailwindcss.setup({
   },
 })
 
-lsp.tsserver.setup({
+lsp.ts_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'typescript-language-server', '--stdio' },
@@ -212,10 +227,16 @@ lsp.tsserver.setup({
   },
 })
 
---[[ lsp.volar.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-}) ]]
+lsp.yamlls.setup({
+  cmd = { 'yaml-language-server', '--stdio' },
+  settings = {
+    redhat = {
+      telemetry = {
+        enabled = false
+      }
+    }
+  }
+})
 
 vim.diagnostic.config({
   virtual_text = {
