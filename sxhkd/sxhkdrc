@@ -136,11 +136,11 @@ super + {Left,Down,Up,Right}
 #
 # Brightness Control
 #
-# XF86MonBrightnessUp
-# 	light -A 5%
+XF86MonBrightnessUp
+  brightnessctl set +5%
 
-# XF86MonBrightnessDown
-# 	light -U 5%
+XF86MonBrightnessDown
+  brightnessctl set 5%-
 
 
 #
