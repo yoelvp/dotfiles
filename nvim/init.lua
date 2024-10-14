@@ -46,4 +46,4 @@ require('config.autocmds')
 ------------------------------
 -- colorscheme selected
 ------------------------------
-require('theme')
+--[[ require('theme') ]]
