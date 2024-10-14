@@ -53,13 +53,6 @@ return {
     end,
   },
 
-  -- Sonokai
-  {
-    'sainnhe/sonokai',
-    priority = 1000,
-    config = true,
-  },
-
   -- Everforest
   {
     'sainnhe/everforest',
@@ -71,26 +64,6 @@ return {
   {
     'drewtempelmeyer/palenight.vim',
     priority = 1000,
-  },
-
-  -- Evergarden
-  {
-    'comfysage/evergarden',
-    priority = 1000,
-    opts = {
-      transparent_background = false,
-      contrast_dark = 'medium', -- 'hard'|'medium'|'soft'
-      style = {
-        tabline = { reverse = true, color = 'green' },
-        search = { reverse = false, inc_reverse = true },
-        types = { italic = true },
-        keyword = { italic = true },
-        comment = { italic = true },
-      },
-    },
-    config = function(_, opts)
-      require('evergarden').setup(opts)
-    end,
   },
 
   -- Solarized Osaka

@@ -29,13 +29,6 @@ return {
       end,
       desc = 'Buffer explorer',
     },
-    {
-      '<leader>gs',
-      function()
-        require('neo-tree.command').execute({ source = 'git_status', toggle = true })
-      end,
-      desc = 'Git explorer',
-    },
   },
   opts = {
     sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
