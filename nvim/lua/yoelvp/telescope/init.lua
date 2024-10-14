@@ -132,26 +132,13 @@ keymap.set('n', 'frf', function()
     grouped = true,
     initial_mode = 'normal',
   })
-end, new_options({ desc = 'Fin references' }))
+end, new_options({ desc = 'Find references' }))
 
 keymap.set('n', 'fof', function()
   require('telescope.builtin').oldfiles({
     initial_mode = 'normal',
   })
 end, new_options({ desc = 'Find old files' }))
-
--- Git
-keymap.set('n', 'gst', function()
-  require('telescope.builtin').git_status({
-    initial_mode = 'normal',
-  })
-end, new_options({ desc = 'Find Git Status' }))
-
-keymap.set('n', 'fgb', function()
-  require('telescope.builtin').git_branches({
-    initial_mode = 'normal',
-  })
-end, new_options({ desc = 'Find all Git Branches' }))
 
 keymap.set('n', 'fgc', function()
   require('telescope.builtin').git_commits({
