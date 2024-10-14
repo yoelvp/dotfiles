@@ -9,9 +9,6 @@ end
 
 discipline.stranger()
 
--- disable macros
---[[ keymap('n', 'q', '<Nop>', new_options({ desc = 'Disable keymap for save macros' })) ]]
-
 -- Disabled arrow
 keymap('n', '<Left>', '<Nop>', new_options({ desc = 'Disable Left arrow ' }))
 keymap('n', '<Down>', '<Nop>', new_options({ desc = 'Disable Down arrow ' }))
@@ -29,12 +26,6 @@ keymap('n', '<C-A-z>', ':set wrap!<CR>', new_options({ desc = 'Toggle wrap state
 
 -- Select all
 keymap('n', 'ya', ':%y+<CR>', new_options({ desc = 'File copy whole' }))
-
--- Move to window
---[[ keymap('n', 'sh', '<C-w>h', new_options({ desc = 'Move the cursor to the left window' })) ]]
---[[ keymap('n', 'sl', '<C-w>l', new_options({ desc = 'Move the cursor to the right window' })) ]]
---[[ keymap('n', 'sj', '<C-w>j', new_options({ desc = 'Move the cursor to the lower window' })) ]]
---[[ keymap('n', 'sk', '<C-w>k', new_options({ desc = 'Move the cursor to the top window' })) ]]
 
 -- Horizontal split window
 keymap('n', 'ss', ':split<CR> :wincmd j<CR>', new_options({ desc = 'Split the buffer horizontally' }))
