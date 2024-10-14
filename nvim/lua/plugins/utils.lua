@@ -9,16 +9,17 @@ return {
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
+    lazy = true,
     opts = {
-      disabled_filetype = { 'TelescopePrompt', 'spectre_panel' },
-      map_bs = false
+      map_bs = false,
     },
-    config = true
+    config = true,
   },
 
   -- Change sorround [] {} '' and more
   {
-    'tpope/vim-surround'
+    'tpope/vim-surround',
+    lazy = false
   },
 
   -- Autoclose tags in html, jsx, tsx and more
