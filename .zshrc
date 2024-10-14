@@ -119,7 +119,7 @@ alias cat="bat"
 alias vim="nvim"
 alias .="cd .."
 alias ..="cd ../.."
-alias ..="cd ../../.."
+alias ...="cd ../../.."
 alias downloads="cd ~/Desktop/Downloads/"
 alias screenshots="cd ~/Desktop/Screenshots/"
 alias disk="lfs"
@@ -167,6 +167,9 @@ alias gpm="git push origin master"
 alias gcs="git config --global credential.helper store"
 alias lg="lazygit"
 
+# Keybind
+bindkey '^ ' autosuggest-accept
+
 # Environment variables
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -196,3 +199,5 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 # Config colors
 export TERM=xterm-256color
+
+export DOCKER_BUILDKIT=1
