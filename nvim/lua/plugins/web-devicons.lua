@@ -16,11 +16,11 @@ return {
         ['.eslintrc.json'] = eslint_format,
         ['.eslintignore'] = eslint_format,
         ['.eslintrc.mjs'] = eslint_format,
-        -- ['app'] = {
-        --   icon = '󱋣',
-        --   color = '#FF8080',
-        --   name = 'App folder name'
-        -- },
+        ['*.astro'] = {
+          icon = '',
+          color = '#E1387C',
+          name = 'Astro'
+        },
         -- ['node_modules'] = {
         --   icon = '',
         --   color = '#012100',
