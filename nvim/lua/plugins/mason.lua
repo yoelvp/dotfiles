@@ -1,7 +1,7 @@
 return {
   'williamboman/mason.nvim',
   dependencies = {
-    'williamboman/mason-lspconfig.nvim',
+    'williamboman/mason-lspconfig.nvim'
   },
   config = function()
     local mason = require('mason')
@@ -13,9 +13,9 @@ return {
         icons = {
           package_installed = '✓',
           package_pending = '➜',
-          package_uninstalled = '✗',
-        },
-      },
+          package_uninstalled = '✗'
+        }
+      }
     })
 
     -- Mason Lspconfig
@@ -27,14 +27,16 @@ return {
         'gopls',
         'html',
         'intelephense',
+        'jdtls',
         'jsonls',
         'lua_ls',
         'rust_analyzer',
         'svelte',
         'tailwindcss',
-        'tsserver'
+        'ts_ls',
+        'yamlls'
       },
-      automatic_installation = true,
+      automatic_installation = true
     })
-  end,
+  end
 }
