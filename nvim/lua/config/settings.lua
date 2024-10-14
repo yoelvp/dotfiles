@@ -19,7 +19,6 @@ opt.signcolumn = 'yes'
 opt.encoding = 'utf-8'
 vim.scriptencoding = 'utf-8'
 opt.fileencoding = 'utf-8'
--- opt.termencoding = 'utf-8'
 
 opt.number = true
 opt.relativenumber = true
@@ -30,7 +29,6 @@ opt.scrolloff = 5
 opt.sidescrolloff = 5
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
--- opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 opt.linespace = 0
 opt.hlsearch = false
 opt.incsearch = true
