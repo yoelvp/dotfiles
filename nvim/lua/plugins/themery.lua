@@ -1,7 +1,7 @@
 return {
   'zaldih/themery.nvim',
   opts = {
-    themeConfigFile = '~/dotfiles/nvim/lua/theme.lua',
+    themesConfigFile = '~/dotfiles/nvim/lua/theme.lua',
     livePreview = true,
     themes = {
       {
@@ -26,10 +26,6 @@ return {
         ]],
       },
       {
-        name = 'Evergarden',
-        colorscheme = 'evergarden',
-      },
-      {
         name = 'Gruvbox',
         colorscheme = 'gruvbox',
       },
@@ -48,41 +44,6 @@ return {
       {
         name = 'Solarized Osaka',
         colorscheme = 'solarized-osaka',
-      },
-      {
-        name = 'Sonokai Andromeda',
-        colorscheme = 'sonokai',
-        after = [[
-          vim.cmd('let g:sonokai_style = "andromeda"')
-        ]],
-      },
-      {
-        name = 'Sonokai Atlantis',
-        colorscheme = 'sonokai',
-        after = [[
-          vim.cmd('let g:sonokai_style = "atlantis"')
-        ]],
-      },
-      {
-        name = 'Sonokai Espresso',
-        colorscheme = 'sonokai',
-        after = [[
-          vim.cmd('let g:sonokai_style = "espresso"')
-        ]],
-      },
-      {
-        name = 'Sonokai Maia',
-        colorscheme = 'sonokai',
-        after = [[
-          vim.cmd('let g:sonokai_style = "maia"')
-        ]],
-      },
-      {
-        name = 'Sonokai Shushia',
-        colorscheme = 'sonokai',
-        after = [[
-          vim.cmd('let g:sonokai_style = "shusia"')
-        ]],
       },
     },
   },
