@@ -1,10 +1,11 @@
-column_width = 120
+column_width = 80
 line_endings = "Windows"
 indent_type = "Spaces"
 indent_width = 2
 collapse_simple_statement = "Never"
 quote_style = "AutoPreferSingle"
 call_parentheses = "Always"
+trailing_comma = "Never"
 
 [sort_requires]
 enabled = false
