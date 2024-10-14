@@ -29,11 +29,6 @@ require('config.keymaps')
 require('yoelvp.globals')
 
 ------------------------------
--- Auto cmd's
-------------------------------
-require('config.autocmds')
-
-------------------------------
 -- Diagnostics
 ------------------------------
 require('config.diagnostics')
@@ -42,6 +37,11 @@ require('config.diagnostics')
 -- Lazy manager plugins
 ------------------------------
 require('config.lazy')
+
+------------------------------
+-- Auto cmd's
+------------------------------
+require('config.autocmds')
 
 ------------------------------
 -- colorscheme selected
