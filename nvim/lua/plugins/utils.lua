@@ -7,44 +7,18 @@ return {
 
   -- Autoclose the pair {} [] ''
   {
-    'echasnovski/mini.pairs',
-    version = '*',
-    config = function()
-      local pairs = require('mini.pairs')
-
-      pairs.setup({
-        modes = { insert = true, command = false, terminal = false },
-      })
-    end,
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    opts = {
+      disabled_filetype = { 'TelescopePrompt', 'spectre_panel' },
+      map_bs = false
+    },
+    config = true
   },
 
   -- Change sorround [] {} '' and more
   {
-    'echasnovski/mini.surround',
-    event = 'VeryLazy',
-    config = function()
-      local mini_sorround = require('mini.surround')
-      mini_sorround.setup({
-        custom_surroundings = nil,
-        highlight_duration = 500,
-        mappings = {
-          add = 'sa',
-          delete = 'sd',
-          find = 'sf',           -- Find surrounding (to the right)
-          find_left = 'sF',      -- Find surrounding (to the left)
-          highlight = 'sh',      -- Highlight surrounding
-          replace = 'sr',        -- Replace surrounding
-          update_n_lines = 'sn', -- Update `n_lines`
-
-          suffix_last = 'l',     -- Suffix to search with "prev" method
-          suffix_next = 'n',     -- Suffix to search with "next" method
-        },
-        n_lines = 20,
-        respect_selection_type = false,
-        search_method = 'cover',
-        silent = false,
-      })
-    end,
+    'tpope/vim-surround'
   },
 
   -- Autoclose tags in html, jsx, tsx and more
