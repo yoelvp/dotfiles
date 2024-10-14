@@ -42,8 +42,3 @@ require('config.lazy')
 -- Auto cmd's
 ------------------------------
 require('config.autocmds')
-
-------------------------------
--- colorscheme selected
-------------------------------
---[[ require('theme') ]]
