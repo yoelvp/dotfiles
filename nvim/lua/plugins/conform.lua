@@ -15,7 +15,8 @@ return {
         html = { 'prettierd', 'eslint_d', 'prettier' },
         rust = { 'rustfmt' },
         typescript = { 'eslint_d', 'prettierd', 'prettier' },
-        typescriptreact = { 'eslint_d', 'prettierd', 'prettier' }
+        typescriptreact = { 'eslint_d', 'prettierd', 'prettier' },
+        blade = { 'blade-formatter' }
       }
     })
 
