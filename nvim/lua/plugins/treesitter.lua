@@ -1,6 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
+  main = 'nvim-treesitter.configs',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-context', -- TODO: Use complement
     'nvim-treesitter/nvim-treesitter-refactor',
@@ -10,6 +11,7 @@ return {
     ensure_installed = {
       'astro',
       'bash',
+      'blade',
       'c',
       'css',
       'git_config',
@@ -70,30 +72,25 @@ return {
         },
       },
     },
-    --[[ textobjects = { ]]
-    --[[   select = { ]]
-    --[[     enable = true, ]]
-    --[[     lookahead = true, ]]
-    --[[     keymaps = { ]]
-    --[[       ['ap'] = '@parameter.outer', ]]
-    --[[       ['ip'] = '@parameter.inner', ]]
-    --[[       ['af'] = '@function.outer', ]]
-    --[[       ['if'] = '@function.inner', ]]
-    --[[       ['ac'] = '@class.outer', ]]
-    --[[       ['ic'] = '@class.inner', ]]
-    --[[       ['aC'] = '@class.conditional', ]]
-    --[[       ['iC'] = '@class.conditional', ]]
-    --[[       ['al'] = '@class.loop', ]]
-    --[[       ['il'] = '@class.loop', ]]
-    --[[       ['ab'] = '@class.block', ]]
-    --[[       ['ib'] = '@class.block', ]]
-    --[[     }, ]]
-    --[[   }, ]]
-    --[[ }, ]]
   },
-  config = function(_, opts)
-    local ts_configs = require('nvim-treesitter.configs')
+  config = function(plugin, opts)
+    local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 
-    ts_configs.setup(opts)
+    parser_config.blade = {
+      install_info = {
+        url = 'https://github.com/EmranMR/tree-sitter-blade',
+        files = { 'src/parser.c' },
+        branch = 'main'
+      },
+      filetype = 'blade'
+    }
+
+    vim.filetype.add({
+      pattern = {
+        [".*%.blade%.php"] = "blade",
+      },
+    })
+
+    require(plugin.main).setup(opts)
   end,
 }
