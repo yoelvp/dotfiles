@@ -3,6 +3,7 @@ local luasnip = require('luasnip')
 local lspkind = require('lspkind')
 local utils = require('yoelvp.utils')
 local autopairs = require('nvim-autopairs.completion.cmp')
+
 cmp.event:on('confirm_done', autopairs.on_confirm_done({ map_char = { tex = '' } }))
 vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
 
@@ -29,7 +30,7 @@ cmp.setup({
   },
   completion = {
     completeopt = 'menuone,noinsert,noselect',
-    keyword_length = 2,
+    autocomplete = false
   },
   mapping = {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
