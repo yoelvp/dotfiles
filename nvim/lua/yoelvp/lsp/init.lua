@@ -135,7 +135,6 @@ lsp.jsonls.setup({
 lsp.lua_ls.setup({
   --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
-  -- cmd = { 'lua' },
   filetypes = { 'lua' },
   settings = {
     Lua = {
