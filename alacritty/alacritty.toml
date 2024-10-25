@@ -41,7 +41,7 @@ style = "Bold"
 [window]
 decorations = "full"
 dynamic_padding = false
-opacity = 0.8
+opacity = 0.95
 startup_mode = "Windowed"
 
 [window.dimensions]
