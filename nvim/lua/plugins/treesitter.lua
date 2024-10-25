@@ -3,7 +3,6 @@ return {
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-context', -- TODO: Use complement
     'nvim-treesitter/nvim-treesitter-refactor',
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
