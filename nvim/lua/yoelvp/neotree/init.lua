@@ -121,10 +121,6 @@ neotree.setup({
         'thumbs.db',
       },
     },
-    follow_current_file = {
-      enabled = true,
-      leave_dirs_open = true,
-    },
     hijack_netrw_behavior = 'open_default',
     window = {
       mappings = {

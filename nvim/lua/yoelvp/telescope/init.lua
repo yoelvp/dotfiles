@@ -16,6 +16,7 @@ telescope.setup({
   layout_strategy = 'horizontal',
   winblend = 20,
   defaults = {
+    hidden = true,
     layout_config = {
       prompt_position = 'bottom',
     },
@@ -63,14 +64,14 @@ telescope.load_extension('fzf')
 
 keymap.set('n', 'ff', function()
   require('telescope.builtin').find_files({
-    noignore = false,
+    no_ignore = true,
     grouped = true,
   })
 end, new_options({ desc = 'Find all files' }))
 
 keymap.set('n', 'fbf', function()
   require('telescope.builtin').buffers({
-    noignore = false,
+    no_ignore = false,
     hidden = true,
     grouped = true,
   })
@@ -78,8 +79,6 @@ end, new_options({ desc = 'Find buffers' }))
 
 keymap.set('n', 'fmf', function()
   telescope.extensions.media_files.media_files({
-    path = '%:p:h',
-    cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
     grouped = true,
@@ -96,13 +95,7 @@ keymap.set('n', 'fbb', function()
 end, new_options({ desc = 'File explorer'}))
 
 keymap.set('n', 'fht', function()
-  require('telescope.builtin').help_tags({
-    path = '%:p:h',
-    cwd = vim.fn.expand('%:p:h'),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-  })
+  require('telescope.builtin').help_tags()
 end, new_options({ desc = 'Find help tags' }))
 
 keymap.set('n', 'fgs', function()
@@ -125,8 +118,6 @@ end, new_options({ desc = 'Find live grep' }))
 
 keymap.set('n', 'frf', function()
   require('telescope.builtin').lsp_references({
-    path = '%:p:h',
-    cwd = vim.fn.expand('%:p:h'),
     respect_gitignore = false,
     hidden = true,
     grouped = true,
