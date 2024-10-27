@@ -7,7 +7,7 @@
      ██║   ╚██████╔╝███████╗███████╗╚████╔╝ ██║
      ╚═╝    ╚═════╝ ╚══════╝╚══════╝ ╚═══╝  ╚═╝
 
-  - https://yoelvalverde.netlify.app
+  - https://yoelvalverde.dev
   - https://github.com/yoelvp
 
 ]]
