@@ -66,17 +66,13 @@ keymap('x', '¿', '>gv', new_options({ desc = 'Indentation to the left in VISUAL
 keymap('n', '¿', ':normal! >><CR>', new_options({ desc = 'Indentation to the left in NORMAL mode' }))
 
 -- Git blame
-keymap('n', '<leader>gb', ':ToggleBlame virtual<CR>', new_options({ desc = 'Toggle git blame' }))
+keymap('n', '<leader>gb', ':BlameToggle virtual<CR>', new_options({ desc = 'Toggle git blame' }))
 
 -- Markdown toggle preview
 keymap('n', 'mp', ':MarkdownPreviewToggle<CR>', new_options({ desc = 'Toggle markdown preview' }))
 
 -- Open Oil
 keymap('n', '<leader>ft', ':Oil<CR>', new_options({ desc = 'Open Oil for edit files and directories' }))
-
--- Codesnap
-keymap({ 'v', 'x' }, '<leader>cs', ':CodeSnap<CR>', new_options({ desc = 'Save screenshot to clipboard' }))
-keymap({ 'v', 'x' }, '<leader>cS', ':CodeSnapSave<CR>', new_options({ desc = 'Save the code capture locally' }))
 
 -- Leader key for Emmet
 vim.cmd("let g:user_emmet_leader_key='<M-z>'")
