@@ -20,27 +20,7 @@ return {
           icon = '',
           color = '#E1387C',
           name = 'Astro'
-        },
-        -- ['node_modules'] = {
-        --   icon = '',
-        --   color = '#012100',
-        --   name = 'node_modules folder name'
-        -- },
-        -- ['layouts'] = {
-        --   icon = '󰲂',
-        --   color = '#6096B4',
-        --   name = 'layouts folder name'
-        -- },
-        -- ['public'] = {
-        --   icon = '󱞊',
-        --   color = '#6096B4',
-        --   name = 'public folder name'
-        -- },
-        -- ['images'] = {
-        --   icon = '󰉏',
-        --   color = '#6096B4',
-        --   name = 'images folder name'
-        -- },
+        }
       },
     })
   end,

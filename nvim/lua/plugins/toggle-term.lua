@@ -9,7 +9,6 @@ return {
       { noremap = true, silent = true, desc = 'Open terminal in horizontal mode' },
     },
     {
-      'n',
       '<leader>tv',
       ':ToggleTerm direction=vertical size=80<CR>',
       { noremap = true, silent = true, desc = 'Open Term in vertical mode' },
@@ -21,6 +20,7 @@ return {
       open_mapping = [[<leader>tt]],
       persist_mode = false,
       start_in_insert = true,
+      terminal_mappings = true
     })
   end,
 }
