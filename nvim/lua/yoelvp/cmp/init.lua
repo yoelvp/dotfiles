@@ -29,8 +29,7 @@ cmp.setup({
     },
   },
   completion = {
-    completeopt = 'menuone,noinsert',
-    --[[ completeopt = 'menuone,noinsert,noselect', ]]
+    completeopt = 'menuone,noinsert,noselect',
     autocomplete = false
   },
   mapping = {
@@ -38,7 +37,7 @@ cmp.setup({
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-c>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm(),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() and has_words_before() then
         cmp.select_next_item()
