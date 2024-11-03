@@ -126,6 +126,11 @@ lsp.intelephense.setup({
   },
 })
 
+lsp.jdtls.setup({
+  capabilities = capabilities,
+  filetypes = { 'java' },
+})
+
 lsp.jsonls.setup({
   --[[ on_attach = on_attach, ]]
   capabilities = capabilities,
