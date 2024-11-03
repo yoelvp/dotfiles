@@ -12,7 +12,7 @@ return {
   opts = {
     render = 'compact',
     timeout = 1000,
-    top_down = false,
+    top_down = true,
   },
   config = function(_, opts)
     local notify = require('notify')
