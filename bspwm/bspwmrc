@@ -18,7 +18,9 @@ bspc config focused_border_color "#e53935"
 
 # Application
 bspc rule -a Geany state=floating
-bspc rule -a Firefox desktop=^2
+bspc rule -a Alacritty desktop=^1
+bspc rule -a firefox desktop=^2
+bspc rule -a obsidian desktop=^3
 
 # Set keyboard
 setxkbmap latam &
@@ -30,7 +32,7 @@ xsetroot -cursor_name left_ptr &
 ~/.fehbg &
 
 # Transparency with picom
-picom -b --config ~/.config/picom/picom.conf
+# picom -b --config ~/.config/picom/picom.conf
 
 # Java apps
 wmname LG3D &
