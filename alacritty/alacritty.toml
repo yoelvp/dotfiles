@@ -39,7 +39,7 @@ family = "VictorMono Nerd Font"
 style = "Bold Italic"
 
 [window]
-decorations = "full"
+decorations = "none"
 dynamic_padding = false
 opacity = 0.95
 startup_mode = "Windowed"
