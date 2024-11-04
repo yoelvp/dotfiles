@@ -16,7 +16,8 @@ folders=(
   "polybar"
   "rofi"
   "sxhkd"
-  "tmux"
+  "tmux",
+  "fastfecth",
 )
 
 files=(
