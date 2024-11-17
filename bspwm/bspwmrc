@@ -34,5 +34,8 @@ xsetroot -cursor_name left_ptr &
 # Transparency with picom
 # picom -b --config ~/.config/picom/picom.conf
 
+# Launch clipboard daemon
+pidof -q greenclip || { greenclip daemon & }
+
 # Java apps
 wmname LG3D &
