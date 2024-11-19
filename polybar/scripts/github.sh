@@ -10,6 +10,8 @@ COMMIT_COUNT=0
 PAGE=1
 PER_PAGE=100
 
+echo "• R/• C"
+
 while true; do
     RESPONSE=$(curl -s -u "$USER:$TOKEN" "https://api.github.com/user/repos?per_page=$PER_PAGE&page=$PAGE")
     REPO_PAGE_COUNT=$(echo "$RESPONSE" | jq '. | length')
