@@ -4,7 +4,7 @@ function M.stranger()
   ---@type table?
   local id
   local ok = true
-  local MAX_NUMBER_MOVEMENTS = 25
+  local MAX_NUMBER_MOVEMENTS = 50
 
   for _, key in ipairs({ 'h', 'j', 'k', 'l', '+', '-' }) do
     local count = 0
