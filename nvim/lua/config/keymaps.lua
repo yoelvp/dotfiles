@@ -74,5 +74,8 @@ keymap('n', 'mp', ':MarkdownPreviewToggle<CR>', new_options({ desc = 'Toggle mar
 -- Open Oil
 keymap('n', '<leader>ft', ':Oil<CR>', new_options({ desc = 'Open Oil for edit files and directories' }))
 
+-- Remap
+keymap('n', '_', '^', new_options({ desc = 'Open Oil for edit files and directories' }))
+
 -- Leader key for Emmet
 vim.cmd("let g:user_emmet_leader_key='<M-z>'")
