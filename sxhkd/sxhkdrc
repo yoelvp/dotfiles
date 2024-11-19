@@ -16,6 +16,12 @@ alt + space
 super + shift + e
   rofi -show emoji
 
+super + shift + q
+  rofi -show calc -modi calc -no-show-match -no-sort
+
+super + shift + c
+  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
 # make sxhkd reload its configuration files:
 super + Escape
   pkill -USR1 -x sxhkd
