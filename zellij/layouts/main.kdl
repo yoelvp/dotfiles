@@ -60,7 +60,7 @@ layout {
                 mode_rename_tab    "#[bg=$yellow,fg=$bg2]#[bg=$yellow,fg=$bg0,bold] RESIZE#[bg=$bg1,fg=$yellow]"
                 mode_rename_pane   "#[bg=$yellow,fg=$bg2]#[bg=$yellow,fg=$bg0,bold] RESIZE#[bg=$bg1,fg=$yellow]"
                 mode_move          "#[bg=$yellow,fg=$bg2]#[bg=$yellow,fg=$bg0,bold] MOVE#[bg=$bg1,fg=$yellow]"
-                mode_session       "#[bg=$purple,fg=$bg2]#[bg=$purple,fg=$bg0,bold] MOVE#[bg=$bg1,fg=$purple]"
+                mode_session       "#[bg=$purple,fg=$bg2]#[bg=$purple,fg=$bg0,bold] SESSION#[bg=$bg1,fg=$purple]"
                 mode_prompt        "#[bg=$purple,fg=$bg2]#[bg=$purple,fg=$bg0,bold] PROMPT#[bg=$bg1,fg=$purple]"
 
                 tab_normal              "#[bg=$bg2,fg=$bg1]#[bg=$bg2,fg=$fg1] {index} #[bg=$bg2,fg=$fg1,bold] {name} {floating_indicator}#[bg=$bg1,fg=$bg2]"
