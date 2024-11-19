@@ -15,6 +15,9 @@ repositories_ohmyzsh=(
   "https://github.com/zsh-users/zsh-autosuggestions \"${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions\""
 )
 
+# Rofi calculator: rofi rofi-calc libqalculate
+# Rofi clipboard: paru -S rofi-greenclip
+
 # Colors
 red='\033[0;31m'
 green='\033[0;32m'
