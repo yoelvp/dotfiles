@@ -17,7 +17,7 @@ folders=(
   "rofi"
   "sxhkd"
   "tmux",
-  "fastfecth",
+  "fastfetch",
 )
 
 files=(
