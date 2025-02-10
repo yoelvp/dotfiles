@@ -47,7 +47,7 @@ window {
 }
 
 // Modes //
-mode-switcher{
+mode-switcher {
   orientation:                 vertical;
   enabled:                     true;
   width:                       3.8em;
