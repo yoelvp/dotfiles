@@ -43,7 +43,7 @@ opt.softtabstop = 2
 
 opt.clipboard = 'unnamedplus'
 opt.mouse = 'a'
-opt.updatetime = 100
+--[[ opt.updatetime = 100 ]]
 
 -- swapfiles
 opt.hidden = true
