@@ -50,14 +50,9 @@ keymap('x', '<A-k>', ":move '<-2<CR>gv=gv", new_options({ desc = 'Move block dow
 -- Duplicate line
 keymap('n', '<S-A-k>', utils.duplicate_line_above, new_options({ desc = 'Duplicate line above' }))
 keymap('n', '<S-A-j>', utils.duplicate_line_below, new_options({ desc = 'Duplicate line below' }))
-keymap('v', '<S-A-k>', utils.duplicate_block_above, new_options({ desc = 'Duplicate block block above' }))
-keymap('v', '<S-A-j>', utils.duplicate_block_below, new_options({ desc = 'Duplicate block code below' }))
 
 -- Format document
 keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', new_options({ desc = 'Format document' }))
-
--- Compile and run rust projects
-keymap('n', '<leader>rmk', '[[:w<CR>:term cargo run<CR>]]', new_options({ desc = 'Compile rust projects' }))
 
 -- Indent
 keymap('x', "'", '<gv', new_options({ desc = 'Indentation to the right in VISUAL mode' }))
