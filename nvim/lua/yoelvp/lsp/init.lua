@@ -4,10 +4,10 @@ local nvim_lsp = require('cmp_nvim_lsp')
 local lsp_util = require('lspconfig.util')
 local utils = require('yoelvp.utils')
 local ts_builtin = require('telescope.builtin')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+--[[ local capabilities = vim.lsp.protocol.make_client_capabilities() ]]
 local opts = { noremap = true, silent = true }
 
-capabilities = nvim_lsp.default_capabilities(capabilities)
+local capabilities = nvim_lsp.default_capabilities()
 
 local new_options = function(new_opts)
   return utils.extend_tbl(opts, new_opts)
