@@ -11,7 +11,8 @@ return {
       javascriptreact = { 'eslint' },
       typescriptreact = { 'eslint' },
       svelte = { 'eslint' },
-      astro = { 'eslint' }
+      astro = { 'eslint' },
+      rust = { 'rstlint' },
     }
 
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
