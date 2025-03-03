@@ -50,10 +50,10 @@ telescope.setup({
       hijack_netrw = true,
     },
     fzf = {
-      fuzzy = true, -- false will only do exact matching
+      fuzzy = true,                   -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = 'smart_case',       -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
   },
@@ -92,7 +92,7 @@ keymap.set('n', 'fbb', function()
     respect_gitignore = false,
     initial_mode = 'normal',
   })
-end, new_options({ desc = 'File explorer'}))
+end, new_options({ desc = 'File explorer' }))
 
 keymap.set('n', 'fht', function()
   require('telescope.builtin').help_tags()
