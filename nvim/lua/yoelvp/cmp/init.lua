@@ -1,17 +1,18 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
-local utils = require('yoelvp.utils')
 local autopairs = require('nvim-autopairs.completion.cmp')
 
-cmp.event:on('confirm_done', autopairs.on_confirm_done({ map_char = { tex = '' } }))
-vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
+cmp.event:on('confirm_done', autopairs.on_confirm_done())
 
 local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  --[[ unpack = unpack or table.unpack ]]
+  --[[ local line, col = unpack(vim.api.nvim_win_get_cursor(0)) ]]
+  --[[]]
+  --[[ return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil ]]
 
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 cmp.setup({
@@ -74,14 +75,6 @@ cmp.setup({
         luasnip = '[SNIP]',
         buffer = '[BUFFER]',
       },
-      before = function(entry, vim_item)
-        return utils.format_tailwind(entry, vim_item)
-      end,
     }),
-  },
-  experimental = {
-    ghost_text = {
-      hl_group = 'CmpGhostText',
-    },
-  },
+  }
 })
