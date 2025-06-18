@@ -5,13 +5,17 @@ return {
     livePreview = true,
     themes = {
       {
-        name = 'Gruvbox Material',
-        colorscheme = 'gruvbox-material',
+        name = 'Everforest',
+        colorscheme = 'everforest',
       },
       {
-        name = 'Solarized Osaka',
-        colorscheme = 'solarized-osaka',
+        name = 'Gruvbox',
+        colorscheme = 'gruvbox',
       },
+      {
+        name = 'Nightforest',
+        colorscheme = 'nightforest'
+      }
     },
   },
   config = function(_, opts)

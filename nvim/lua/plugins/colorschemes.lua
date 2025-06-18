@@ -1,35 +1,40 @@
 return {
   -- Gruvbox material
   {
-    'sainnhe/gruvbox-material',
+    'morhetz/gruvbox',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_foreground = "mix"
-      vim.g.gruvbox_material_better_performance = 1
-      vim.g.gruvbox_material_enable_italic = true
+      vim.g.gruvbox_bold = 1
+      vim.g.gruvbox_italic = 1
+      vim.gjgruvbox_underline = 1
+      vim.g.gruvbox_undercurl = 1
+      vim.g.gruvbox_contrast_dark = 'hard'
+      vim.g.gruvbox_italicize_comments = 1
+      vim.g.gruvbox_invert_selection = 1
     end
   },
 
-  -- Solarized Osaka
+  -- Everforest
   {
-    'craftzdog/solarized-osaka.nvim',
+    'sainnhe/everforest',
+    lazy = false,
     priority = 1000,
     config = function()
-      local solarized = require('solarized-osaka')
+      vim.g.everforest_background = 'hard' -- hard | medium | soft
+      vim.g.everforest_better_performance = 1
+    end
+  },
 
-      solarized.setup({
-        transparent = true,
-        terminal_colors = true,
-        styles = {
-          comments = { italic = true },
-          keywords = { italic = true },
-          sidebars = 'dark',
-          floats = 'dark',
-        },
-        sidebars = { 'qf', 'help' },
+  -- Nightforest
+  {
+    'xfyuan/nightforest.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('nightforest').setup({
+        midnight = false
       })
-    end,
+    end
   },
 }

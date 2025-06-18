@@ -14,22 +14,32 @@ local new_options = function(new_opts)
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  group = vim.api.nvim_create_augroup('my.lsp', {}),
 
   callback = function(args)
     local bufnr = args.buf
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
-    if client == nil then
+    if not client then
       return
     end
 
-    if client.supports_method('textDocument/completion') then
-      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-    end
-    if client.supports_method('textDocument/definition') then
+    if client:supports_method('textDocument/definition') then
       vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
     end
+    if client:supports_method('textDocument/implementation') then
+      vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
+    end
+
+    --[[ if not client:supports_method('textDocument/willSaveWaitUntil') and client:supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+        end
+      })
+    end ]]
 
     keymap('n', 'gd', vim.lsp.buf.definition, new_options({ desc = 'Go to definition' }))
     keymap('n', 'gr', ts_builtin.lsp_references, new_options({ desc = 'Go to references' }))
@@ -47,6 +57,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local on_attach = function()
   keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', new_options({ desc = 'Format document' }))
 end
+
+vim.lsp.config("angularls", {
+  capabilities = capabilities,
+  cmd = {
+    "ngserver",
+    "--stdio",
+    "--tsProbeLocations",
+    "--ngProbeLocations",
+  }
+})
+vim.lsp.enable("angularls")
 
 lsp.astro.setup({
   --[[ on_attach = on_attach, ]]
@@ -85,22 +106,6 @@ lsp.cssls.setup({
     },
     scss = {
       validate = true,
-    },
-  },
-})
-
-lsp.gopls.setup({
-  --[[ on_attach = on_attach, ]]
-  capabilities = capabilities,
-  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
-  root_dir = lsp_util.root_pattern('go.work', 'go.mod', '.git'),
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
-      },
     },
   },
 })
@@ -163,8 +168,8 @@ lsp.lua_ls.setup({
   },
 })
 
-lsp.rust_analyzer.setup({
-  --[[ on_attach = on_attach, ]]
+--[[ lsp.rust_analyzer.setup({
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { 'rust-analyzer' },
   filetypes = { 'rust' },
@@ -179,7 +184,23 @@ lsp.rust_analyzer.setup({
       },
     },
   },
+}) ]]
+vim.lsp.config("rust_analyzer", {
+  capabilities = capabilities,
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = true,
+      },
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
 })
+vim.lsp.enable("rust_analyzer")
 
 lsp.svelte.setup({
   --[[ on_attach = on_attach, ]]

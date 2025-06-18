@@ -7,6 +7,8 @@ return {
       },
     },
   },
+
+  -- To colors
   {
     'nvchad/volt',
     lazy = true

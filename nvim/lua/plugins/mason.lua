@@ -21,6 +21,7 @@ return {
     -- Mason Lspconfig
     mason_lsp.setup({
       ensure_installed = {
+        'angularls',
         'astro',
         'bashls',
         'cssls',
