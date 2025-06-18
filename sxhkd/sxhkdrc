@@ -19,8 +19,8 @@ super + shift + e
 super + shift + q
   rofi -show calc -modi calc -no-show-match -no-sort
 
-super + shift + c
-  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+  super + shift + c
+  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' ; sleep 0.2; xdotool type $(xclip -o -selection clipboard)
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -176,5 +176,5 @@ super + Print
 #
 # Lock screen
 #
-super + l
+super + alt + l
     betterlockscreen -l dimblur
