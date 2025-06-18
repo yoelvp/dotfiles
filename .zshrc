@@ -54,7 +54,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -83,6 +83,8 @@ plugins=(
   zsh-autosuggestions
   sudo
 )
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4b636f"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,7 +126,6 @@ alias downloads="cd ~/Desktop/Downloads/"
 alias screenshots="cd ~/Desktop/Screenshots/"
 alias disk="lfs"
 alias music="cava"
-alias neo="neofetch"
 alias fast="fastfetch"
 alias calendar="calcurse"
 alias pipes="bash-pipes"
@@ -155,7 +156,6 @@ alias codium="vscodium"
 alias wallpaper="~/dotfiles/Scripts/change_wallpaper.sh"
 
 ## keyboard backlight
-# alias keyboard="for i in {00..03}; do sudo bash -c 'echo 7E2553 > /sys/devices/platform/hp-wmi/rgb_zones/zone$i' & done"
 alias keyboard=~/dotfiles/Scripts/keyboard.sh
 alias tmx=~/dotfiles/Scripts/tmux.sh
 
@@ -206,3 +206,9 @@ export DOCKER_BUILDKIT=1
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Created by `pipx` on 2025-03-19 22:20:02
+# export PATH="$PATH:/home/yoelvp/.local/bin"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
