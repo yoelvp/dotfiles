@@ -29,14 +29,14 @@ require('config.keymaps')
 require('yoelvp.globals')
 
 ------------------------------
--- Diagnostics
-------------------------------
-require('config.diagnostics')
-
-------------------------------
 -- Lazy manager plugins
 ------------------------------
 require('config.lazy')
+
+------------------------------
+-- LSP Config
+------------------------------
+require('config.lsp')
 
 ------------------------------
 -- Auto cmd's
