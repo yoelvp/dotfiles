@@ -1,21 +1,11 @@
 /*
  *
- * Author  : Aditya Shakya
- * Mail    : adi1090x@gmail.com
- * Github  : @adi1090x
- * Twitter : @adi1090x
+ * Author  : Yoel Valverde
+ * Github  : @yoelvp
  *
  */
 
-/* colors */
-* {
-  background:       #28282890;
-  foreground:       #FFFFFFFF;
-  gray:             #7C7C7C90;
-  red:              #CC241DFF;
-  transparent:      rgba(0, 0, 0, 0);
-  font:             "CaskaydiaCove Nerd Font 10";
-}
+@import "./colors.rasi"
 
 configuration {
   font:                         "CaskaydiaCove NF";
@@ -28,7 +18,7 @@ configuration {
   hide-scrollbar:               true;
   listview-striped:             false;
   sidebar-mode:                 false;
-  modi:                         "window,run,drun,emoji";
+  modi:                         "window,run,drun,emoji,filebrowser";
   mode:                         "window,run";
 }
 

@@ -14,7 +14,9 @@ window {
     width:                       200px;
     x-offset:                    -10px;
     y-offset:                    20px;
-    border-radius:                2px;
+    border-radius:                4px;
+    border: 2px;
+    border-color: @blue;
 }
 
 mainbox {
@@ -29,11 +31,14 @@ prompt {
     font:                        "CaskaydiaCove Nerd Font Bold 12";
     enabled:                     true;
     padding:                     4px 4px 8px 4px;
+    background-color: @transparent;
+    text-color: @foreground;
 }
 
 inputbar {
     enabled:                     true;
     spacing:                     8px 4px;
+    background-color:            @transparent;
     children:                    [ "prompt" ];
 }
 
@@ -46,35 +51,42 @@ listview {
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    // fixed-height:                true;
+    fixed-height:                true;
     // fixed-columns:               true;
     spacing:                     8px;
     // border-color:                @selected;
-    // background-color:            transparent;
-    // text-color:                  @ac;
+    background-color:            @transparent;
+    text-color:                  @foreground;
     cursor:                      "default";
 }
 
 element {
+  transparency:                 "real";
     enabled:                     true;
-    // padding:                     8px 0;
+    padding:                     8px 0;
     border:                      0px solid;
     border-radius:               0px;
-    background-color:            @se;
-    // text-color:                  @foreground;
+    background-color:            @transparent;
     cursor:                      pointer;
-}
-
-element-text {
-    font:                        "JetBrainsMono Nerd Font 12";
-    background-color:            transparent;
-    text-color:                  @se;
-    cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0;
 }
 
-element selected.normal {
-    background-color:            @selected;
+element-icon {
+    horizontal-align:            0;
+    padding: 0;
+    background-color: @transparent;
+}
+
+element-text {
+    font:                        "JetBrainsMono Nerd Font 12";
+    background-color:            @transparent;
+    text-color:                  @foreground;
+    cursor:                      inherit;
+}
+
+element.selected.normal {
+    background-color:            @blue;
     text-color:                  @background;
+    border-radius:               4px;
 }
