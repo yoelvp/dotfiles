@@ -119,9 +119,9 @@ alias ll="lsd -A"
 alias lh="lsd -lh"
 alias cat="bat"
 alias vim="nvim"
-alias .="cd .."
-alias ..="cd ../.."
-alias ...="cd ../../.."
+# alias .="cd .."
+# alias ..="cd ../.."
+# alias ...="cd ../../.."
 alias downloads="cd ~/Desktop/Downloads/"
 alias screenshots="cd ~/Desktop/Screenshots/"
 alias disk="lfs"
@@ -193,8 +193,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-export JDK_HOME=/usr/lib/jvm/java-21-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export JDK_HOME=/usr/lib/jvm/java-17-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 # export PATH="/usr/lib/jvm/java-21-openjdk/bin/:$PATH"
 
@@ -208,7 +208,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Created by `pipx` on 2025-03-19 22:20:02
-# export PATH="$PATH:/home/yoelvp/.local/bin"
+export PATH="$PATH:/home/yoelvp/.local/bin"
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
