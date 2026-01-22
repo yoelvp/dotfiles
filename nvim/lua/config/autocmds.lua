@@ -21,6 +21,12 @@ autocmd('TextYankPost', {
   group = augroup('yank_highlight'),
 })
 
+autocmd("BufEnter", {
+  group = augroup('no_auto_comment'),
+  pattern = '*',
+  command = 'set formatoptions-=cro',
+})
+
 -- Undeline erros
 vim.cmd([[
   let &t_Cs = "\e[4:3m"
