@@ -42,4 +42,4 @@ pidof -q greenclip || { greenclip daemon & }
 wmname LG3D &
 
 # Autolock
-xidlehook --not-when-fullscreen --not-when-audio --timer 300 "xset dpms force off ; betterlockscreen -l dimblur" "" &
+xidlehook --not-when-fullscreen --not-when-audio --timer 300 "xset dpms force off ; betterlockscreen -l blur" "" &
