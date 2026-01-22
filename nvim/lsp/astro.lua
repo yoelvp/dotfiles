@@ -1,19 +1,15 @@
+---@type vim.lsp.Config
 return {
   cmd = {
-    "astro-ls",
-    "--stdio",
+    'astro-ls',
+    '--stdio',
   },
   filetypes = {
-    "astro",
-  },
-  root_markers = {
-    ".git",
-    "package.json",
-    "tsconfig.json",
-    "jsconfig.json",
-    ".astro",
+    'astro',
   },
   init_options = {
-    typescript = {},
+    typescript = {
+      tsdk = vim.fn.getcwd() .. '/node_modules/typescript/lib',
+    },
   },
 }
