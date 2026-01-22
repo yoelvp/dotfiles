@@ -7,7 +7,7 @@
      ██║   ╚██████╔╝███████╗███████╗╚████╔╝ ██║
      ╚═╝    ╚═════╝ ╚══════╝╚══════╝ ╚═══╝  ╚═╝
 
-  - https://yoelvalverde.dev
+  - https://yoelvalverde.com
   - https://github.com/yoelvp
 
 ]]
