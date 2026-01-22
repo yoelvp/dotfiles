@@ -1,0 +1,11 @@
+/**
+ *
+ * Author : Yoel Valverde (yoelvp)
+ * Github : @yoelvp
+ * 
+ * Fonts
+ **/
+
+* {
+    font: "CaskaydiaCove Nerd Font 12";
+}

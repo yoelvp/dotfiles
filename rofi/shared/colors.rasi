@@ -1,0 +1,18 @@
+/**
+ *
+ * Author : Yoel Valverde (yoelvp)
+ * Github : @yoelvp
+ * 
+ * Colors
+ **/
+
+* {
+    background:     #11092D;
+    background-alt: #281657;
+    foreground:     #ffffff;
+    selected:       #DF5296;
+    active:         #8FA876;
+    urgent:         #CC241D;
+    transparent: rgba(0, 0, 0, 0);
+    font: "CaskaydiaCove Nerd Font 10";
+}
