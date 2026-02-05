@@ -15,6 +15,12 @@ return {
     end
   },
 
+  -- Gruvbox baby
+  {
+    'luisiacc/gruvbox-baby',
+    branch = 'main'
+  },
+
   -- Everforest
   {
     'sainnhe/everforest',
@@ -23,18 +29,6 @@ return {
     config = function()
       vim.g.everforest_background = 'hard' -- hard | medium | soft
       vim.g.everforest_better_performance = 1
-    end
-  },
-
-  -- Nightforest
-  {
-    'xfyuan/nightforest.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('nightforest').setup({
-        midnight = false
-      })
     end
   },
 }

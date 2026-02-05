@@ -13,9 +13,9 @@ return {
         colorscheme = 'gruvbox',
       },
       {
-        name = 'Nightforest',
-        colorscheme = 'nightforest'
-      }
+        name = 'Gruvbox baby',
+        colorscheme = 'gruvbox-baby',
+      },
     },
   },
   config = function(_, opts)
