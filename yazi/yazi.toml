@@ -1,0 +1,25 @@
+[opener]
+image = [
+  { run = 'meh "$@"', desc = "View image with meh", orphan = true }
+]
+pdf = [
+  { run = 'zathura "$@"', desc = "View PDF", orphan = true }
+]
+dir = [
+  { run = 'nvim "$@"', desc = "Open directory in Neovim", block = true }
+]
+edit = [
+  { run = 'nvim "$@"', desc = "Edit with Neovim", block = true }
+]
+open = [
+  { run = 'xdg-open "$@"', desc = "Open with default app", orphan = true }
+]
+
+[open]
+rules = [
+  { mime = "image/*", use = "image" },
+  { mime = "inode/directory", use = "dir" },
+  { mime = "application/pdf", use = "pdf" },
+  { mime = "text/*", use = "edit" },
+  { mime = "*", use = "open" }
+]
