@@ -10,12 +10,12 @@ solid_color=FFFFFF
 quiet=false
 
 # default theme
-loginbox=00000066
+loginbox=00000033
 loginshadow=00000000
 locktext="Type password to unlock..."
 font="CaskaydiaCove NF"
-ringcolor=ffffffff
-insidecolor=00000000
+ringcolor=89b4faff
+insidecolor=00000055
 separatorcolor=00000000
 ringvercolor=ffffffff
 insidevercolor=00000000
