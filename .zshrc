@@ -147,7 +147,7 @@ alias my="mycli -h localhost -u root -pyoelvp732"
 # VS Codium
 alias codium="vscodium"
 
-alias wallpaper="~/dotfiles/Scripts/change_wallpaper.sh"
+alias wallpaper="~/dotfiles/Scripts/changewallpaper.sh"
 
 ## keyboard backlight
 alias keyboard=~/dotfiles/Scripts/keyboard.sh
@@ -203,3 +203,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Created by `pipx` on 2025-03-19 22:20:02
 export PATH="$PATH:/home/yoelvp/.local/bin"
+
+# Zoxide
+eval "$(zoxide init zsh)"
