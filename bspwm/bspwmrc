@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export XCURSOR_THEME=BreezeX-Dark
+export XCURSOR_SIZE=24
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Polybar
