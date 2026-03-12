@@ -1,6 +1,0 @@
-blacklist = [
-  "JShell",
-  "sun-tools-jconsole-JConsole",
-  "root",
-  "ROOT"
-]
