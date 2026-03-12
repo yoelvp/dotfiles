@@ -23,11 +23,9 @@ Menu
 super + Escape
     pkill -USR1 -x sxhkd
 
-#
-# Open applications
-#
-# super + alt + f
-#   firefox
+# Lock screen
+super + alt + shift + l
+    betterlockscreen -l blur
 
 #
 # bspwm hotkeys
@@ -158,7 +156,7 @@ XF86AudioLowerVolume
 XF86AudioMute
     pamixer --toggle-mute
 
-XF86Audio{Next,Prev,Play,Stop}
+XF86Audio {Next,Prev,Play,Stop}
     mpc {next,prev,play,stop}
 
 XF86Calculator
@@ -169,13 +167,7 @@ XF86Calculator
 # Screenshot Screens
 #
 Print
-    flameshot full -c -p ~/Desktop/Screenshots/
+    flameshot full -c -p ~/Desktop/Images/Screenshots/
 
 super + Print
     flameshot gui
-
-#
-# Lock screen
-#
-super + alt + l
-    betterlockscreen -l blur
