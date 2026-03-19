@@ -1,7 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = 'nvim-tree/nvim-web-devicons',
-  enable = false,
   config = function()
     local lualine = require('lualine')
 
@@ -10,7 +9,7 @@ return {
         icons_enabled = true,
         theme = 'auto',
         component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' }, -- { left = '', right = '' }
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -26,18 +25,21 @@ return {
       },
       sections = {
         lualine_a = {
-          { 'mode', icon = '' },
+          {
+            'mode',
+            icon = ''
+          }
         },
         lualine_b = {
           {
             'branch',
-            'diff',
-            'diagnostics',
             icon = '',
-          },
+            'diff',
+            'diagnostics'
+          }
         },
         lualine_c = {
-          { 'filename', path = 4 },
+          { 'filename', path = 4 }
         },
         lualine_x = {
           {
@@ -47,14 +49,14 @@ return {
               error = '',
               warn = '',
               info = '',
-              hint = '',
-            },
+              hint = ''
+            }
           },
           'encoding',
-          'filetype',
+          'filetype'
         },
         lualine_y = { 'progress' },
-        lualine_z = { 'location' },
+        lualine_z = { 'location' }
       },
       inactive_sections = {
         lualine_a = {},
@@ -62,12 +64,12 @@ return {
         lualine_c = { 'filename' },
         lualine_x = { 'location' },
         lualine_y = {},
-        lualine_z = {},
+        lualine_z = {}
       },
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {},
+      extensions = {}
     })
   end,
 }

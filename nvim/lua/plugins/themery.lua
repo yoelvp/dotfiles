@@ -12,10 +12,6 @@ return {
         name = 'Gruvbox',
         colorscheme = 'gruvbox',
       },
-      {
-        name = 'Gruvbox baby',
-        colorscheme = 'gruvbox-baby',
-      },
     },
   },
   config = function(_, opts)
