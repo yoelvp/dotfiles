@@ -138,7 +138,7 @@ super + {Left,Down,Up,Right}
 # Brightness Control
 #
 XF86MonBrightnessUp
-    brightnessctl set +5%
+    brightnessctl set 5%+
 
 XF86MonBrightnessDown
     brightnessctl set 5%-
