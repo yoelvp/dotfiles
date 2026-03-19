@@ -1,9 +1,14 @@
+# See dunst(5) for all configuration options
+
 [global]
+    ### Display ###
+
+    # Which monitor should the notifications be displayed on.
     monitor = 0
     follow = mouse
     width = 350
-    corner_radius = 10
-    offset = 10x40
+    corner_radius = 4
+    offset = (10, 40)
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -12,15 +17,14 @@
     indicate_hidden = yes
     shrink = no
     separator_height = 2
-    padding = 15
-    horizontal_padding = 15
-    text_icon_padding = 10
+    padding = 8
+    horizontal_padding = 16
+    text_icon_padding = 8
     frame_width = 1
-    frame_color = "#9399b2"
     separator_color = frame
     sort = yes
     idle_threshold = 120
-    font = CaskaydiaCove Nerd Font Medium 10
+    font = CaskaydiaCove Nerd Font Medium 9
     line_height = 0
     markup = full
     format = "<span weight='bold'>%s</span>\n%b"
@@ -36,7 +40,7 @@
     icon_position = left
     min_icon_size = 0
     max_icon_size = 32
-    icon_path = /home/eric/.local/share/icons/dunst
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/
     sticky_history = yes
     history_length = 20
     always_run_script = true
@@ -49,22 +53,43 @@
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
+# Paths to default icons (only necessary when not using recursive icon lookup)
 [experimental]
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#181825AA"
-    foreground = "#CDD6F4"
-    timeout = 10
+    background = "#282828"
+    foreground = "#83a598"
+    frame_color = "#458588"
+    timeout = 5
 
 [urgency_normal]
-    background = "#181825AA"
-    foreground = "#CDD6F4"
+    background = "#282828"
+    foreground = "#ebdbb2"
+    frame_color = "#fbf1c7"
     timeout = 10
 
+# [urgency_warn]
+    # background = "#282828"
+    # foreground = "#fabd2f"
+    # frame_color = "#d79921"
+    # timeout = 10
+
 [urgency_critical]
-    background = "#181825AA"
-    foreground = "#F38BA8"
-    frame_color = "#F38BA8"
+    background = "#282828"
+    foreground = "#fb4934"
+    frame_color = "#cc241d"
     timeout = -1
     format = "<b>%s</b>\n%b"
+
+[brightness]
+    appname = brightness
+    urgency = low
+    summary = "󰃟 *"
+    timeout = 300
+
+[volume]
+    appname = volume
+    summary = "* %"
+    timeout = 300
+    urgency = low
