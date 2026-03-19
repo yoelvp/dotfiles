@@ -1,0 +1,54 @@
+# Fonts
+noto-fonts
+gnu-free-fonts
+ttf-inconsolata
+noto-fonts-emoji
+
+# Cursor themes
+breeze-icons
+
+# Tools
+alacritty
+nvim
+btop
+zsh
+yazi
+tmux
+
+bspwm
+sxhkd
+picom
+polybar
+rofi
+rofi-emoji
+rofi-calc
+rofi-greenclip
+libqalculate
+
+pulseaudio
+pavucontrol
+lxappearance
+git
+ly
+cronie
+feh
+wmname
+
+lsd
+bat
+mdcat
+bashtop
+htop
+udev
+ntfs-3g
+gvfs
+gvfs-mtp
+gvfs-gphoto2
+udisks2
+udiskie
+
+reflector
+cloudflared
+
+
+# Rofi clipboard: paru -S rofi-greenclip
