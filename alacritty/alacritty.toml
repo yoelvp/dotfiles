@@ -1,4 +1,4 @@
-general.import = ["./themes/everforest.toml"]
+general.import = ["./themes/gruvbox.toml"]
 
 [cursor]
 blink_interval = 750
