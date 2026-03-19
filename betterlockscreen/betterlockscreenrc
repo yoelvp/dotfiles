@@ -1,25 +1,21 @@
 # ~/.config/betterlockscreenrc
 
-# default options
 display_on=0
 span_image=false
 lock_timeout=300
-fx_list=(dim blur dimblur pixel dimpixel color)
-dim_level=40
-blur_level=4
+fx_list=(dim blur dimblur color)
+blur_level=0.2
 pixel_scale=10,1000
-solid_color=333333
-wallpaper_cmd="feh --bg-fill /home/yoelvp/Desktop/Wallpapers/wallhaven-2y5me6_1920x1080.png"
-# image=/home/yoelvp/Desktop/Wallpapers/betterlockscreen.png
+solid_color=FFFFFF
 quiet=false
 
 # default theme
-loginbox=00000066
+loginbox=00000033
 loginshadow=00000000
 locktext="Type password to unlock..."
 font="CaskaydiaCove NF"
-ringcolor=ffffffff
-insidecolor=00000000
+ringcolor=89b4faff
+insidecolor=00000055
 separatorcolor=00000000
 ringvercolor=ffffffff
 insidevercolor=00000000

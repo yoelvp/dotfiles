@@ -1,0 +1,77 @@
+@import "../shared/colors.rasi"
+
+window {
+    location: center;
+    fullscreen: false;
+    height: 720px;
+    x-offset: 0;
+    y-offset: 0;
+    border-radius: 4px;
+    border: 0;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 32px;
+    padding: 16px 8px;
+    background-color: @background;
+    children: ["inputbar", "listview"];
+}
+
+inputbar {
+    enabled: true;
+    spacing: 8px 4px;
+    background-color: @transparent;
+    children: [ "prompt" ];
+}
+
+prompt {
+    enabled: true;
+    background-color: @transparent;
+    text-color: @foreground;
+}
+
+listview {
+    enabled: true;
+    columns: 2;
+    lines: 5;
+    dynamic: true;
+    scrollbar: true;
+    layout: vertical;
+    reverse: false;
+    fixed-columns: true;
+    spacing: 8px;
+    background-color: @transparent;
+}
+
+scrollbar {
+    transparency: "real";
+    background-color: @selected;
+}
+
+element {
+    transparency: "real";
+    enabled: true;
+    width: 100%;
+    orientation: vertical;
+    spacing: 2px;
+    background-color: @transparent;
+    cursor: pointer;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font 12";
+    background-color: @transparent;
+    color: @foreground;
+    cursor: inherit;
+}
+
+element-icon {
+    size: 256px;
+    width: 512%;
+    background-color: @transparent;
+}
+
+element selected {
+    background-color: @selected;
+}

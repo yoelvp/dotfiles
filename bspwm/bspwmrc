@@ -1,9 +1,12 @@
 #!/bin/sh
 
+export XCURSOR_THEME=BreezeX-Dark
+export XCURSOR_SIZE=24
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Polybar
-/home/yoelvp/.config/polybar/launch.sh &
+$HOME/.config/polybar/launch.sh &
 
 bspc monitor -d I II III IV V VI VII
 
@@ -40,3 +43,9 @@ pidof -q greenclip || { greenclip daemon & }
 
 # Java apps
 wmname LG3D &
+
+# Autolock
+xidlehook --not-when-fullscreen --not-when-audio --timer 300 "xset dpms force off ; betterlockscreen -l blur" "" &
+
+# Disk automounting
+udiskie -t &

@@ -119,14 +119,9 @@ alias ll="lsd -A"
 alias lh="lsd -lh"
 alias cat="bat"
 alias vim="nvim"
-alias .="cd .."
-alias ..="cd ../.."
-alias ...="cd ../../.."
-alias downloads="cd ~/Desktop/Downloads/"
-alias screenshots="cd ~/Desktop/Screenshots/"
 alias disk="lfs"
-alias music="cava"
-alias fast="fastfetch"
+alias music="rmpc"
+alias fetch="fastfetch"
 alias calendar="calcurse"
 alias pipes="bash-pipes"
 alias update-mirrorlist="sudo reflector --latest 20 --protocol https --sort rate --download-timeout 20 --save /etc/pacman.d/mirrorlist"
@@ -144,7 +139,6 @@ alias mount-toshiba="sudo mkdir /run/media/yoelvp/TOSHIBA -p ; sudo mount -t ntf
 alias umount-toshiba="sudo umount /run/media/yoelvp/TOSHIBA -R"
 
 # Time
-alias the-time="wttr -m"
 alias weather="wttr Lima"
 
 ## mysql
@@ -153,7 +147,7 @@ alias my="mycli -h localhost -u root -pyoelvp732"
 # VS Codium
 alias codium="vscodium"
 
-alias wallpaper="~/dotfiles/Scripts/change_wallpaper.sh"
+alias wallpaper="~/dotfiles/Scripts/changewallpaper.sh"
 
 ## keyboard backlight
 alias keyboard=~/dotfiles/Scripts/keyboard.sh
@@ -169,7 +163,7 @@ alias gcs="git config --global credential.helper store"
 alias lg="lazygit"
 
 # Keybind
-bindkey '^ ' autosuggest-accept
+bindkey "^ " autosuggest-accept
 
 # Environment variables
 export LC_ALL=en_US.UTF-8
@@ -193,8 +187,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-export JDK_HOME=/usr/lib/jvm/java-21-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export JDK_HOME=/usr/lib/jvm/java-17-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 # export PATH="/usr/lib/jvm/java-21-openjdk/bin/:$PATH"
 
@@ -208,7 +202,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Created by `pipx` on 2025-03-19 22:20:02
-# export PATH="$PATH:/home/yoelvp/.local/bin"
+export PATH="$PATH:/home/yoelvp/.local/bin"
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# Zoxide
+eval "$(zoxide init zsh)"

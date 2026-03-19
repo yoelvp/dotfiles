@@ -1,8 +1,13 @@
 return {
   'akinsho/toggleterm.nvim',
   version = '*',
-  event = 'VeryLazy',
+  --[[ event = 'VeryLazy', ]]
   keys = {
+    {
+      '<leader>tt',
+      '<cmd>ToggleTerm<CR>',
+      { noremap = true, silent = true, desc = 'Toggle floating terminal' },
+    },
     {
       '<leader>th',
       '<cmd>ToggleTerm direction=horizontal<CR>',
@@ -17,7 +22,7 @@ return {
   config = function()
     require('toggleterm').setup({
       direction = 'float',
-      open_mapping = [[<leader>tt]],
+      -- open_mapping = [[<leader>tt]],
       persist_mode = false,
       start_in_insert = true,
       terminal_mappings = true
