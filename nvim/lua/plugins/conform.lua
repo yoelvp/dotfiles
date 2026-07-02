@@ -8,7 +8,6 @@ return {
       formatters_by_ft = {
         astro = { "eslint_d", "prettierd", "eslint", "prettier" },
         css = { "stylelint" },
-        go = { "gofmt" },
         javascript = { "eslint_d", "eslint", "prettier" },
         javascriptreact = { "eslint_d", "eslint", "prettier" },
         lua = { "stylua" },
@@ -16,14 +15,14 @@ return {
         rust = { "rustfmt" },
         typescript = { "eslint_d", "eslint", "prettierd", "prettier" },
         typescriptreact = { "eslint_d", "prettierd", "prettier" },
-        blade = { "blade-formatter" }
+        blade = { "blade-formatter" },
+        php = { "pint" }
       }
     })
 
     -- Keymap for format document
     vim.keymap.set({ "n", "v" }, "<leader>fm", function()
       conform.format({
-        lsp_callback = true,
         async = true,
         timeout_ms = 2500,
       })
