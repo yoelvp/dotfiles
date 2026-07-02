@@ -3,7 +3,7 @@ return {
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-refactor',
+    --[[ 'nvim-treesitter/nvim-treesitter-refactor', ]]
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   opts = {
@@ -13,6 +13,7 @@ return {
       'bash',
       'blade',
       'c',
+      'cpp',
       'css',
       'git_config',
       'git_rebase',
@@ -52,7 +53,7 @@ return {
       enable = true,
       additional_vim_regex_highlighting = false,
     },
-    refactor = {
+    --[[ refactor = {
       highlight_definitions = {
         enable = true,
         clear_on_cursor_move = false,
@@ -71,9 +72,20 @@ return {
           goto_previous_usage = 'tgp',
         },
       },
-    },
+    }, ]]
   },
+  init = function()
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function()
+        -- Enable treesitter highlighting and disable regex syntax
+        pcall(vim.treesitter.start)
+        -- Enable treesitter-based indentation
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+  end,
   config = function(plugin, opts)
+    ---@class ParserInfo[]
     local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 
     parser_config.blade = {
