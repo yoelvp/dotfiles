@@ -33,7 +33,7 @@ style = "Bold Italic"
 [window]
 decorations = "none"
 dynamic_padding = false
-opacity = 0.95
+opacity = 0.9
 startup_mode = "Windowed"
 
 [window.dimensions]
