@@ -49,6 +49,13 @@ udiskie
 
 reflector
 cloudflared
+power-profiles-daemon -- Para control de rendimiento
+zstd -- Para tiempos de inicio más rápidos
 
 
-# Rofi clipboard: paru -S rofi-greenclip
+# AUR (Paru)
+rofi-greenclip -- Clipboard
+betterlockscreen-bin
+ryzenadj -- Para rendimiento y eficiencia termica
+zenpower3-dkms -- Monitoreo de CPU
+ryzen_smu-dkms -- Para rendimiento
