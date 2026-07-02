@@ -134,9 +134,8 @@ alias nginx-stop="sudo systemctl stop nginx ; sudo systemctl stop mariadb ; sudo
 alias psg-start="sudo systemctl start postgresql"
 alias psg-stop="sudo systemctl stop postgresql"
 
-# Mount o umount disk
-alias mount-toshiba="sudo mkdir /run/media/yoelvp/TOSHIBA -p ; sudo mount -t ntfs /dev/sda1 /run/media/yoelvp/TOSHIBA"
-alias umount-toshiba="sudo umount /run/media/yoelvp/TOSHIBA -R"
+# Keyboard
+alias keyboard="sudo $HOME/dotfiles/Scripts/keyboard.sh"
 
 # Time
 alias weather="wttr Lima"
@@ -148,10 +147,6 @@ alias my="mycli -h localhost -u root -pyoelvp732"
 alias codium="vscodium"
 
 alias wallpaper="~/dotfiles/Scripts/changewallpaper.sh"
-
-## keyboard backlight
-alias keyboard=~/dotfiles/Scripts/keyboard.sh
-alias tmx=~/dotfiles/Scripts/tmux.sh
 
 # Git aliases
 alias gi="git init"
@@ -195,8 +190,6 @@ export PATH=$PATH:$JAVA_HOME/bin
 # Config colors
 export TERM=xterm-256color
 
-export DOCKER_BUILDKIT=1
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -206,3 +199,6 @@ export PATH="$PATH:/home/yoelvp/.local/bin"
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# opencode
+export PATH=/home/yoelvp/.opencode/bin:$PATH
