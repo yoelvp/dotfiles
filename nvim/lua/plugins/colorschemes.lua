@@ -16,6 +16,33 @@ return {
     end
   },
 
+  -- Gruber Darker
+  {
+    'blazkowolf/gruber-darker.nvim',
+    lazy = false,
+    priority = 0,
+    enabled = false,
+    opts = {
+      bold = true,
+      invert = {
+        signs = false,
+        tabline = false,
+        visual = false,
+      },
+      italic = {
+        strings = false,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
+      undercurl = true,
+      underline = true,
+    },
+    config = function()
+      vim.cmd.colorscheme('gruber-darker')
+    end
+  },
+
   -- Everforest
   {
     'sainnhe/everforest',
