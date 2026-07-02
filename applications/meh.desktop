@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Meh
+Exec=meh %F
+Terminal=false
+MimeType=image/jpeg;image/png;image/gif;image/webp;image/bmp;image/tiff;
+Categories=Graphics;Viewer;
+NoDisplay=true
