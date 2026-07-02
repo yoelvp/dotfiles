@@ -6,28 +6,35 @@ lock_timeout=300
 fx_list=(dim blur dimblur color)
 blur_level=0.2
 pixel_scale=10,1000
-solid_color=FFFFFF
+solid_color=1d2021
 quiet=false
 
-# default theme
-loginbox=00000033
+loginbox=3c3836cc
 loginshadow=00000000
 locktext="Type password to unlock..."
 font="CaskaydiaCove NF"
-ringcolor=89b4faff
-insidecolor=00000055
+
+ringcolor=d79921ff
+insidecolor=282828aa
 separatorcolor=00000000
-ringvercolor=ffffffff
+
+ringvercolor=b8bb26ff
 insidevercolor=00000000
-ringwrongcolor=ffffffff
-insidewrongcolor=d23c3dff
-timecolor=ffffffff
+
+ringwrongcolor=fb4934ff
+insidewrongcolor=3c3836cc
+
+timecolor=ebdbb2ff
 time_format="%H:%M:%S"
-greetercolor=ffffffff
-layoutcolor=ffffffff
-keyhlcolor=d23c3dff
-bshlcolor=d23c3dff
-verifcolor=ffffffff
-wrongcolor=d23c3dff
-modifcolor=d23c3dff
+
+greetercolor=ebdbb2ff
+layoutcolor=d5c4a1ff
+
+keyhlcolor=fb4934ff
+bshlcolor=fb4934ff
+
+verifcolor=b8bb26ff
+wrongcolor=fb4934ff
+modifcolor=d79921ff
+
 bgcolor=00000000
