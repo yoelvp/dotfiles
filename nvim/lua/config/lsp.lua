@@ -11,7 +11,9 @@ vim.lsp.enable({
   "astro",
   "bashls",
   "cssls",
+  "clangd",
   "html",
+  "intelephense",
   "jsonls",
   "laravel_ls",
   "lua_ls",
@@ -46,6 +48,7 @@ vim.diagnostic.config({
   },
 })
 
+---@type vim.diagnostic.JumpOpts
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('yoelvp_lsp_attach', { clear = true }),
   callback = function(args)
@@ -60,8 +63,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap('n', 'rn', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename variables' }))
     keymap('n', 'H', vim.lsp.buf.hover, opts)
     keymap('n', 'K', vim.lsp.buf.signature_help, opts)
-    keymap('n', '<C-j>', vim.diagnostic.goto_next, opts)
-    keymap('n', '<C-k>', vim.diagnostic.goto_prev, opts)
+    keymap('n', '<C-j>', function()
+      vim.diagnostic.jump({ count = 1, float = true })
+    end, opts)
+    keymap('n', '<C-k>', function()
+      vim.diagnostic.jump({ count = -1, float = true })
+    end, opts)
     keymap('n', '<leader>ge', vim.diagnostic.open_float, opts)
     keymap('n', '<leader>ff', function()
         vim.lsp.buf.format({ async = true })
@@ -69,27 +76,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.tbl_extend('force', opts, { desc = 'Format document' })
     )
 
-    if client:supports_method('textDocument/implementation') then
+    if client:supports_method('textDocument/implementation')
+        or client:supports_method('textDocument/definition') then
       vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
-    end
-
-    if client:supports_method('textDocument/definition') then
-      vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
-    end
-
-    --[[ if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    end ]]
-
-    if not client:supports_method('textDocument/willSaveWaitUntil')
-        and client:supports_method('textDocument/formatting') then
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('yoelvp_lsp', { clear = false }),
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-        end,
-      })
     end
 
     if client:supports_method("textDocument/documentHighlight") then
