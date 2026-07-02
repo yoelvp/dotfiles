@@ -7,6 +7,9 @@ return {
       format = {
         braces = "k&r",
       },
+      telemetry = {
+        enabled = false
+      },
     },
   },
 }
