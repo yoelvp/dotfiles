@@ -14,17 +14,17 @@ alt + space
 
 # emoji program launcher
 super + shift + e
-    rofi -show emoji
+    rofi -modi emoji -show emoji -theme $HOME/dotfiles/rofi/launchers/emoji.rasi
 
 Menu
-    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' ; sleep 0.2; xdotool type $(xclip -o -selection clipboard)
+    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -theme $HOME/dotfiles/rofi/launchers/clipboard.rasi
 
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
 
 # Lock screen
-super + alt + shift + l
+super + alt + l
     betterlockscreen -l blur
 
 #
@@ -138,10 +138,10 @@ super + {Left,Down,Up,Right}
 # Brightness Control
 #
 XF86MonBrightnessUp
-    brightnessctl set 5%+
+    $HOME/dotfiles/polybar/scripts/brightness-control.sh up
 
 XF86MonBrightnessDown
-    brightnessctl set 5%-
+    $HOME/dotfiles/polybar/scripts/brightness-control.sh down
 
 
 #
@@ -160,7 +160,7 @@ XF86Audio {Next,Prev,Play,Stop}
     mpc {next,prev,play,stop}
 
 XF86Calculator
-    rofi -show calc -modi calc -no-show-match -no-sort
+    rofi -modi calc -show calc -no-show-match -no-sort -theme $HOME/dotfiles/rofi/launchers/calculator.rasi
 
 
 #
