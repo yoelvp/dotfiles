@@ -146,8 +146,6 @@ alias my="mycli -h localhost -u root -pyoelvp732"
 # VS Codium
 alias codium="vscodium"
 
-alias wallpaper="~/dotfiles/Scripts/changewallpaper.sh"
-
 # Git aliases
 alias gi="git init"
 alias gs="git status"
