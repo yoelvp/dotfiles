@@ -1,28 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-STATE_FILE="/tmp/polybar-network"
+MODE="$1"
 
-[[ -f "$STATE_FILE" ]] || echo icon > "$STATE_FILE"
-
-if [[ "$1" == "toggle" ]]; then
-    if [[ $(cat "$STATE_FILE") == "icon" ]]; then
-        echo text > "$STATE_FILE"
-    else
-        echo icon > "$STATE_FILE"
-    fi
-    polybar-msg action "#network.hook.0" >/dev/null 2>&1
-    exit
-fi
-
-SSID=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2-)
+SSID=$(nmcli -g GENERAL.CONNECTION device show wlo1)
 
 if [[ -z "$SSID" || "$SSID" == "--" ]]; then
-    echo "󰖪"
+    echo "󰖪 "
     exit
 fi
 
-if [[ $(cat "$STATE_FILE") == "icon" ]]; then
-    echo " "
-else
-    echo "  $SSID"
-fi
+case "$MODE" in
+    icon)
+        echo "󰖩"
+        ;;
+    text)
+        echo "󰖩 $SSID"
+        ;;
+esac
