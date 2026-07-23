@@ -8,7 +8,7 @@ fi
 connected=$(bluetoothctl devices Connected | wc -l)
 
 if [ "$connected" -eq 0 ]; then
-    echo "󰂯"
+    echo "󰂯 "
 else
     echo "󰂱 $connected"
 fi
