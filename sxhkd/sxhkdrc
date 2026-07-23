@@ -138,23 +138,24 @@ super + {Left,Down,Up,Right}
 # Brightness Control
 #
 XF86MonBrightnessUp
-    $HOME/dotfiles/polybar/scripts/brightness-control.sh up
+    $HOME/dotfiles/Scripts/brightness/brightness-control.sh up
 
 XF86MonBrightnessDown
-    $HOME/dotfiles/polybar/scripts/brightness-control.sh down
+    $HOME/dotfiles/Scripts/brightness/brightness-control.sh down
 
 
 #
 # Volume Control
 #
 XF86AudioRaiseVolume
-    pamixer --increase 2
+    $HOME/dotfiles/Scripts/audio/volume-up.sh
 
 XF86AudioLowerVolume
-    pamixer --decrease 2
+    $HOME/dotfiles/Scripts/audio/volume-down.sh
 
 XF86AudioMute
-    pamixer --toggle-mute
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    $HOME/dotfiles/Scripts/audio/toggle-mute.sh
 
 XF86Audio {Next,Prev,Play,Stop}
     mpc {next,prev,play,stop}
@@ -167,7 +168,7 @@ XF86Calculator
 # Screenshot Screens
 #
 Print
-    flameshot full -c -p ~/Desktop/Images/Screenshots/
+    flameshot full -c -p $HOME/Desktop/Images/Screenshots/
 
 super + Print
     flameshot gui
