@@ -51,6 +51,7 @@ reflector
 cloudflared
 power-profiles-daemon -- Para control de rendimiento
 zstd -- Para tiempos de inicio más rápidos
+tokei -- Contar el código
 
 
 # AUR (Paru)
