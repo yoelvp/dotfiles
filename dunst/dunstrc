@@ -7,7 +7,7 @@
     monitor = 0
     follow = mouse
     width = 350
-    corner_radius = 4
+    corner_radius = 8
     offset = (10, 40)
     progress_bar = true
     progress_bar_height = 10
